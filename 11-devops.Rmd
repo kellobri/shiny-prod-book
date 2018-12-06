@@ -1,0 +1,6 @@
+# DevOps Philosophy & Tooling
+
+## DevOps Vocab 101
+
+## Design and Management of Analytic Infrastructure (alternative architectures)
+

@@ -1,0 +1,7 @@
+# Scaling 
+
+## Application Scaling 101
+
+- cooking/ kitchen metaphor
+
+## RStudio Connect Performance Settings
