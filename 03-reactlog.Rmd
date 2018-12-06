@@ -1,0 +1,11 @@
+# Understanding the App: `reactlog`
+
+```
+library(shinyreactlog)
+options(shiny.reactlog = True)
+runApp()
+```
+
+[React Log Visualizer Reference](https://shiny.rstudio.com/reference/shiny/0.14/showReactLog.html)
+
+> For security and performance reasons, do not enable shiny.reactlog in production environments. When the option is enabled, it's possible for any user of your app to see at least some of the source code of your reactive expressions and observers.

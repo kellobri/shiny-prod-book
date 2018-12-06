@@ -1,0 +1,8 @@
+# Introduction to Shiny in Production {#course-intro}
+
+## Why are we here?
+
+> When developers begin to think of infrastructure as part of their application, stability and performance become normative. - Jeff Geerling "Ansible for DevOps"
+
+- Getting Shiny apps into production 
+- Maintaining Shiny apps in production 

@@ -1,0 +1,308 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Supplement to Shiny in Production},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Supplement to Shiny in Production}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{}
+    \preauthor{}\postauthor{}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2018-12-03}
+
+\usepackage{booktabs}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{rstudio-conf-2019}{%
+\chapter{RStudio Conf 2019}\label{rstudio-conf-2019}}
+
+This document is full of supplemental resources and content from the
+Shiny in Production Workshop delievered at rstudio::conf 2019.
+
+The \textbf{bookdown} package can be installed from CRAN or Github:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
+\CommentTok{# or the development version}
+\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{course-intro}{%
+\chapter{Introduction to Shiny in Production}\label{course-intro}}
+
+\hypertarget{why-are-we-here}{%
+\section{Why are we here?}\label{why-are-we-here}}
+
+\begin{quote}
+When developers begin to think of infrastructure as part of their
+application, stability and performance become normative. - Jeff Geerling
+``Ansible for DevOps''
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Getting Shiny apps into production
+\item
+  Maintaining Shiny apps in production
+\end{itemize}
+
+\hypertarget{app-intro}{%
+\chapter{Introduction to the Application}\label{app-intro}}
+
+\hypertarget{every-application-has-an-origin-story}{%
+\section{Every Application has an Origin
+Story}\label{every-application-has-an-origin-story}}
+
+Data Scientists at RStudio University have discovered that there are
+trackable traits and behaviors students engage in that have been
+predictive of the desired 4-year graduation track.
+
+They have built a shiny application that can be used by the very
+data-savvy advisors at this illustrious institution to identify students
+in need of guidance and show them the top behavioral factors driving
+individual predictions coming out of the model.
+
+The POC was a smashing success - but now \emph{the advisors actually
+want to use this thing for real}.
+
+\hypertarget{activity-explore-the-application}{%
+\subsection{Activity: Explore the
+Application}\label{activity-explore-the-application}}
+
+Open the POC Application Run the Application Explore the Application
+code
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Are there any parts of the application code that don't make sense?
+\item
+  Brainstorm: what qualifies as production?
+\item
+  Brainstorm: 5 things to consider when bringing this application into
+  production.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+Discussion
+
+\begin{itemize}
+\tightlist
+\item
+  Is this app ready for production?
+\item
+  What insights would be useful to have before taking this app into
+  production?
+\item
+  What tools currently exist that would help us run tests to gain these
+  insights?
+\end{itemize}
+
+\textbf{Create a checklist for taking this (any?) application into
+production}
+
+\begin{itemize}
+\tightlist
+\item
+  What is your current process for taking applications into production?
+\end{itemize}
+
+\hypertarget{understanding-the-app-reactlog}{%
+\chapter{\texorpdfstring{Understanding the App:
+\texttt{reactlog}}{Understanding the App: reactlog}}\label{understanding-the-app-reactlog}}
+
+\begin{verbatim}
+library(shinyreactlog)
+options(shiny.reactlog = True)
+runApp()
+\end{verbatim}
+
+\href{https://shiny.rstudio.com/reference/shiny/0.14/showReactLog.html}{React
+Log Visualizer Reference}
+
+\begin{quote}
+For security and performance reasons, do not enable shiny.reactlog in
+production environments. When the option is enabled, it's possible for
+any user of your app to see at least some of the source code of your
+reactive expressions and observers.
+\end{quote}
+
+\hypertarget{application-testing-shinytest}{%
+\chapter{\texorpdfstring{Application Testing:
+\texttt{shinytest}}{Application Testing: shinytest}}\label{application-testing-shinytest}}
+
+{[}From the Webinar{]} - You've developed a nice app - You've put it in
+production - You want to be confident that it will keep running in the
+future
+
+\textbf{Things that can change/break a Shiny application} - Modifying
+code - Upgrading the \texttt{shiny} package - Upgrading other packages -
+Upgrading R - External data source changes or fails
+
+\hypertarget{testing-options}{%
+\subsection{Testing Options}\label{testing-options}}
+
+\begin{itemize}
+\tightlist
+\item
+  Manual testing
+
+  \begin{itemize}
+  \tightlist
+  \item
+    time intensive
+  \item
+    inconsistent
+  \end{itemize}
+\item
+  Automated testing (hard)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    web browser
+  \item
+    simulated user interactions
+  \item
+    tests for graphical elements
+  \end{itemize}
+\end{itemize}
+
+Shinytest:
+\url{https://github.com/rstudio/webinars/blob/master/48-shinytest/shinytest.pdf}
+
+{[}demo on the Geyser app{]}
+
+\hypertarget{final-words}{%
+\chapter{Final Words}\label{final-words}}
+
+We have finished a nice book.
+
+
+\end{document}

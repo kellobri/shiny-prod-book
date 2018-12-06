@@ -1,0 +1,27 @@
+# Application Testing: `shinytest`
+
+[From the Webinar]
+- You've developed a nice app
+- You've put it in production
+- You want to be confident that it will keep running in the future
+
+**Things that can change/break a Shiny application**
+- Modifying code
+- Upgrading the `shiny` package
+- Upgrading other packages
+- Upgrading R
+- External data source changes or fails
+
+### Testing Options
+
+- Manual testing
+  - time intensive
+  - inconsistent
+- Automated testing (hard)
+  - web browser
+  - simulated user interactions
+  - tests for graphical elements
+
+Shinytest: https://github.com/rstudio/webinars/blob/master/48-shinytest/shinytest.pdf
+
+[demo on the Geyser app]
