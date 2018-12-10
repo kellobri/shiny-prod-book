@@ -4,3 +4,6 @@
 
 ## Design and Management of Analytic Infrastructure (alternative architectures)
 
+## Programatic Deployment into RStudio Connect
+
+
