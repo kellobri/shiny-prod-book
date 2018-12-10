@@ -6,3 +6,45 @@
 
 - Getting Shiny apps into production 
 - Maintaining Shiny apps in production 
+
+### Can Shiny be used in production?
+
+### Objectives
+
+#### Understand the importance of incremental changes and testing
+
+- Version control
+- Tests for package upgrades
+- Use of separate environments for staging and production
+- Incorporating automated testing into a development workflow: `shinytest`
+
+#### Data product tradeoffs
+
+- What are the advantages to using Shiny vs Plumber vs R Markdown
+- What is the difference between a stateless Plumber API and a Shiny Session?
+
+#### Development vs. Production environment considerations
+
+- Defining a data model
+  - Working with databases
+- Tools for understanding application performance
+  - `shinyloadtest`
+  - `profvis`
+- Tools for improving application performance
+  - Plot caching
+  - Synchronous vs asynchronous paradigms: `async` 
+
+#### Deployment architectures and tools
+
+- Introduction to analytic infrastructure
+- Configuration management
+- Resources for scaling horizontally
+
+## Outline
+
+## Workshop Infrastructure 
+
+- RStudio Connect
+- PostgreSQL
+
+Instructions for accessing the classroom environment are available in the workshop slide deck.
