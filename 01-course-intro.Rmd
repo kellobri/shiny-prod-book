@@ -2,10 +2,18 @@
 
 ## Why are we here?
 
-> When developers begin to think of infrastructure as part of their application, stability and performance become normative. - Jeff Geerling "Ansible for DevOps"
+> Shiny applications are being deployed in high-value, customer-facing, and/or enterprise-wide scenarios. Unfortunately, they are often being done without the benefit of best practices. This workshop will help you and/or your IT colleagues who support your data scientists learn how to accelerate a successful Shiny application deployment in production scenarios.
 
-- Getting Shiny apps into production 
-- Maintaining Shiny apps in production 
+Over the past year, software developers at RStudio have been working hard to dispel rumors that Shiny "isn't ready and can't run in production". They've built a bunch of cool new tools that are useful in preparing applications for production and understanding how to configure and scale them for optimized performance and user experience.
+
+This workshop will cover all these new tools for shiny development as well as the equally important logistical pieces of a production story:
+
+- What does production infrastructure and tooling look like for Shiny apps?
+- How do we get Shiny apps from development into production? 
+- How are Shiny apps maintained production? 
+
+
+> When developers begin to think of infrastructure as part of their application, stability and performance become normative. - Jeff Geerling "Ansible for DevOps"
 
 ### Can Shiny be used in production?
 
@@ -34,7 +42,7 @@
   - Plot caching
   - Synchronous vs asynchronous paradigms: `async` 
 
-#### Deployment architectures and tools
+#### Deployment architecture and tools
 
 - Introduction to analytic infrastructure
 - Configuration management
