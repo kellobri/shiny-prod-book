@@ -61,3 +61,17 @@ runApp()
 
 > For security and performance reasons, do not enable shiny.reactlog in production environments. When the option is enabled, it's possible for any user of your app to see at least some of the source code of your reactive expressions and observers.
 
+
+## Checklist for Taking Applications into Production
+
+A high-level Checklist to build off of:
+
+- [ ] Tests
+- [ ] Performance Optimization
+- [ ] Environment (Package) Management
+- [ ] Data Access
+- [ ] Deployment Hand Off 
+- [ ] Scaling 
+- [ ] Monitoring
+
+

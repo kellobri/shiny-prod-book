@@ -123,7 +123,7 @@
     \preauthor{}\postauthor{}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-12-03}
+    \date{2018-12-17}
 
 \usepackage{booktabs}
 
@@ -134,8 +134,9 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{rstudio-conf-2019}{%
-\chapter{RStudio Conf 2019}\label{rstudio-conf-2019}}
+\hypertarget{shiny-in-production-workshop-rstudio-conf-2019}{%
+\chapter{Shiny in Production Workshop @ RStudio Conf
+2019}\label{shiny-in-production-workshop-rstudio-conf-2019}}
 
 This document is full of supplemental resources and content from the
 Shiny in Production Workshop delievered at rstudio::conf 2019.
@@ -157,18 +158,142 @@ The \textbf{bookdown} package can be installed from CRAN or Github:
 \section{Why are we here?}\label{why-are-we-here}}
 
 \begin{quote}
+Shiny applications are being deployed in high-value, customer-facing,
+and/or enterprise-wide scenarios. Unfortunately, they are often being
+done without the benefit of best practices. This workshop will help you
+and/or your IT colleagues who support your data scientists learn how to
+accelerate a successful Shiny application deployment in production
+scenarios.
+\end{quote}
+
+Over the past year, software developers at RStudio have been working
+hard to dispel rumors that Shiny ``isn't ready and can't run in
+production''. They've built a bunch of cool new tools that are useful in
+preparing applications for production and understanding how to configure
+and scale them for optimized performance and user experience.
+
+This workshop will cover all these new tools for shiny development as
+well as the equally important logistical pieces of a production story:
+
+\begin{itemize}
+\tightlist
+\item
+  What does production infrastructure and tooling look like for Shiny
+  apps?
+\item
+  How do we get Shiny apps from development into production?
+\item
+  How are Shiny apps maintained production?
+\end{itemize}
+
+\begin{quote}
 When developers begin to think of infrastructure as part of their
 application, stability and performance become normative. - Jeff Geerling
 ``Ansible for DevOps''
 \end{quote}
 
+\hypertarget{can-shiny-be-used-in-production}{%
+\subsection{Can Shiny be used in
+production?}\label{can-shiny-be-used-in-production}}
+
+\hypertarget{objectives}{%
+\subsection{Objectives}\label{objectives}}
+
+\hypertarget{understand-the-importance-of-incremental-changes-and-testing}{%
+\subsubsection{Understand the importance of incremental changes and
+testing}\label{understand-the-importance-of-incremental-changes-and-testing}}
+
 \begin{itemize}
 \tightlist
 \item
-  Getting Shiny apps into production
+  Version control
 \item
-  Maintaining Shiny apps in production
+  Tests for package upgrades
+\item
+  Use of separate environments for staging and production
+\item
+  Incorporating automated testing into a development workflow:
+  \texttt{shinytest}
 \end{itemize}
+
+\hypertarget{data-product-tradeoffs}{%
+\subsubsection{Data product tradeoffs}\label{data-product-tradeoffs}}
+
+\begin{itemize}
+\tightlist
+\item
+  What are the advantages to using Shiny vs Plumber vs R Markdown
+\item
+  What is the difference between a stateless Plumber API and a Shiny
+  Session?
+\end{itemize}
+
+\hypertarget{development-vs.production-environment-considerations}{%
+\subsubsection{Development vs.~Production environment
+considerations}\label{development-vs.production-environment-considerations}}
+
+\begin{itemize}
+\tightlist
+\item
+  Defining a data model
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Working with databases
+  \end{itemize}
+\item
+  Tools for understanding application performance
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{shinyloadtest}
+  \item
+    \texttt{profvis}
+  \end{itemize}
+\item
+  Tools for improving application performance
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Plot caching
+  \item
+    Synchronous vs asynchronous paradigms: \texttt{async}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{deployment-architecture-and-tools}{%
+\subsubsection{Deployment architecture and
+tools}\label{deployment-architecture-and-tools}}
+
+\begin{itemize}
+\tightlist
+\item
+  Introduction to analytic infrastructure
+\item
+  Configuration management
+\item
+  Resources for scaling horizontally
+\end{itemize}
+
+\hypertarget{outline}{%
+\section{Outline}\label{outline}}
+
+\hypertarget{workshop-infrastructure}{%
+\section{Workshop Infrastructure}\label{workshop-infrastructure}}
+
+\begin{itemize}
+\tightlist
+\item
+  RStudio Connect
+\item
+  PostgreSQL
+\end{itemize}
+
+Instructions for accessing the classroom environment are available in
+the workshop slide deck.
 
 \hypertarget{app-intro}{%
 \chapter{Introduction to the Application}\label{app-intro}}
@@ -189,6 +314,17 @@ individual predictions coming out of the model.
 The POC was a smashing success - but now \emph{the advisors actually
 want to use this thing for real}.
 
+\begin{itemize}
+\tightlist
+\item
+  We've developed a nice app
+\item
+  We want to put it into production
+\item
+  We want confidence that it will perform well in production, both now
+  and in the future
+\end{itemize}
+
 \hypertarget{activity-explore-the-application}{%
 \subsection{Activity: Explore the
 Application}\label{activity-explore-the-application}}
@@ -207,6 +343,12 @@ code
   Brainstorm: 5 things to consider when bringing this application into
   production.
 \end{enumerate}
+
+What are our application requirements? - Who does this app serve? - What
+kind of utilization do we expect? - Expected concurrent usage, can we
+handle peaks/spikes? - What happens if we under budget? Do we have
+strategies for scaling up? - What happens if we over budget? Do we have
+strategies for scaling down? - How will this all be monitored?
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -233,8 +375,18 @@ production}
   What is your current process for taking applications into production?
 \end{itemize}
 
+\hypertarget{is-shiny-the-right-medium-data-produt-for-this-project}{%
+\subsection{Is Shiny the right medium (data produt) for this
+project?}\label{is-shiny-the-right-medium-data-produt-for-this-project}}
+
+\begin{itemize}
+\tightlist
+\item
+  Alternative Architectures (later chapter)
+\end{itemize}
+
 \hypertarget{understanding-the-app-reactlog}{%
-\chapter{\texorpdfstring{Understanding the App:
+\section{\texorpdfstring{Understanding the App:
 \texttt{reactlog}}{Understanding the App: reactlog}}\label{understanding-the-app-reactlog}}
 
 \begin{verbatim}
@@ -299,10 +451,106 @@ Shinytest:
 
 {[}demo on the Geyser app{]}
 
-\hypertarget{final-words}{%
-\chapter{Final Words}\label{final-words}}
+\hypertarget{profiling-the-most-important-thing}{%
+\chapter{Profiling: ``The most important
+thing''}\label{profiling-the-most-important-thing}}
 
-We have finished a nice book.
+\hypertarget{profivs}{%
+\section{\texorpdfstring{\texttt{profivs}}{profivs}}\label{profivs}}
+
+\href{https://github.com/rstudio/webinars/blob/master/26-Profiling/Profiling.pdf}{Webinar
+Slides}
+
+\hypertarget{deployment-rstudio-connect}{%
+\chapter{Deployment: RStudio Connect}\label{deployment-rstudio-connect}}
+
+\hypertarget{rstudio-connect}{%
+\section{RStudio Connect}\label{rstudio-connect}}
+
+\hypertarget{packrat}{%
+\section{Packrat}\label{packrat}}
+
+\hypertarget{connecting-to-data-in-production}{%
+\chapter{Connecting to Data in
+Production}\label{connecting-to-data-in-production}}
+
+\hypertarget{databases}{%
+\section{Databases}\label{databases}}
+
+\hypertarget{config}{%
+\section{\texorpdfstring{\texttt{config}}{config}}\label{config}}
+
+\hypertarget{load-testing}{%
+\chapter{Load Testing}\label{load-testing}}
+
+\hypertarget{shinyloadtest}{%
+\section{\texorpdfstring{\texttt{shinyloadtest}}{shinyloadtest}}\label{shinyloadtest}}
+
+\href{https://github.com/rstudio/webinars/blob/master/63-shinyloadtest/slides.pdf}{Webinar
+Slides}
+
+\hypertarget{plot-caching}{%
+\chapter{Plot Caching}\label{plot-caching}}
+
+\hypertarget{rendercacheplot}{%
+\section{\texorpdfstring{\texttt{renderCachePlot}}{renderCachePlot}}\label{rendercacheplot}}
+
+\hypertarget{scaling}{%
+\chapter{Scaling}\label{scaling}}
+
+\hypertarget{application-scaling-101}{%
+\section{Application Scaling 101}\label{application-scaling-101}}
+
+\begin{itemize}
+\tightlist
+\item
+  cooking/ kitchen metaphor
+\end{itemize}
+
+\hypertarget{rstudio-connect-performance-settings}{%
+\section{RStudio Connect Performance
+Settings}\label{rstudio-connect-performance-settings}}
+
+\hypertarget{devops-philosophy-tooling}{%
+\chapter{DevOps Philosophy \& Tooling}\label{devops-philosophy-tooling}}
+
+\hypertarget{devops-vocab-101}{%
+\section{DevOps Vocab 101}\label{devops-vocab-101}}
+
+\hypertarget{design-and-management-of-analytic-infrastructure-alternative-architectures}{%
+\section{Design and Management of Analytic Infrastructure (alternative
+architectures)}\label{design-and-management-of-analytic-infrastructure-alternative-architectures}}
+
+\hypertarget{programatic-deployment-into-rstudio-connect}{%
+\section{Programatic Deployment into RStudio
+Connect}\label{programatic-deployment-into-rstudio-connect}}
+
+\hypertarget{production-case-studies}{%
+\chapter{Production Case Studies}\label{production-case-studies}}
+
+\hypertarget{case-study-a-devtestprod}{%
+\section{Case Study A: Dev/Test/Prod}\label{case-study-a-devtestprod}}
+
+\hypertarget{case-study-b-ci-git-chef}{%
+\section{Case Study B: CI, Git, Chef}\label{case-study-b-ci-git-chef}}
+
+\hypertarget{case-study-c-docker}{%
+\section{Case Study C: Docker}\label{case-study-c-docker}}
+
+\hypertarget{alternatives-to-shiny}{%
+\chapter{Alternatives to Shiny}\label{alternatives-to-shiny}}
+
+\hypertarget{plumber}{%
+\section{Plumber}\label{plumber}}
+
+\hypertarget{r-markdown}{%
+\section{R Markdown}\label{r-markdown}}
+
+\hypertarget{shiny-async}{%
+\chapter{Shiny Async}\label{shiny-async}}
+
+\href{https://github.com/rstudio/webinars/blob/master/56-scaling-shiny-apps/Scaling\%20Shiny\%20apps\%20with\%20async\%20programming.pdf}{Webinar
+Slides}
 
 
 \end{document}

@@ -25,3 +25,42 @@
 Shinytest: https://github.com/rstudio/webinars/blob/master/48-shinytest/shinytest.pdf
 
 [demo on the Geyser app]
+
+
+## From the Blog
+
+[Blog](https://resources.rstudio.com/rstudio-blog/shinytest-automated-testing-for-shiny-apps)
+
+`shinytest` is a package (available on CRAN) to perform automated testing for Shiny apps.
+
+- Record Shiny tests
+- Run and troubleshoot Shiny tests
+
+Support for `shinytest` is available in RStudio v1.2 preview
+
+## Installation 
+
+`install.packages("shinytest")
+
+## Record Tests
+
+- Run `recordTest()` to launch the app in a test recorder. 
+- Create the tests by interacting with the application - this will allow the recorder to snapshot the application state at various points.
+- Quit the test recorder. This action will trigger the following events:
+  - The test script will be saved as a .R file in a subdirectory of the application named `tests/`.
+  - If you are running in the RStudio IDE, it will automatically open this file in the editor.
+  - The test script will be run, and the snapshots will be saved in a subdirectory of the `tests/` directory.
+  
+To record tests from `R`, run the following:
+
+```
+library(shinytest)
+
+recordTest("path/to/the/app")   #Replace with the correct path
+```
+
+To record tests from RStudio v1.2, when an application file (app.R, server.R, ui.R or global.R) is open in the editor, a button labeled _Run App_ will appear at the top of the editor pane. Click on the small black triangle next to this button to reveal the menu of extended options. 
+
+![Record Test Button](imgs/testing/record_test_button.png)
+
+This launches the Shiny application to be tested in a separate R process. We'll refer to this as the **target app**

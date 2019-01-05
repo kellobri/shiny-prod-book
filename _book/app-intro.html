@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-12-03">
+<meta name="date" content="2018-12-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="course-intro.html">
-<link rel="next" href="understanding-the-app-reactlog.html">
+<link rel="next" href="application-testing-shinytest.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -128,21 +128,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> RStudio Conf 2019</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Shiny in Production Workshop @ RStudio Conf 2019</a></li>
 <li class="chapter" data-level="2" data-path="course-intro.html"><a href="course-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Shiny in Production</a><ul>
-<li class="chapter" data-level="2.1" data-path="course-intro.html"><a href="course-intro.html#why-are-we-here"><i class="fa fa-check"></i><b>2.1</b> Why are we here?</a></li>
+<li class="chapter" data-level="2.1" data-path="course-intro.html"><a href="course-intro.html#why-are-we-here"><i class="fa fa-check"></i><b>2.1</b> Why are we here?</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="course-intro.html"><a href="course-intro.html#can-shiny-be-used-in-production"><i class="fa fa-check"></i><b>2.1.1</b> Can Shiny be used in production?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="course-intro.html"><a href="course-intro.html#objectives"><i class="fa fa-check"></i><b>2.1.2</b> Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="course-intro.html"><a href="course-intro.html#outline"><i class="fa fa-check"></i><b>2.2</b> Outline</a></li>
+<li class="chapter" data-level="2.3" data-path="course-intro.html"><a href="course-intro.html#workshop-infrastructure"><i class="fa fa-check"></i><b>2.3</b> Workshop Infrastructure</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="app-intro.html"><a href="app-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction to the Application</a><ul>
 <li class="chapter" data-level="3.1" data-path="app-intro.html"><a href="app-intro.html#every-application-has-an-origin-story"><i class="fa fa-check"></i><b>3.1</b> Every Application has an Origin Story</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="app-intro.html"><a href="app-intro.html#activity-explore-the-application"><i class="fa fa-check"></i><b>3.1.1</b> Activity: Explore the Application</a></li>
+<li class="chapter" data-level="3.1.2" data-path="app-intro.html"><a href="app-intro.html#is-shiny-the-right-medium-data-produt-for-this-project"><i class="fa fa-check"></i><b>3.1.2</b> Is Shiny the right medium (data produt) for this project?</a></li>
 </ul></li>
+<li class="chapter" data-level="3.2" data-path="app-intro.html"><a href="app-intro.html#understanding-the-app-reactlog"><i class="fa fa-check"></i><b>3.2</b> Understanding the App: <code>reactlog</code></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="understanding-the-app-reactlog.html"><a href="understanding-the-app-reactlog.html"><i class="fa fa-check"></i><b>4</b> Understanding the App: <code>reactlog</code></a></li>
-<li class="chapter" data-level="5" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html"><i class="fa fa-check"></i><b>5</b> Application Testing: <code>shinytest</code></a><ul>
-<li class="chapter" data-level="5.0.1" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#testing-options"><i class="fa fa-check"></i><b>5.0.1</b> Testing Options</a></li>
+<li class="chapter" data-level="4" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html"><i class="fa fa-check"></i><b>4</b> Application Testing: <code>shinytest</code></a><ul>
+<li class="chapter" data-level="4.0.1" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#testing-options"><i class="fa fa-check"></i><b>4.0.1</b> Testing Options</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="5" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html"><i class="fa fa-check"></i><b>5</b> Profiling: “The most important thing”</a><ul>
+<li class="chapter" data-level="5.1" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html#profivs"><i class="fa fa-check"></i><b>5.1</b> <code>profivs</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="deployment-rstudio-connect.html"><a href="deployment-rstudio-connect.html"><i class="fa fa-check"></i><b>6</b> Deployment: RStudio Connect</a><ul>
+<li class="chapter" data-level="6.1" data-path="deployment-rstudio-connect.html"><a href="deployment-rstudio-connect.html#rstudio-connect"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6.2" data-path="deployment-rstudio-connect.html"><a href="deployment-rstudio-connect.html#packrat"><i class="fa fa-check"></i><b>6.2</b> Packrat</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html"><i class="fa fa-check"></i><b>7</b> Connecting to Data in Production</a><ul>
+<li class="chapter" data-level="7.1" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#databases"><i class="fa fa-check"></i><b>7.1</b> Databases</a></li>
+<li class="chapter" data-level="7.2" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#config"><i class="fa fa-check"></i><b>7.2</b> <code>config</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="load-testing.html"><a href="load-testing.html"><i class="fa fa-check"></i><b>8</b> Load Testing</a><ul>
+<li class="chapter" data-level="8.1" data-path="load-testing.html"><a href="load-testing.html#shinyloadtest"><i class="fa fa-check"></i><b>8.1</b> <code>shinyloadtest</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="plot-caching.html"><a href="plot-caching.html"><i class="fa fa-check"></i><b>9</b> Plot Caching</a><ul>
+<li class="chapter" data-level="9.1" data-path="plot-caching.html"><a href="plot-caching.html#rendercacheplot"><i class="fa fa-check"></i><b>9.1</b> <code>renderCachePlot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="scaling.html"><a href="scaling.html"><i class="fa fa-check"></i><b>10</b> Scaling</a><ul>
+<li class="chapter" data-level="10.1" data-path="scaling.html"><a href="scaling.html#application-scaling-101"><i class="fa fa-check"></i><b>10.1</b> Application Scaling 101</a></li>
+<li class="chapter" data-level="10.2" data-path="scaling.html"><a href="scaling.html#rstudio-connect-performance-settings"><i class="fa fa-check"></i><b>10.2</b> RStudio Connect Performance Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>11</b> DevOps Philosophy &amp; Tooling</a><ul>
+<li class="chapter" data-level="11.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#devops-vocab-101"><i class="fa fa-check"></i><b>11.1</b> DevOps Vocab 101</a></li>
+<li class="chapter" data-level="11.2" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#design-and-management-of-analytic-infrastructure-alternative-architectures"><i class="fa fa-check"></i><b>11.2</b> Design and Management of Analytic Infrastructure (alternative architectures)</a></li>
+<li class="chapter" data-level="11.3" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#programatic-deployment-into-rstudio-connect"><i class="fa fa-check"></i><b>11.3</b> Programatic Deployment into RStudio Connect</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="production-case-studies.html"><a href="production-case-studies.html"><i class="fa fa-check"></i><b>12</b> Production Case Studies</a><ul>
+<li class="chapter" data-level="12.1" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-a-devtestprod"><i class="fa fa-check"></i><b>12.1</b> Case Study A: Dev/Test/Prod</a></li>
+<li class="chapter" data-level="12.2" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-b-ci-git-chef"><i class="fa fa-check"></i><b>12.2</b> Case Study B: CI, Git, Chef</a></li>
+<li class="chapter" data-level="12.3" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-c-docker"><i class="fa fa-check"></i><b>12.3</b> Case Study C: Docker</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html"><i class="fa fa-check"></i><b>13</b> Alternatives to Shiny</a><ul>
+<li class="chapter" data-level="13.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#plumber"><i class="fa fa-check"></i><b>13.1</b> Plumber</a></li>
+<li class="chapter" data-level="13.2" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#r-markdown"><i class="fa fa-check"></i><b>13.2</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="shiny-async.html"><a href="shiny-async.html"><i class="fa fa-check"></i><b>14</b> Shiny Async</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -170,6 +210,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Data Scientists at RStudio University have discovered that there are trackable traits and behaviors students engage in that have been predictive of the desired 4-year graduation track.</p>
 <p>They have built a shiny application that can be used by the very data-savvy advisors at this illustrious institution to identify students in need of guidance and show them the top behavioral factors driving individual predictions coming out of the model.</p>
 <p>The POC was a smashing success - but now <em>the advisors actually want to use this thing for real</em>.</p>
+<ul>
+<li>We’ve developed a nice app</li>
+<li>We want to put it into production</li>
+<li>We want confidence that it will perform well in production, both now and in the future</li>
+</ul>
 <div id="activity-explore-the-application" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Activity: Explore the Application</h3>
 <p>Open the POC Application
@@ -180,6 +225,13 @@ Explore the Application code</p>
 <li>Brainstorm: what qualifies as production?</li>
 <li>Brainstorm: 5 things to consider when bringing this application into production.</li>
 </ol>
+<p>What are our application requirements?
+- Who does this app serve?
+- What kind of utilization do we expect?
+- Expected concurrent usage, can we handle peaks/spikes?
+- What happens if we under budget? Do we have strategies for scaling up?
+- What happens if we over budget? Do we have strategies for scaling down?
+- How will this all be monitored?</p>
 <hr />
 <p>Discussion</p>
 <ul>
@@ -191,8 +243,24 @@ Explore the Application code</p>
 <ul>
 <li>What is your current process for taking applications into production?</li>
 </ul>
-
 </div>
+<div id="is-shiny-the-right-medium-data-produt-for-this-project" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Is Shiny the right medium (data produt) for this project?</h3>
+<ul>
+<li>Alternative Architectures (later chapter)</li>
+</ul>
+</div>
+</div>
+<div id="understanding-the-app-reactlog" class="section level2">
+<h2><span class="header-section-number">3.2</span> Understanding the App: <code>reactlog</code></h2>
+<pre><code>library(shinyreactlog)
+options(shiny.reactlog = True)
+runApp()</code></pre>
+<p><a href="https://shiny.rstudio.com/reference/shiny/0.14/showReactLog.html">React Log Visualizer Reference</a></p>
+<blockquote>
+<p>For security and performance reasons, do not enable shiny.reactlog in production environments. When the option is enabled, it’s possible for any user of your app to see at least some of the source code of your reactive expressions and observers.</p>
+</blockquote>
+
 </div>
 </div>
             </section>
@@ -201,7 +269,7 @@ Explore the Application code</p>
         </div>
       </div>
 <a href="course-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="understanding-the-app-reactlog.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="application-testing-shinytest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
