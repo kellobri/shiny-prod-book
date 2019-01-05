@@ -123,7 +123,7 @@
     \preauthor{}\postauthor{}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-12-17}
+    \date{2019-01-05}
 
 \usepackage{booktabs}
 
@@ -405,6 +405,30 @@ any user of your app to see at least some of the source code of your
 reactive expressions and observers.
 \end{quote}
 
+\hypertarget{checklist-for-taking-applications-into-production}{%
+\section{Checklist for Taking Applications into
+Production}\label{checklist-for-taking-applications-into-production}}
+
+A high-level Checklist to build off of:
+
+\begin{itemize}
+\tightlist
+\item
+  {[} {]} Tests
+\item
+  {[} {]} Performance Optimization
+\item
+  {[} {]} Environment (Package) Management
+\item
+  {[} {]} Data Access
+\item
+  {[} {]} Deployment Hand Off
+\item
+  {[} {]} Scaling
+\item
+  {[} {]} Monitoring
+\end{itemize}
+
 \hypertarget{application-testing-shinytest}{%
 \chapter{\texorpdfstring{Application Testing:
 \texttt{shinytest}}{Application Testing: shinytest}}\label{application-testing-shinytest}}
@@ -451,6 +475,79 @@ Shinytest:
 
 {[}demo on the Geyser app{]}
 
+\hypertarget{from-the-blog}{%
+\section{From the Blog}\label{from-the-blog}}
+
+\href{https://resources.rstudio.com/rstudio-blog/shinytest-automated-testing-for-shiny-apps}{Blog}
+
+\texttt{shinytest} is a package (available on CRAN) to perform automated
+testing for Shiny apps.
+
+\begin{itemize}
+\tightlist
+\item
+  Record Shiny tests
+\item
+  Run and troubleshoot Shiny tests
+\end{itemize}
+
+Support for \texttt{shinytest} is available in RStudio v1.2 preview
+
+\hypertarget{installation}{%
+\section{Installation}\label{installation}}
+
+`install.packages(``shinytest'')
+
+\hypertarget{record-tests}{%
+\section{Record Tests}\label{record-tests}}
+
+\begin{itemize}
+\tightlist
+\item
+  Run \texttt{recordTest()} to launch the app in a test recorder.
+\item
+  Create the tests by interacting with the application - this will allow
+  the recorder to snapshot the application state at various points.
+\item
+  Quit the test recorder. This action will trigger the following events:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The test script will be saved as a .R file in a subdirectory of the
+    application named \texttt{tests/}.
+  \item
+    If you are running in the RStudio IDE, it will automatically open
+    this file in the editor.
+  \item
+    The test script will be run, and the snapshots will be saved in a
+    subdirectory of the \texttt{tests/} directory.
+  \end{itemize}
+\end{itemize}
+
+To record tests from \texttt{R}, run the following:
+
+\begin{verbatim}
+library(shinytest)
+
+recordTest("path/to/the/app")   #Replace with the correct path
+\end{verbatim}
+
+To record tests from RStudio v1.2, when an application file (app.R,
+server.R, ui.R or global.R) is open in the editor, a button labeled
+\emph{Run App} will appear at the top of the editor pane. Click on the
+small black triangle next to this button to reveal the menu of extended
+options.
+
+\begin{figure}
+\centering
+\includegraphics{imgs/testing/record_test_button.png}
+\caption{Record Test Button}
+\end{figure}
+
+This launches the Shiny application to be tested in a separate R
+process. We'll refer to this as the \textbf{target app}
+
 \hypertarget{profiling-the-most-important-thing}{%
 \chapter{Profiling: ``The most important
 thing''}\label{profiling-the-most-important-thing}}
@@ -491,9 +588,6 @@ Slides}
 
 \hypertarget{plot-caching}{%
 \chapter{Plot Caching}\label{plot-caching}}
-
-\hypertarget{rendercacheplot}{%
-\section{\texorpdfstring{\texttt{renderCachePlot}}{renderCachePlot}}\label{rendercacheplot}}
 
 \hypertarget{scaling}{%
 \chapter{Scaling}\label{scaling}}

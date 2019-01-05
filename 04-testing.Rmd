@@ -42,6 +42,11 @@ Support for `shinytest` is available in RStudio v1.2 preview
 
 `install.packages("shinytest")
 
+**Note:** When running `shinytest` for the first time, you may be prompted by the RStudio IDE or package warning messages to install some dependencies. `shinytest` requires a headless web browser (PhantomJS) to record and run tests.
+- To install it, run shinytest::installDependencies()
+- If it is installed, make sure the phantomjs executable can be found via the PATH variable. 
+
+
 ## Record Tests
 
 - Run `recordTest()` to launch the app in a test recorder. 
@@ -63,4 +68,9 @@ To record tests from RStudio v1.2, when an application file (app.R, server.R, ui
 
 ![Record Test Button](imgs/testing/record_test_button.png)
 
-This launches the Shiny application to be tested in a separate R process. We'll refer to this as the **target app**
+This launches the Shiny application to be tested in a separate R process. We'll refer to this as the **target app**. At the same time, the current R process lauches a special Shiny application which displays the target app in an iframe along with some controls. We'll refer to this as the **recorder app**. You should see something like this:
+
+![Target and Recorder App iframe](imgs/testing/recorder_and_target.png)
+
+
+
