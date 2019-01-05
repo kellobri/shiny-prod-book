@@ -126,8 +126,16 @@ To view failed tests in the RStudio IDE, go to the _Build tab_ and make sure the
 
 ![View Failed Tests](imgs/testing/failed_tests.png)
 
+For each test with different results, you can see the differences between the expected and current results.
 
+## Testing Code
 
+The `shinytest` package was created for testing Shiny applications on the interaction-level. To test Shiny code and functions, we suggest using the `testthat` package. 
+
+[Info](http://testthat.r-lib.org/)
+[GitHub](https://github.com/r-lib/testthat)
+
+Learn about testing and how to setup test workflow and structure: [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/tests.html)
 
 
 
