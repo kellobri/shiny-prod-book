@@ -127,6 +127,20 @@
 
 \usepackage{booktabs}
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -498,6 +512,13 @@ Support for \texttt{shinytest} is available in RStudio v1.2 preview
 
 `install.packages(``shinytest'')
 
+\textbf{Note:} When running \texttt{shinytest} for the first time, you
+may be prompted by the RStudio IDE or package warning messages to
+install some dependencies. \texttt{shinytest} requires a headless web
+browser (PhantomJS) to record and run tests. - To install it, run
+shinytest::installDependencies() - If it is installed, make sure the
+phantomjs executable can be found via the PATH variable.
+
 \hypertarget{record-tests}{%
 \section{Record Tests}\label{record-tests}}
 
@@ -546,7 +567,122 @@ options.
 \end{figure}
 
 This launches the Shiny application to be tested in a separate R
-process. We'll refer to this as the \textbf{target app}
+process. We'll refer to this as the \textbf{target app}. At the same
+time, the current R process lauches a special Shiny application which
+displays the target app in an iframe along with some controls. We'll
+refer to this as the \textbf{recorder app}. You should see something
+like this:
+
+\begin{figure}
+\centering
+\includegraphics{imgs/testing/recorder_and_target.png}
+\caption{Target and Recorder App iframe}
+\end{figure}
+
+The panel on the right displays some controls for the test recorder, as
+well as a list of \textbf{recorded events}. As you interact with the
+target app, you will see those interactions appear in the recorded
+events list.
+
+For testing a Shiny application, interacting with the inputs is only one
+part of the equation. It's also necessary to check that the application
+produces the correct outputs. This is accomplished by taking
+\textbf{snapshots} of the application's state.
+
+To take a snapshot of the application's state, click the \emph{Take
+snapshot} button on the recorder app. This will record all input values,
+output values, and exported values.
+
+\hypertarget{running-tests}{%
+\section{Running Tests}\label{running-tests}}
+
+When you quit the test recorder, it will automatically run the test
+script. There are three separate components involved in running tests:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First is the \textbf{test driver}. This is the R process that
+  coordiates the testing and controls the web browser. When working on
+  creating tests interactively, this is the R process that you use.
+\item
+  Next is the \textbf{Shiny process}, also known as the \textbf{server}.
+  This is the R process that runs the target Shiny application.
+\item
+  Finally, there is the \textbf{web browser}, also known as the
+  \textbf{client}, which connects to the server. This is a headless web
+  browser - one which renders the web page internally, but doesn't
+  display the content to the screen (PhantomJS).
+\end{enumerate}
+
+So, when you exit the test recorder, it will by default automatically
+run the test script and print something like this:
+
+\begin{verbatim}
+Saved test code to /path/to/app/tests/mytest.R
+Running mytest.R 
+====== Comparing mytest ...
+  No existing snapshots at mytest-expected/. This is a first run of tests.
+
+Updating baseline snapshot at tests/mytest-expected
+Renaming tests/mytest-current
+      => tests/mytest-expected.
+\end{verbatim}
+
+This is the result of running \texttt{testApp()}, which can also be
+manually run by providing the desired application and test like this:
+
+\texttt{testApp("exampleApp",\ "mytest")}
+
+The built-in integreation with RStudio v1.2 provides \texttt{Run\ Tests}
+as a drop down menu option in your Shiny app source file (see it located
+under the \emph{Record Test} option in the screenshot above).
+
+\hypertarget{subsequent-test-runs}{%
+\section{Subsequent Test Runs}\label{subsequent-test-runs}}
+
+After the initial test run, you can continue to run the tests to check
+for changes in application behavior.
+
+If there are any differences between current and expected results, the
+test output will look something like this:
+
+\begin{verbatim}
+Running mytest.R 
+====== Comparing mytest ...
+  Differences detected between mytest-current/ and mytest-expected/:
+
+    Name         Status      
+    001.json  != Files differ
+    001.png   != Files differ
+Would you like to view the differences between expected and current results [y/n]? 
+\end{verbatim}
+
+To view failed tests in the RStudio IDE, go to the \emph{Build tab} and
+make sure the \emph{issues toggle} is selected:
+
+\begin{figure}
+\centering
+\includegraphics{imgs/testing/failed_tests.png}
+\caption{View Failed Tests}
+\end{figure}
+
+For each test with different results, you can see the differences
+between the expected and current results.
+
+\hypertarget{testing-code}{%
+\section{Testing Code}\label{testing-code}}
+
+The \texttt{shinytest} package was created for testing Shiny
+applications on the interaction-level. To test Shiny code and functions,
+we suggest using the \texttt{testthat} package.
+
+\href{http://testthat.r-lib.org/}{Info}
+\href{https://github.com/r-lib/testthat}{GitHub}
+
+Learn about testing and how to setup test workflow and structure:
+\href{http://r-pkgs.had.co.nz/tests.html}{R packages by Hadley Wickham}
 
 \hypertarget{profiling-the-most-important-thing}{%
 \chapter{Profiling: ``The most important

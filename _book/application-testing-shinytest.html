@@ -150,6 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#from-the-blog"><i class="fa fa-check"></i><b>4.1</b> From the Blog</a></li>
 <li class="chapter" data-level="4.2" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#installation"><i class="fa fa-check"></i><b>4.2</b> Installation</a></li>
 <li class="chapter" data-level="4.3" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#record-tests"><i class="fa fa-check"></i><b>4.3</b> Record Tests</a></li>
+<li class="chapter" data-level="4.4" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#running-tests"><i class="fa fa-check"></i><b>4.4</b> Running Tests</a></li>
+<li class="chapter" data-level="4.5" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#subsequent-test-runs"><i class="fa fa-check"></i><b>4.5</b> Subsequent Test Runs</a></li>
+<li class="chapter" data-level="4.6" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#testing-code"><i class="fa fa-check"></i><b>4.6</b> Testing Code</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html"><i class="fa fa-check"></i><b>5</b> Profiling: “The most important thing”</a><ul>
 <li class="chapter" data-level="5.1" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html#profivs"><i class="fa fa-check"></i><b>5.1</b> <code>profivs</code></a></li>
@@ -248,6 +251,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installation" class="section level2">
 <h2><span class="header-section-number">4.2</span> Installation</h2>
 <p>`install.packages(“shinytest”)</p>
+<p><strong>Note:</strong> When running <code>shinytest</code> for the first time, you may be prompted by the RStudio IDE or package warning messages to install some dependencies. <code>shinytest</code> requires a headless web browser (PhantomJS) to record and run tests.
+- To install it, run shinytest::installDependencies()
+- If it is installed, make sure the phantomjs executable can be found via the PATH variable.</p>
 </div>
 <div id="record-tests" class="section level2">
 <h2><span class="header-section-number">4.3</span> Record Tests</h2>
@@ -270,7 +276,61 @@ recordTest(&quot;path/to/the/app&quot;)   #Replace with the correct path</code><
 <img src="imgs/testing/record_test_button.png" alt="Record Test Button" />
 <p class="caption">Record Test Button</p>
 </div>
-<p>This launches the Shiny application to be tested in a separate R process. We’ll refer to this as the <strong>target app</strong></p>
+<p>This launches the Shiny application to be tested in a separate R process. We’ll refer to this as the <strong>target app</strong>. At the same time, the current R process lauches a special Shiny application which displays the target app in an iframe along with some controls. We’ll refer to this as the <strong>recorder app</strong>. You should see something like this:</p>
+<div class="figure">
+<img src="imgs/testing/recorder_and_target.png" alt="Target and Recorder App iframe" />
+<p class="caption">Target and Recorder App iframe</p>
+</div>
+<p>The panel on the right displays some controls for the test recorder, as well as a list of <strong>recorded events</strong>. As you interact with the target app, you will see those interactions appear in the recorded events list.</p>
+<p>For testing a Shiny application, interacting with the inputs is only one part of the equation. It’s also necessary to check that the application produces the correct outputs. This is accomplished by taking <strong>snapshots</strong> of the application’s state.</p>
+<p>To take a snapshot of the application’s state, click the <em>Take snapshot</em> button on the recorder app. This will record all input values, output values, and exported values.</p>
+</div>
+<div id="running-tests" class="section level2">
+<h2><span class="header-section-number">4.4</span> Running Tests</h2>
+<p>When you quit the test recorder, it will automatically run the test script. There are three separate components involved in running tests:</p>
+<ol style="list-style-type: decimal">
+<li>First is the <strong>test driver</strong>. This is the R process that coordiates the testing and controls the web browser. When working on creating tests interactively, this is the R process that you use.</li>
+<li>Next is the <strong>Shiny process</strong>, also known as the <strong>server</strong>. This is the R process that runs the target Shiny application.</li>
+<li>Finally, there is the <strong>web browser</strong>, also known as the <strong>client</strong>, which connects to the server. This is a headless web browser - one which renders the web page internally, but doesn’t display the content to the screen (PhantomJS).</li>
+</ol>
+<p>So, when you exit the test recorder, it will by default automatically run the test script and print something like this:</p>
+<pre><code>Saved test code to /path/to/app/tests/mytest.R
+Running mytest.R 
+====== Comparing mytest ...
+  No existing snapshots at mytest-expected/. This is a first run of tests.
+
+Updating baseline snapshot at tests/mytest-expected
+Renaming tests/mytest-current
+      =&gt; tests/mytest-expected.</code></pre>
+<p>This is the result of running <code>testApp()</code>, which can also be manually run by providing the desired application and test like this:</p>
+<p><code>testApp(&quot;exampleApp&quot;, &quot;mytest&quot;)</code></p>
+<p>The built-in integreation with RStudio v1.2 provides <code>Run Tests</code> as a drop down menu option in your Shiny app source file (see it located under the <em>Record Test</em> option in the screenshot above).</p>
+</div>
+<div id="subsequent-test-runs" class="section level2">
+<h2><span class="header-section-number">4.5</span> Subsequent Test Runs</h2>
+<p>After the initial test run, you can continue to run the tests to check for changes in application behavior.</p>
+<p>If there are any differences between current and expected results, the test output will look something like this:</p>
+<pre><code>Running mytest.R 
+====== Comparing mytest ...
+  Differences detected between mytest-current/ and mytest-expected/:
+
+    Name         Status      
+    001.json  != Files differ
+    001.png   != Files differ
+Would you like to view the differences between expected and current results [y/n]? </code></pre>
+<p>To view failed tests in the RStudio IDE, go to the <em>Build tab</em> and make sure the <em>issues toggle</em> is selected:</p>
+<div class="figure">
+<img src="imgs/testing/failed_tests.png" alt="View Failed Tests" />
+<p class="caption">View Failed Tests</p>
+</div>
+<p>For each test with different results, you can see the differences between the expected and current results.</p>
+</div>
+<div id="testing-code" class="section level2">
+<h2><span class="header-section-number">4.6</span> Testing Code</h2>
+<p>The <code>shinytest</code> package was created for testing Shiny applications on the interaction-level. To test Shiny code and functions, we suggest using the <code>testthat</code> package.</p>
+<p><a href="http://testthat.r-lib.org/">Info</a>
+<a href="https://github.com/r-lib/testthat">GitHub</a></p>
+<p>Learn about testing and how to setup test workflow and structure: <a href="http://r-pkgs.had.co.nz/tests.html">R packages by Hadley Wickham</a></p>
 
 </div>
 </div>
