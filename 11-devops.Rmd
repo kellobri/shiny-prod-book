@@ -6,4 +6,38 @@
 
 ## Programatic Deployment into RStudio Connect
 
+## Deployment Release Patterns
 
+- Environment based release patterns
+- Application based release patterns
+
+### Feature Toggles (Dark Launch)
+
+#### User meta-data
+
+Shiny applications can access the username and groups of the current user through the session parameter of the shinyServer function.
+
+Groups meta-data is populated when using password, or OAuth authentication. It is not populated with LDAP, PAM, or proxy authentication.
+
+```
+shinyServer(function(input, output, session) {
+  output$username <- reactive({
+    session$user
+  })
+  
+  output$groups <- reactive({
+    session$groups
+  })
+})
+```
+
+Your application could use this information to display customized messages or to enable functionality for a specific subset of users.
+
+
+## Extended Topics & Resources
+
+### Shiny Application Usage (Instrumentation)
+
+RStudio Connect exposes usage information about shiny applications that will tell you which ones have been used, by whom and for how long. It is available via an API that may be used by administrators or publishers. Publishers may retrieve information about their own applications only.
+
+More information about using the API is included in the historical information chapter of the RStudio Connect Admin Guide.
