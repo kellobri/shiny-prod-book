@@ -72,5 +72,62 @@ This launches the Shiny application to be tested in a separate R process. We'll 
 
 ![Target and Recorder App iframe](imgs/testing/recorder_and_target.png)
 
+The panel on the right displays some controls for the test recorder, as well as a list of **recorded events**. As you interact with the target app, you will see those interactions appear in the recorded events list.
+
+For testing a Shiny application, interacting with the inputs is only one part of the equation. It's also necessary to check that the application produces the correct outputs. This is accomplished by taking **snapshots** of the application's state.
+
+To take a snapshot of the application's state, click the _Take snapshot_ button on the recorder app. This will record all input values, output values, and exported values.
+
+## Running Tests
+
+When you quit the test recorder, it will automatically run the test script. There are three separate components involved in running tests:
+
+1. First is the **test driver**. This is the R process that coordiates the testing and controls the web browser. When working on creating tests interactively, this is the R process that you use.
+2. Next is the **Shiny process**, also known as the **server**. This is the R process that runs the target Shiny application.
+3. Finally, there is the **web browser**, also known as the **client**, which connects to the server. This is a headless web browser - one which renders the web page internally, but doesn't display the content to the screen (PhantomJS). 
+
+So, when you exit the test recorder, it will by default automatically run the test script and print something like this:
+
+```
+Saved test code to /path/to/app/tests/mytest.R
+Running mytest.R 
+====== Comparing mytest ...
+  No existing snapshots at mytest-expected/. This is a first run of tests.
+
+Updating baseline snapshot at tests/mytest-expected
+Renaming tests/mytest-current
+      => tests/mytest-expected.
+```
+
+This is the result of running `testApp()`, which can also be manually run by providing the desired application and test like this: 
+
+`testApp("exampleApp", "mytest")`
+
+The built-in integreation with RStudio v1.2 provides `Run Tests` as a drop down menu option in your Shiny app source file (see it located under the _Record Test_ option in the screenshot above).
+
+## Subsequent Test Runs
+
+After the initial test run, you can continue to run the tests to check for changes in application behavior.
+
+If there are any differences between current and expected results, the test output will look something like this:
+
+```
+Running mytest.R 
+====== Comparing mytest ...
+  Differences detected between mytest-current/ and mytest-expected/:
+
+    Name         Status      
+    001.json  != Files differ
+    001.png   != Files differ
+Would you like to view the differences between expected and current results [y/n]? 
+```
+
+To view failed tests in the RStudio IDE, go to the _Build tab_ and make sure the _issues toggle_ is selected:
+
+![View Failed Tests](imgs/testing/failed_tests.png)
+
+
+
+
 
 
