@@ -65,4 +65,14 @@ _What is the performance comparison between tests?_
 
 [Shiny Article: Plot Caching by Winston Chang](http://shiny.rstudio.com/articles/plot-caching.html)
 
-Shiny can store cached plots in memory, on disk, or with another backend like [Redis](https://redis.io/). There are also a number of options for limiting the size of the cache.
+
+### Plot Caching on RStudio Connect
+
+Shiny can store cached plots in memory, on disk, or with another backend like [Redis](https://redis.io/). There are also a number of options for limiting the size of the cache. Applications deployed on RStudio Connect should use a disk cache and specify a subdirectory of the application directory as the location for the cache. To do so, add this code to the top of your application:
+
+```
+library(shiny)
+shinyOptions(cache = diskCache("./cache"))
+```
+
+This option ensures that cached plots will be saved and used across the multiple R processes that RStudio Connect runs in support of an application. In addition, this configuration results in the cache being deleted and reset when new versions of the application are deployed.
