@@ -7,14 +7,72 @@ DevOps is a self-help philosophy for IT and software development teams that work
 - There is no visibility into how code is deployed into production, therefore it is impossible to know what to optimize or fix in the system and/or people who seek to improve portions of workflow are likely not addressing true bottlenecks.
 - Dev and Ops have seemingly conflicting goals and objectives
 
-The Fix (ref: The DevOps Handbook): 
+The Fix (ref: The DevOps Handbook) "The principles underpinning DevOps": 
 
 1. Accelerate the delivery of work from Development to Operations to customers
 2. Commit to evolving ever safer systems of work through feedback
 3. Promote a high-trust culture and embrace continual learning and experimentation (risk-taking) in daily work
 
+---
+
+**Flow**
+
+- Make work visible
+- Limit Work in Progress (WIP)
+- Reduce Batch Sizes
+- Reduce the number of handoffs
+- Continually identify and elevate constraints 
+- Eliminate hardships and waste in the value stream
+
+Typical DevOps Transformation (pg. 22)
+- Environment creation
+- Code Deployment
+- Test setup and run
+- Overly tight architechture
+
+**Feedback**
+
+- Working safely within complex systems
+  - Complex work is managed so that problems in design and operations are revealed
+  - Problems are swarmed and solved
+  - New local knowledge is exploited globally throughout the organization
+  - Leaders create leaders
+- See problems as they occur
+- Swarm and solve problems to build new knowledge
+- Keep pushing quality closer to the source
+- Enable optimizing for downstream work centers
+
+**Continual Learning & Experimentation**
+
+- Enable organizational learning and a safety culture
+- Institutionalize the improvement of daily work
+- Transform local discoveries into global improvements
+- Inject resilience paterns into daiy work
+
+Generative organizations (pg. 39) // What type of organization do you have? Comparison Activity
+- Information is actively sought
+- Messengers are trained
+- Responsibilities are shared
+- Bridging between teams is rewarded
+- Failure causes inquiry
+- New ideas are welcomed
+
+> Even more important than daily work is the improvement of daily work  --Mike Orzen, Lean IT
 
 ## DevOps Vocab 101
+
+Deployment Lead Time
+
+Hardships and Waste:
+- Partially done work
+- Extra processes
+- Extra features
+- Task switching
+- Waiting
+- Motion
+- Defects
+- Nonstandard or manual work
+- Heroics
 
 ## Integrating Data Science and DevOps
 
