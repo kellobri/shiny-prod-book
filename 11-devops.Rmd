@@ -1,6 +1,26 @@
 # DevOps Philosophy & Tooling
 
+DevOps is a self-help philosophy for IT and software development teams that work together. It seeks to address the following problems:
+
+- Deployments/releases are high-risk events
+- It takes a long time to deliver new features to customers
+- There is no visibility into how code is deployed into production, therefore it is impossible to know what to optimize or fix in the system and/or people who seek to improve portions of workflow are likely not addressing true bottlenecks.
+- Dev and Ops have seemingly conflicting goals and objectives
+
+The Fix (ref: The DevOps Handbook): 
+
+1. Accelerate the delivery of work from Development to Operations to customers
+2. Commit to evolving ever safer systems of work through feedback
+3. Promote a high-trust culture and embrace continual learning and experimentation (risk-taking) in daily work
+
+
 ## DevOps Vocab 101
+
+## Integrating Data Science and DevOps
+
+How does data science fit in with the DevOps philosophy?
+
+
 
 ## Design and Management of Analytic Infrastructure (alternative architectures)
 
