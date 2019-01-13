@@ -19,6 +19,14 @@ This workshop will cover all these new tools for shiny development as well as th
 
 ### Objectives
 
+**Running Shiny in Production**
+
+- Is Shiny ready for production?
+- What does it take to get there?
+- What do you need to know?
+- What tools are available?
+- How do you develop a workflow?
+
 #### Understand the importance of incremental changes and testing
 
 - Version control
