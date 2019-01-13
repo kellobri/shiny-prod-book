@@ -84,4 +84,24 @@ $ curl --data "a=4&b=3" "http://localhost:8000/sum"
 - [Video: Turning your R code into an API by Jeff Allen](https://www.rstudio.com/resources/videos/plumber-turning-your-r-code-into-an-api/)
 - [Webinar: Plumbing APIs with Plumber by Jeff Allen](https://www.rstudio.com/resources/videos/plumbing-apis-with-plumber/)
 
+### Workshop Exercise: Plumber
+
+**First: Try creating your own plumber API in the IDE (New File)**
+
+**Discussion:**
+
+_Consider our new architecture_
+
+Does my R functionality need to be accessed by other systems?
+
+- Why might a RESTful API be easier to scale than a Shiny app?
+  - Requests are stateless, so it is easier for R processes to come and go.
+- What benefits come from pulling the modeling code out of our app?
+  - We can update the model independently of the app, e.g. if we wanted to retrain.
+
+**Deliverable:**
+
+- Add an item to our production checklist to consider plumber. 
+- Add 2 decision criteria to the checklist to decide when a plumber API would be useful.
+
 ## R Markdown
