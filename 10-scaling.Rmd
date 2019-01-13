@@ -2,7 +2,7 @@
 
 ## Application Scaling 101
 
-- cooking/ kitchen metaphor
+![Kitchen Scaling](imgs/scaling/kitchen-scaling.png)
 
 ## RStudio Connect Performance Settings
 
@@ -63,6 +63,36 @@ _Pick a small number if your content involves heavy computation. Pick a larger n
 **Load factor** - Determines how aggressively new processes will be created.  A value close to 0 means new processes will be spun up aggressively to try and keep the number of connections per process small. A value close to 1 means the number of connections per process will be close to max connections. Default value is 0.5.
 
 _Pick a small number if your content loads quickly but involves expensive computation. Pick a number closer to 1 if your content loads slowly, but after loading is fast OR if you want to minimize the amount of memory._
+
+#### Workshop Exercise 1
+
+**First: Open the runtime settings for your app**
+
+**Discussion:**
+
+- What do each of the settings mean?
+- What changes to the settings might affect our app?
+
+**Deliverable: Re-run Load Test**
+
+Test your hypothesis by changing the runtime settings and then re-run the load test. Compare the results to the prior test (continue to follow along with `runloadtest.R`)
+
+#### Workshop Exercise 2
+
+**First: Open the admin dashboard in RStudio Connect**
+
+**Discussion:**
+
+_Multi-Tenant Environment_
+
+- What are the tradeoffs for modifying the scaling settings?
+- What else might you need to consider when sharing infrastructure?
+- How does these concerns change over time?
+
+**Deliverable: Update checklist**
+
+Create one pre-deployment checklist step and one every-2-months checklist step based on your discussion.
+
 
 ### High Availability and Horizontal Scaling
 
