@@ -24,6 +24,8 @@ A shiny app is a good candidate for plot caching if:
 
 ### Using `renderCachedPlot`
 
+![renderChachedPlot()](imgs/plotcaching/rendercachedplot.png)
+
 The following example is a simple, but computationally expensive, plot output:
 
 ```
@@ -51,22 +53,27 @@ output$plot <- renderCachedPlot({
 
 With these code changes, the first time a plot with a particular `input$color_by` is requested, it will take the normal amount of time. But the next time it is requested, it will be almost instant, as the previously rendered plot will be reused.
 
-### Exercise: Plot cache benchmarking
+### Workshop Exercise: Plot cache benchmarking
 
-Use the Shiny Load Testing Tools to record a test script and test it against two versions of a minimal shiny application: one with plot caching and one without.
+**First: Update your app code to use `renderCachedPlot`**
 
-- Test the `renderPlot` version of the application with 5 concurrent users
-- Test the `renderCachedPlot` version of the application with 25, 50 and 100 concurrent users
+**Discussion:** 
+_caching + shinyloadtest_
+
+- How will introducing `renderCachedPlot` affect our load test experience?
 
 _What is the performance comparison between tests?_
 
+**Deliverable: Re-run Load Test**
 
-## Extended Topics and Resources
+- Redeploy the version of the app with `renderCachedPlot`
+- Re-run the load test and compare the outputs (continue to follow along with `runloadtest.R`)
+
+### Extended Topics and Resources
 
 [Shiny Article: Plot Caching by Winston Chang](http://shiny.rstudio.com/articles/plot-caching.html)
 
-
-### Plot Caching on RStudio Connect
+#### Plot Caching on RStudio Connect
 
 Shiny can store cached plots in memory, on disk, or with another backend like [Redis](https://redis.io/). There are also a number of options for limiting the size of the cache. Applications deployed on RStudio Connect should use a disk cache and specify a subdirectory of the application directory as the location for the cache. To do so, add this code to the top of your application:
 
