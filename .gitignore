@@ -1,3 +1,5 @@
 .Rproj.user/
 rsconnect/
 .Rhistory
+.DS_Store
+imgs/.DS_Store

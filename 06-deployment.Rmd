@@ -1,0 +1,11 @@
+# Deployment
+
+## RStudio Connect
+
+## Packrat
+
+## Extended Topics and Resources
+
+- Programmatic Deployment
+- Collaboration (Collab + Git)
+
