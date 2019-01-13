@@ -32,6 +32,22 @@ _Workflow:_
 
 [Load Testing Shiny Applications](https://rstudio.github.io/shinyloadtest/index.html)
 
+#### Workshop Exercise: Load Testing
+
+**First: Open runloadtest.R,do the pre-run checklist**
+
+**Discussion:**
+
+_Preparing for the load test_
+
+- First, what is up with the pre-run checklist? Any idea why these steps are (currently) necessary?
+- The `runloadtest.R` file is going to start with a baseline test of 1 and then a test of 25. Why is the baseline important?
+
+**Deliverable: Run the load test**
+
+- Follow the first set of commands in `runloadtest.R`
+- How did the experience for 1 user compare to the experience for 25 users?
+
 #### References and Resources
 
 **Webinar:**
