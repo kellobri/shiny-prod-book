@@ -3,3 +3,25 @@
 ## Databases
 
 ## `config`
+
+#### Workshop Exercise: Databases
+
+**First: Read [This](https://db.rstudio.com/best-practices/portable-code/)!**
+
+**Discussion:** 
+
+_Data Management_
+
+- How does your organization connect to data?
+- What data are we exposing to viewers? Is it appropriate for all viewers?
+- What else could we manage with the `config` package? 
+
+**Deliverable: Running, Deployed App**
+
+- Update config.yml and Redeploy
+- Edit the Environment Variables in RStudio Connect
+
+#### Revisit the Deployment Checklist
+
+![Database Checklist](imgs/databases/database-checklist.png)
+
