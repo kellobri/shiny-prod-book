@@ -142,5 +142,20 @@ The `shinytest` package was created for testing Shiny applications on the intera
 
 Learn about testing and how to setup test workflow and structure: [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/tests.html)
 
-####
+#### Workshop Exercise: `shinytest`
+
+**First: Open app.R and use 'Record Test'**
+
+**Discussion:**
+
+_Understanding shinytest_
+
+- What does the recording file create?
+- What challenges might our app pose to testing?
+- Can you run the tests and get a success?
+- How might you automate tests?
+
+**Deliverable: Try `shinytest`**
+
+- A set of tests that can catch unintentional changes to our app.
 
