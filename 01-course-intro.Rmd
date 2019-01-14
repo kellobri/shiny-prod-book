@@ -1,6 +1,6 @@
 # Introduction to Shiny in Production {#course-intro}
 
-## Why are we here?
+#### Why are we here?
 
 > Shiny applications are being deployed in high-value, customer-facing, and/or enterprise-wide scenarios. Unfortunately, they are often being done without the benefit of best practices. This workshop will help you and/or your IT colleagues who support your data scientists learn how to accelerate a successful Shiny application deployment in production scenarios.
 
@@ -15,9 +15,7 @@ This workshop will cover all these new tools for shiny development as well as th
 
 > When developers begin to think of infrastructure as part of their application, stability and performance become normative. - Jeff Geerling "Ansible for DevOps"
 
-### Can Shiny be used in production?
-
-### Objectives
+#### Workshop Objectives
 
 **Running Shiny in Production**
 
@@ -27,19 +25,19 @@ This workshop will cover all these new tools for shiny development as well as th
 - What tools are available?
 - How do you develop a workflow?
 
-#### Understand the importance of incremental changes and testing
+##### Understand the importance of incremental changes and testing
 
 - Version control
 - Tests for package upgrades
 - Use of separate environments for staging and production
 - Incorporating automated testing into a development workflow: `shinytest`
 
-#### Data product tradeoffs
+##### Data product tradeoffs
 
 - What are the advantages to using Shiny vs Plumber vs R Markdown
 - What is the difference between a stateless Plumber API and a Shiny Session?
 
-#### Development vs. Production environment considerations
+##### Development vs. Production environment considerations
 
 - Defining a data model
   - Working with databases
@@ -50,17 +48,16 @@ This workshop will cover all these new tools for shiny development as well as th
   - Plot caching
   - Synchronous vs asynchronous paradigms: `async` 
 
-#### Deployment architecture and tools
+##### Deployment architecture and tools
 
 - Introduction to analytic infrastructure
 - Configuration management
 - Resources for scaling horizontally
 
-## Outline
-
-## Workshop Infrastructure 
+#### Workshop Infrastructure 
 
 - RStudio Connect
 - PostgreSQL
+- RStudio Server Pro
 
 Instructions for accessing the classroom environment are available in the workshop slide deck.
