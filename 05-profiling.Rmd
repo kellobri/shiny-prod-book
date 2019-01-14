@@ -3,3 +3,28 @@
 ## `profivs`
 
 [Webinar Slides](https://github.com/rstudio/webinars/blob/master/26-Profiling/Profiling.pdf)
+
+[Shiny Dev Center Article: Profiling your Shiny app](http://shiny.rstudio.com/articles/profiling.html)
+
+
+## Resources
+
+[Make Shiny Fast - Alan Dipert rstudio::conf 2018](https://tailrecursion.com/slides/fast-shiny/#/title-slide)
+
+#### Workshop Exercise: Profiling
+
+**First: Create a profile of our app**
+
+**Discussion:**
+
+_Understanding app performance_
+
+- Where does our app spend most of its time?
+- Do any parts of the profile surprise you?
+- If you test the app again, do you get the same results?
+
+**Deliverable: Optimization Recommendations**
+
+- One recommendation for how we could speed up our app.
+
+
