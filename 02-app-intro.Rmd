@@ -1,68 +1,43 @@
 # Introduction to the Application {#app-intro}
 
-## Every Application has an Origin Story
+**Every Application has an Origin Story**
 
 Data Scientists at RStudio University have discovered that there are trackable traits and behaviors students engage in that have been predictive of the desired 4-year graduation track.
 
 They have built a shiny application that can be used by the very data-savvy advisors at this illustrious institution to identify students in need of guidance and show them the top behavioral factors driving individual predictions coming out of the model.
 
-The POC was a smashing success - but now _the advisors actually want to use this thing for real_.
+The POC was a smashing success - but now _our advisors actually want to use this thing for real_.
 
 - We've developed a nice app
 - We want to put it into production
 - We want confidence that it will perform well in production, both now and in the future
 
-### Activity: Explore the Application
+#### Workshop Activity: Explore the Application
 
-Open the POC Application
-Run the Application
-Explore the Application code
+**First: Open app.R and Run the Application**
 
-1. Are there any parts of the application code that don't make sense?
-2. Brainstorm: what qualifies as production?
-3. Brainstorm: 5 things to consider when bringing this application into production.
+**Discussion:** 
 
-What are our application requirements? 
-- Who does this app serve?
-- What kind of utilization do we expect?
-  - Expected concurrent usage, can we handle peaks/spikes?
-  - What happens if we under budget? Do we have strategies for scaling up?
-  - What happens if we over budget? Do we have strategies for scaling down?
-  - How will this all be monitored?
+_Explore the Application_
 
----
+- Are there any parts of the app code that don’t make sense?
+- Is this application ready for production?
+- How would you define "production"?
+- What insights would be useful to have about the application before we try to deploy it?
 
-Discussion
-
-- Is this app ready for production?
-- What insights would be useful to have before taking this app into production?
-- What tools currently exist that would help us run tests to gain these insights?
-
-**Create a checklist for taking this (any?) application into production**
+_Additional Discussion:_
 
 - What is your current process for taking applications into production?
 
-### Is Shiny the right medium (data produt) for this project?
+**Deliverable: Start a Plan**
 
-- Alternative Architectures (later chapter)
-
-
-
-
-## Understanding the App: `reactlog`
-
-```
-library(shinyreactlog)
-options(shiny.reactlog = True)
-runApp()
-```
-
-[React Log Visualizer Reference](https://shiny.rstudio.com/reference/shiny/0.14/showReactLog.html)
-
-> For security and performance reasons, do not enable shiny.reactlog in production environments. When the option is enabled, it's possible for any user of your app to see at least some of the source code of your reactive expressions and observers.
+- Create a checklist
+- Outline the steps you might take to put this application into production 
 
 
-## Checklist for Taking Applications into Production
+#### Checklist for Taking Applications into Production
+
+![Ideas for Getting Started: Checklist](imgs/app-intro/skeleton-checklist)
 
 A high-level Checklist to build off of:
 
