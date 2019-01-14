@@ -1,10 +1,34 @@
 # Production Case Studies
 
+_Workshop Exercise: Case Study Discussions_
 
-## Case Study A: Dev/Test/Prod
+**First: Pick one case study**
 
+**Discuss:**
 
-## Case Study B: CI, Git, Chef
+- What tools does your admin team use?
+- How would you explain the goals of a shiny app to DevOps?
 
+**Deliverable:**
 
-## Case Study C: Docker
+- Whiteboard (in a medium of your choice) what an architecture might look like for your case study.
+- Delineate who (and what tool) is responsible for code, R, R packages.
+
+#### Case Study A: Dev/Test/Prod
+
+Before publishing an update to our app, we want to run user acceptance tests.
+
+![Case A Considerations](imgs/case-studies/case-a.png)
+
+#### Case Study B: CI, Git, Chef
+
+All of our production code must be deployed from Git.
+
+![Case B Considerations](imgs/case-studies/case-b.png)
+
+#### Case Study C: Docker
+
+We scale applications through Docker - how does Shiny fit in?
+
+![Case C Considerations](imgs/case-studies/case-c.png)
+
