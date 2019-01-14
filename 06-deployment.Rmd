@@ -2,10 +2,49 @@
 
 ## RStudio Connect
 
+> It doesn’t matter how great your analysis is unless you can explain it to others: you need to communicate your results. - Grolemund & Wickham in _R For Data Science_
+
+![RStudio Connect](imgs/deployment/rstudio-connect.png)
+
+#### Workshop Exercise: Inital Deployment
+
+**First: Login to RStudio Connect**
+
+**Discussion:**
+
+_Pre-deployment  Brainstorm_
+
+- What is our goal in deploying this code?
+- What does our code depend on locally?
+- What needs to deploy with our code? 
+
+**Deliverable: Deployed App**
+
+Press the publish button in RStudio:
+
+- Link to your Connect account
+- Select the files to publish (do NOT use the default to publish all the files)
+- Poke around at the results
+
+_Note: We are expecting an error!_
+
+---
+
 ## Packrat
 
 ## Extended Topics and Resources
 
-- Programmatic Deployment
-- Collaboration (Collab + Git)
+### Programmatic Deployment
+
+- RStudio Connect
+
+### Collaborative Publishing
+
+- RStudio Connect
+
+[User Guide Resource: Collaboration](https://docs.rstudio.com/connect/user/publishing.html#collaboration)
+
+Some data products will have multiple authors and collaborators who are responsible for managing the content deployed to RStudio Connect. The first step to collaboration is sharing and working together on code. We recommend using a version control tool like Git to coordinate collaboration across many users. 
+
+
 
