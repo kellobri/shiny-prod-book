@@ -11,11 +11,3 @@ description: "This document is full of supplemental resources and content from t
 
 This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019.
 
-The **bookdown** package can be installed from CRAN or Github:
-
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
-```
-
