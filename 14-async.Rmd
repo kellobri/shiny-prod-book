@@ -1,4 +1,10 @@
 # Shiny Async
 
-[Webinar Slides](https://github.com/rstudio/webinars/blob/master/56-scaling-shiny-apps/Scaling%20Shiny%20apps%20with%20async%20programming.pdf)
+#### References and Resouces
+
+- [Webinar - Scaling Shiny apps with asynchronous programming](https://resources.rstudio.com/webinars/scaling-shiny-apps-with-async-programming-june-2018)
+- [Webinar Slides](https://github.com/rstudio/webinars/blob/master/56-scaling-shiny-apps/Scaling%20Shiny%20apps%20with%20async%20programming.pdf)
+- [Shiny Dev Center Article: Improving scalability with async programming](http://shiny.rstudio.com/articles/async.html)
+
+
 
