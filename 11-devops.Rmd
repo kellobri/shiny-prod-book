@@ -1,6 +1,8 @@
 # DevOps Philosophy & Tooling
 
-DevOps is a self-help philosophy for IT and software development teams that work together. It seeks to address the following problems:
+DevOps is a self-help philosophy for IT and software development teams that work together. It seeks to address a core problem: **The Fear of Taking Code into Production**
+
+The whole point of this workshop is to get you some experience with what it takes to get Shiny Applications running in 
 
 - Deployments/releases are high-risk events
 - It takes a long time to deliver new features to customers
@@ -47,7 +49,7 @@ Typical DevOps Transformation (pg. 22)
 - Enable organizational learning and a safety culture
 - Institutionalize the improvement of daily work
 - Transform local discoveries into global improvements
-- Inject resilience paterns into daiy work
+- Inject resilience patterns into daily work
 
 Generative organizations (pg. 39) // What type of organization do you have? Comparison Activity
 - Information is actively sought
@@ -59,7 +61,7 @@ Generative organizations (pg. 39) // What type of organization do you have? Comp
 
 > Even more important than daily work is the improvement of daily work  --Mike Orzen, Lean IT
 
-## DevOps Vocab 101
+#### DevOps Vocab 101
 
 Deployment Lead Time
 
@@ -74,24 +76,36 @@ Hardships and Waste:
 - Nonstandard or manual work
 - Heroics
 
-## Integrating Data Science and DevOps
+#### Integrating Data Science and DevOps
 
-How does data science fit in with the DevOps philosophy?
+##### How does data science fit in with the DevOps philosophy?
+
+It's not _your job_ to understand operations and systems administration. And it's not IT's job to understand R programming and shiny app development. But it takes shared goals and a little empathy from both sides to get less painful results.
+
+We can leverage (steal) the DevOps philosophy and apply it to manage code deployment handoffs between data science and IT.
+
+Foundations:
+
+What do your dev, test and production environments look like?
+- Do developers have access to production-like environments on their own workstations?
+- Can these evnvironments be assembled on-demand?
+  - Version Control
+  - Infrastructure as Code
 
 
 
-## Design and Management of Analytic Infrastructure (alternative architectures)
+##### Design and Management of Analytic Infrastructure (alternative architectures)
 
-## Programatic Deployment into RStudio Connect
+##### Programatic Deployment into RStudio Connect
 
-## Deployment Release Patterns
+##### Deployment Release Patterns
 
 - Environment based release patterns
 - Application based release patterns
 
-### Feature Toggles (Dark Launch)
+#### Feature Toggles (Dark Launch)
 
-#### User meta-data
+##### User meta-data
 
 Shiny applications can access the username and groups of the current user through the session parameter of the shinyServer function.
 
@@ -112,9 +126,9 @@ shinyServer(function(input, output, session) {
 Your application could use this information to display customized messages or to enable functionality for a specific subset of users.
 
 
-## Extended Topics & Resources
+#### Extended Topics & Resources
 
-### Shiny Application Usage (Instrumentation)
+**Shiny Application Usage (Instrumentation)**
 
 RStudio Connect exposes usage information about shiny applications that will tell you which ones have been used, by whom and for how long. It is available via an API that may be used by administrators or publishers. Publishers may retrieve information about their own applications only.
 
