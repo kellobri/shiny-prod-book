@@ -6,6 +6,8 @@ Data Scientists at RStudio University have discovered that there are trackable t
 
 They have built a shiny application that can be used by the very data-savvy advisors at this illustrious institution to identify students in need of guidance and show them the top behavioral factors driving individual predictions coming out of the model.
 
+![App Preview](imgs/app-intro/app-screenshot.png)
+
 The POC was a smashing success - but now _our advisors actually want to use this thing for real_.
 
 - We've developed a nice app
