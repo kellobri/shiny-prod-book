@@ -1,8 +1,8 @@
 # Connecting to Data in Production
 
-## Databases
+#### Databases
 
-## `config`
+#### The `config` package
 
 #### Workshop Exercise: Databases
 
