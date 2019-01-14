@@ -25,6 +25,8 @@
 
 Enter: Snapshot-based testing [Webinar Slide Deck](https://github.com/rstudio/webinars/blob/master/48-shinytest/shinytest.pdf)
 
+![Snapshot Testing](imgs/testing/snapshot-testing.png)
+
 - Can be easier to create tests
 - Can test an entire application
 - More sensitive to spurious changes
@@ -139,4 +141,6 @@ The `shinytest` package was created for testing Shiny applications on the intera
 [GitHub](https://github.com/r-lib/testthat)
 
 Learn about testing and how to setup test workflow and structure: [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/tests.html)
+
+####
 
