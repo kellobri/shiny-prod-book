@@ -1,53 +1,56 @@
 # Application Testing: `shinytest`
 
-[From the Webinar]
 - You've developed a nice app
 - You've put it in production
 - You want to be confident that it will keep running in the future
 
 **Things that can change/break a Shiny application**
+
 - Modifying code
 - Upgrading the `shiny` package
 - Upgrading other packages
 - Upgrading R
 - External data source changes or fails
 
-### Testing Options
+#### Testing Options
 
 - Manual testing
   - time intensive
   - inconsistent
+  
 - Automated testing (hard)
   - web browser
   - simulated user interactions
   - tests for graphical elements
 
-Shinytest: https://github.com/rstudio/webinars/blob/master/48-shinytest/shinytest.pdf
+Enter: Snapshot-based testing [Webinar Slide Deck](https://github.com/rstudio/webinars/blob/master/48-shinytest/shinytest.pdf)
 
-[demo on the Geyser app]
+- Can be easier to create tests
+- Can test an entire application
+- More sensitive to spurious changes
 
+#### Automated Testing for Shiny Apps
 
-## From the Blog
-
-[Blog](https://resources.rstudio.com/rstudio-blog/shinytest-automated-testing-for-shiny-apps)
+- [Blog](https://resources.rstudio.com/rstudio-blog/shinytest-automated-testing-for-shiny-apps)
 
 `shinytest` is a package (available on CRAN) to perform automated testing for Shiny apps.
 
-- Record Shiny tests
-- Run and troubleshoot Shiny tests
+Basic `shinytest` proceedure:
 
-Support for `shinytest` is available in RStudio v1.2 preview
+![shinytest proceedure](imgs/testing/testing-proceedure.png)
 
-## Installation 
+Support for `shinytest` is available in RStudio v1.2 preview.
+
+**Installation** 
 
 `install.packages("shinytest")
 
 **Note:** When running `shinytest` for the first time, you may be prompted by the RStudio IDE or package warning messages to install some dependencies. `shinytest` requires a headless web browser (PhantomJS) to record and run tests.
+
 - To install it, run shinytest::installDependencies()
 - If it is installed, make sure the phantomjs executable can be found via the PATH variable. 
 
-
-## Record Tests
+**Record Tests**
 
 - Run `recordTest()` to launch the app in a test recorder. 
 - Create the tests by interacting with the application - this will allow the recorder to snapshot the application state at various points.
@@ -78,7 +81,7 @@ For testing a Shiny application, interacting with the inputs is only one part of
 
 To take a snapshot of the application's state, click the _Take snapshot_ button on the recorder app. This will record all input values, output values, and exported values.
 
-## Running Tests
+**Running Tests**
 
 When you quit the test recorder, it will automatically run the test script. There are three separate components involved in running tests:
 
@@ -105,7 +108,7 @@ This is the result of running `testApp()`, which can also be manually run by pro
 
 The built-in integreation with RStudio v1.2 provides `Run Tests` as a drop down menu option in your Shiny app source file (see it located under the _Record Test_ option in the screenshot above).
 
-## Subsequent Test Runs
+**Subsequent Test Runs**
 
 After the initial test run, you can continue to run the tests to check for changes in application behavior.
 
@@ -128,7 +131,7 @@ To view failed tests in the RStudio IDE, go to the _Build tab_ and make sure the
 
 For each test with different results, you can see the differences between the expected and current results.
 
-## Testing Code
+**Testing Code**
 
 The `shinytest` package was created for testing Shiny applications on the interaction-level. To test Shiny code and functions, we suggest using the `testthat` package. 
 
@@ -136,6 +139,4 @@ The `shinytest` package was created for testing Shiny applications on the intera
 [GitHub](https://github.com/r-lib/testthat)
 
 Learn about testing and how to setup test workflow and structure: [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/tests.html)
-
-
 
