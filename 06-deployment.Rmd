@@ -6,7 +6,7 @@
 
 ![RStudio Connect](imgs/deployment/rstudio-connect.png)
 
-#### Workshop Exercise: Inital Deployment
+## Activity: Inital Deployment
 
 **First: Login to RStudio Connect**
 
@@ -32,7 +32,7 @@ _Note: We are expecting an error!_
 
 ## Packrat
 
-## Extended Topics and Resources
+## Extended Topics
 
 ### Programmatic Deployment
 

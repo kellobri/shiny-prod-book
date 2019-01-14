@@ -1,7 +1,5 @@
 # Plot Caching
 
-## Shiny Plot Caching Overview
-
 [Blog: Shiny 1.2.0: Plot caching - November 18, 2018](https://resources.rstudio.com/rstudio-blog/shiny-1-2-0-plot-caching)
 
 The Shiny 1.2.0 package release introduced _Plot Caching_, an important new tool for improving performance and scalability in Shiny applications.
@@ -14,7 +12,7 @@ Plots are a very common and (potentially) expensive to compute type of output ob
 
 Shiny v1.2.0 introduces a new function, `renderCachedPlot`, that makes it much easiter to add plot caching to your application.
 
-### When to use plot caching
+## When to use plot caching
 
 A shiny app is a good candidate for plot caching if:
 
@@ -53,7 +51,7 @@ output$plot <- renderCachedPlot({
 
 With these code changes, the first time a plot with a particular `input$color_by` is requested, it will take the normal amount of time. But the next time it is requested, it will be almost instant, as the previously rendered plot will be reused.
 
-### Workshop Exercise: Plot cache benchmarking
+## Activity: Plot cache benchmarking
 
 **First: Update your app code to use `renderCachedPlot`**
 
@@ -69,11 +67,11 @@ _What is the performance comparison between tests?_
 - Redeploy the version of the app with `renderCachedPlot`
 - Re-run the load test and compare the outputs (continue to follow along with `runloadtest.R`)
 
-### Extended Topics and Resources
+## Extended Topics
 
-[Shiny Article: Plot Caching by Winston Chang](http://shiny.rstudio.com/articles/plot-caching.html)
+- [Shiny Article: Plot Caching by Winston Chang](http://shiny.rstudio.com/articles/plot-caching.html)
 
-#### Plot Caching on RStudio Connect
+**Plot Caching on RStudio Connect**
 
 Shiny can store cached plots in memory, on disk, or with another backend like [Redis](https://redis.io/). There are also a number of options for limiting the size of the cache. Applications deployed on RStudio Connect should use a disk cache and specify a subdirectory of the application directory as the location for the cache. To do so, add this code to the top of your application:
 

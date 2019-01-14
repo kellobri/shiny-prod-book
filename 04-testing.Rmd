@@ -12,7 +12,7 @@
 - Upgrading R
 - External data source changes or fails
 
-#### Testing Options
+## Testing Options
 
 - Manual testing
   - time intensive
@@ -31,7 +31,7 @@ Enter: Snapshot-based testing [Webinar Slide Deck](https://github.com/rstudio/we
 - Can test an entire application
 - More sensitive to spurious changes
 
-#### Automated Testing for Shiny Apps
+**Automated Testing for Shiny Apps**
 
 - [Blog](https://resources.rstudio.com/rstudio-blog/shinytest-automated-testing-for-shiny-apps)
 
@@ -142,7 +142,7 @@ The `shinytest` package was created for testing Shiny applications on the intera
 
 Learn about testing and how to setup test workflow and structure: [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/tests.html)
 
-#### Workshop Exercise: `shinytest`
+## Activity: `shinytest`
 
 **First: Open app.R and use 'Record Test'**
 

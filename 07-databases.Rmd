@@ -1,10 +1,8 @@
 # Connecting to Data in Production
 
-#### Databases
+## The `config` package
 
-#### The `config` package
-
-#### Workshop Exercise: Databases
+## Activity: Databases
 
 **First: Read [This](https://db.rstudio.com/best-practices/portable-code/)!**
 
@@ -21,7 +19,9 @@ _Data Management_
 - Update config.yml and Redeploy
 - Edit the Environment Variables in RStudio Connect
 
-#### Revisit the Deployment Checklist
+---
+
+**Revisit the Deployment Checklist**
 
 ![Database Checklist](imgs/databases/database-checklist.png)
 

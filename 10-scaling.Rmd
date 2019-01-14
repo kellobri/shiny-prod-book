@@ -1,6 +1,6 @@
 # Scaling 
 
-## Application Scaling 101
+**Application Scaling 101**
 
 ![Kitchen Scaling](imgs/scaling/kitchen-scaling.png)
 
@@ -64,7 +64,7 @@ _Pick a small number if your content involves heavy computation. Pick a larger n
 
 _Pick a small number if your content loads quickly but involves expensive computation. Pick a number closer to 1 if your content loads slowly, but after loading is fast OR if you want to minimize the amount of memory._
 
-#### Workshop Exercise 1
+## Activity: Runtime Settings
 
 **First: Open the runtime settings for your app**
 
@@ -77,7 +77,7 @@ _Pick a small number if your content loads quickly but involves expensive comput
 
 Test your hypothesis by changing the runtime settings and then re-run the load test. Compare the results to the prior test (continue to follow along with `runloadtest.R`)
 
-#### Workshop Exercise 2
+## Activity: Admin Dashboard
 
 **First: Open the admin dashboard in RStudio Connect**
 
@@ -93,6 +93,7 @@ _Multi-Tenant Environment_
 
 Create one pre-deployment checklist step and one every-2-months checklist step based on your discussion.
 
+## Extended Topics
 
 ### High Availability and Horizontal Scaling
 

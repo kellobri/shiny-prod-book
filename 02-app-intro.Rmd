@@ -14,13 +14,11 @@ The POC was a smashing success - but now _our advisors actually want to use this
 - We want to put it into production
 - We want confidence that it will perform well in production, both now and in the future
 
-#### Workshop Activity: Explore the Application
+## Activity: Explore the Application
 
-**First: Open app.R and Run the Application**
+_First: Open `app.R` and Run the Application_
 
-**Discussion:** 
-
-_Explore the Application_
+**Discussion: Explore the Application** 
 
 - Are there any parts of the app code that don’t make sense?
 - Is this application ready for production?
@@ -37,18 +35,9 @@ _Additional Discussion:_
 - Outline the steps you might take to put this application into production 
 
 
-#### Checklist for Taking Applications into Production
-
-![Ideas for Getting Started: Checklist](imgs/app-intro/skeleton-checklist)
+**Checklist for Taking Applications into Production**
 
 A high-level Checklist to build off of:
 
-- [ ] Tests
-- [ ] Performance Optimization
-- [ ] Environment (Package) Management
-- [ ] Data Access
-- [ ] Deployment Hand Off 
-- [ ] Scaling 
-- [ ] Monitoring
-
+![Ideas for Getting Started: Checklist](imgs/app-intro/skeleton-checklist.png)
 

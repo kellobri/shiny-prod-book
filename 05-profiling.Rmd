@@ -36,7 +36,7 @@ Profvis is interactive. You can try the following:
 - Understand the `profvis` interface
 - Sometimes performance bottlenecks are counterintuitive!
 
-#### Workshop Exercise: Profiling
+## Activity: Profiling
 
 **First: Create a profile of our app**
 
@@ -58,7 +58,9 @@ _Additional Group Discussion_
 
 - One recommendation for how we could speed up our app.
 
-#### References and Resources
+---
+
+**References and Resources:**
 
 - [Make Shiny Fast by Alan Dipert](https://tailrecursion.com/slides/fast-shiny/#/title-slide)
 - [Profvis Webinar Slides](https://github.com/rstudio/webinars/blob/master/26-Profiling/Profiling.pdf)

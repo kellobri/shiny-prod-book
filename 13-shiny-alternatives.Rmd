@@ -76,7 +76,7 @@ $ curl --data "a=4&b=3" "http://localhost:8000/sum"
  [7]
 ```
 
-#### References and Resources
+**References and Resources:**
 
 - [Reference: Plumber Docs](https://www.rplumber.io/)
 - [Plumber Integration in RStudio 1.2](https://blog.rstudio.com/2018/10/23/rstudio-1-2-preview-plumber-integration/)
@@ -84,7 +84,7 @@ $ curl --data "a=4&b=3" "http://localhost:8000/sum"
 - [Video: Turning your R code into an API by Jeff Allen](https://www.rstudio.com/resources/videos/plumber-turning-your-r-code-into-an-api/)
 - [Webinar: Plumbing APIs with Plumber by Jeff Allen](https://www.rstudio.com/resources/videos/plumbing-apis-with-plumber/)
 
-### Workshop Exercise: Plumber
+## Activity: Plumber
 
 **First: Try creating your own plumber API in the IDE (New File)**
 
@@ -151,14 +151,14 @@ It is possible to link together multiple R Markdown documents to make a multi-pa
 
 ![R Markdown Cheatsheet Preview](imgs/shiny-alt/rmd-cheatsheet.png)
 
-#### References and Resources
+**References and Resources:**
 
 - [R Markdown in the RStudio Connect User Guide](https://docs.rstudio.com/connect/user/r-markdown.html)
 - [R Markdown Reference Articles](https://rmarkdown.rstudio.com/articles.html)
 - [RViews Blog: Communicating results with R Markdown by Nathan Stephens](https://rviews.rstudio.com/2018/11/01/r-markdown-a-better-approach/)
 - [RViews Blog: Enterprise Dashboards with R Markdown by Nathan Stephens](https://rviews.rstudio.com/2018/05/16/replacing-excel-reports-with-r-markdown-and-shiny/)
 
-### Workshop Exercise: R Markdown
+## Activity: R Markdown
 
 **First: Create your own R markdown document (New File)**
 

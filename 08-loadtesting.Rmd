@@ -11,7 +11,7 @@ To perform a load test you’ll need two pieces of software: `shinyloadtest` and
 
 See the Load Testing Quickstart [Here](https://rstudio.github.io/shinyloadtest/#quick-start).
 
-#### Optimization Loop Methodology
+## Optimization Loop Methodology
 
 - **Benchmark:** Use `shinyloadtest::record_session()` to record interaction, `shinycannon` to simulate users
 - **Analyze:** Visualize and interpret the metrics
@@ -32,7 +32,7 @@ _Workflow:_
 
 [Load Testing Shiny Applications](https://rstudio.github.io/shinyloadtest/index.html)
 
-#### Workshop Exercise: Load Testing
+## Activity: Load Testing
 
 **First: Open runloadtest.R,do the pre-run checklist**
 
@@ -48,7 +48,9 @@ _Preparing for the load test_
 - Follow the first set of commands in `runloadtest.R`
 - How did the experience for 1 user compare to the experience for 25 users?
 
-#### References and Resources
+---
+
+**References and Resources:**
 
 **Webinar:**
 

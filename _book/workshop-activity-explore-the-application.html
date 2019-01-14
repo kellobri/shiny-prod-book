@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Supplement to Shiny in Production</title>
+  <meta name="description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Supplement to Shiny in Production" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Supplement to Shiny in Production" />
+  
+  <meta name="twitter:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+
+
+<meta name="date" content="2019-01-13">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="app-intro.html">
+<link rel="next" href="application-testing-shinytest.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Shiny in Production Workshop @ RStudio Conf 2019</a></li>
+<li class="chapter" data-level="2" data-path="course-intro.html"><a href="course-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Shiny in Production</a><ul>
+<li class="chapter" data-level="2.1" data-path="course-intro.html"><a href="course-intro.html#workshop-objectives"><i class="fa fa-check"></i><b>2.1</b> Workshop Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="course-intro.html"><a href="course-intro.html#workshop-infrastructure"><i class="fa fa-check"></i><b>2.2</b> Workshop Infrastructure</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="app-intro.html"><a href="app-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction to the Application</a></li>
+<li class="chapter" data-level="4" data-path="workshop-activity-explore-the-application.html"><a href="workshop-activity-explore-the-application.html"><i class="fa fa-check"></i><b>4</b> <strong>Workshop Activity: Explore the Application</strong></a></li>
+<li class="chapter" data-level="5" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html"><i class="fa fa-check"></i><b>5</b> Application Testing: <code>shinytest</code></a></li>
+<li class="chapter" data-level="6" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html"><i class="fa fa-check"></i><b>6</b> Profiling: “The most important thing”</a></li>
+<li class="chapter" data-level="7" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>7</b> Deployment</a><ul>
+<li class="chapter" data-level="7.1" data-path="deployment.html"><a href="deployment.html#rstudio-connect"><i class="fa fa-check"></i><b>7.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="7.2" data-path="deployment.html"><a href="deployment.html#packrat"><i class="fa fa-check"></i><b>7.2</b> Packrat</a></li>
+<li class="chapter" data-level="7.3" data-path="deployment.html"><a href="deployment.html#extended-topics-and-resources"><i class="fa fa-check"></i><b>7.3</b> Extended Topics and Resources</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="deployment.html"><a href="deployment.html#programmatic-deployment"><i class="fa fa-check"></i><b>7.3.1</b> Programmatic Deployment</a></li>
+<li class="chapter" data-level="7.3.2" data-path="deployment.html"><a href="deployment.html#collaborative-publishing"><i class="fa fa-check"></i><b>7.3.2</b> Collaborative Publishing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html"><i class="fa fa-check"></i><b>8</b> Connecting to Data in Production</a></li>
+<li class="chapter" data-level="9" data-path="load-testing.html"><a href="load-testing.html"><i class="fa fa-check"></i><b>9</b> Load Testing</a></li>
+<li class="chapter" data-level="10" data-path="plot-caching.html"><a href="plot-caching.html"><i class="fa fa-check"></i><b>10</b> Plot Caching</a><ul>
+<li class="chapter" data-level="10.1" data-path="plot-caching.html"><a href="plot-caching.html#shiny-plot-caching-overview"><i class="fa fa-check"></i><b>10.1</b> Shiny Plot Caching Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="plot-caching.html"><a href="plot-caching.html#when-to-use-plot-caching"><i class="fa fa-check"></i><b>10.1.1</b> When to use plot caching</a></li>
+<li class="chapter" data-level="10.1.2" data-path="plot-caching.html"><a href="plot-caching.html#using-rendercachedplot"><i class="fa fa-check"></i><b>10.1.2</b> Using <code>renderCachedPlot</code></a></li>
+<li class="chapter" data-level="10.1.3" data-path="plot-caching.html"><a href="plot-caching.html#workshop-exercise-plot-cache-benchmarking"><i class="fa fa-check"></i><b>10.1.3</b> Workshop Exercise: Plot cache benchmarking</a></li>
+<li class="chapter" data-level="10.1.4" data-path="plot-caching.html"><a href="plot-caching.html#extended-topics-and-resources-1"><i class="fa fa-check"></i><b>10.1.4</b> Extended Topics and Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="scaling.html"><a href="scaling.html"><i class="fa fa-check"></i><b>11</b> Scaling</a><ul>
+<li class="chapter" data-level="11.1" data-path="scaling.html"><a href="scaling.html#application-scaling-101"><i class="fa fa-check"></i><b>11.1</b> Application Scaling 101</a></li>
+<li class="chapter" data-level="11.2" data-path="scaling.html"><a href="scaling.html#rstudio-connect-performance-settings"><i class="fa fa-check"></i><b>11.2</b> RStudio Connect Performance Settings</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="scaling.html"><a href="scaling.html#content-scheduler"><i class="fa fa-check"></i><b>11.2.1</b> Content Scheduler</a></li>
+<li class="chapter" data-level="11.2.2" data-path="scaling.html"><a href="scaling.html#scheduling-parameters"><i class="fa fa-check"></i><b>11.2.2</b> Scheduling Parameters</a></li>
+<li class="chapter" data-level="11.2.3" data-path="scaling.html"><a href="scaling.html#high-availability-and-horizontal-scaling"><i class="fa fa-check"></i><b>11.2.3</b> High Availability and Horizontal Scaling</a></li>
+<li class="chapter" data-level="11.2.4" data-path="scaling.html"><a href="scaling.html#r-markdown-documents-with-runtimeshiny"><i class="fa fa-check"></i><b>11.2.4</b> R Markdown Documents with runtime::shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>12</b> DevOps Philosophy &amp; Tooling</a></li>
+<li class="chapter" data-level="13" data-path="production-case-studies.html"><a href="production-case-studies.html"><i class="fa fa-check"></i><b>13</b> Production Case Studies</a></li>
+<li class="chapter" data-level="14" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html"><i class="fa fa-check"></i><b>14</b> Alternatives to Shiny</a><ul>
+<li class="chapter" data-level="14.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#plumber"><i class="fa fa-check"></i><b>14.1</b> Plumber</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#intro-to-plumber"><i class="fa fa-check"></i><b>14.1.1</b> Intro to Plumber</a></li>
+<li class="chapter" data-level="14.1.2" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#workshop-exercise-plumber"><i class="fa fa-check"></i><b>14.1.2</b> Workshop Exercise: Plumber</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#r-markdown"><i class="fa fa-check"></i><b>14.2</b> R Markdown</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#workshop-exercise-r-markdown"><i class="fa fa-check"></i><b>14.2.1</b> Workshop Exercise: R Markdown</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="shiny-async.html"><a href="shiny-async.html"><i class="fa fa-check"></i><b>15</b> Shiny Async</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Supplement to Shiny in Production</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="workshop-activity-explore-the-application" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> <strong>Workshop Activity: Explore the Application</strong></h1>
+<p><strong>First: Open <code>app.R</code> and Run the Application</strong></p>
+<p><strong>Discussion:</strong></p>
+<p><em>Explore the Application</em></p>
+<ul>
+<li>Are there any parts of the app code that don’t make sense?</li>
+<li>Is this application ready for production?</li>
+<li>How would you define “production”?</li>
+<li>What insights would be useful to have about the application before we try to deploy it?</li>
+</ul>
+<p><em>Additional Discussion:</em></p>
+<ul>
+<li>What is your current process for taking applications into production?</li>
+</ul>
+<p><strong>Deliverable: Start a Plan</strong></p>
+<ul>
+<li>Create a checklist</li>
+<li>Outline the steps you might take to put this application into production</li>
+</ul>
+<div id="checklist-for-taking-applications-into-production" class="section level4">
+<h4><span class="header-section-number">4.0.0.1</span> Checklist for Taking Applications into Production</h4>
+<p>A high-level Checklist to build off of:</p>
+<div class="figure">
+<img src="imgs/app-intro/skeleton-checklist.png" alt="Ideas for Getting Started: Checklist" />
+<p class="caption">Ideas for Getting Started: Checklist</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="app-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="application-testing-shinytest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["spc-supplement.pdf", "spc-supplement.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

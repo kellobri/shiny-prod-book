@@ -14,19 +14,19 @@ _Workshop Exercise: Case Study Discussions_
 - Whiteboard (in a medium of your choice) what an architecture might look like for your case study.
 - Delineate who (and what tool) is responsible for code, R, R packages.
 
-#### Case Study A: Dev/Test/Prod
+## Case Study A: Dev/Test/Prod
 
 Before publishing an update to our app, we want to run user acceptance tests.
 
 ![Case A Considerations](imgs/case-studies/case-a.png)
 
-#### Case Study B: CI, Git, Chef
+## Case Study B: CI, Git, Chef
 
 All of our production code must be deployed from Git.
 
 ![Case B Considerations](imgs/case-studies/case-b.png)
 
-#### Case Study C: Docker
+## Case Study C: Docker
 
 We scale applications through Docker - how does Shiny fit in?
 
