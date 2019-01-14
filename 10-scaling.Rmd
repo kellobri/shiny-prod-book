@@ -48,6 +48,8 @@ The scheduling parameters tell RStudio Connect to act somewhere in between Scena
 
 ### Scheduling Parameters
 
+![Runtime Settings Options](imgs/scaling/rsc-runtime.png)
+
 **Max processes** - Determines the maximum number of processes that will be created. Max processes x Max connections per process = total number of concurrent connections. Default value is 3.
 
 _Pick a value that will support the expected number of concurrent users or requests._
