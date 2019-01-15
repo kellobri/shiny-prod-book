@@ -30,46 +30,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{plainnat}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -123,7 +83,7 @@
     \preauthor{}\postauthor{}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-01-13}
+    \date{2019-01-14}
 
 \usepackage{booktabs}
 
@@ -152,18 +112,14 @@
 \chapter{Shiny in Production Workshop @ RStudio Conf
 2019}\label{shiny-in-production-workshop-rstudio-conf-2019}}
 
+\begin{figure}
+\centering
+\includegraphics{imgs/conf-banner.png}
+\caption{rstudio::conf 2019}
+\end{figure}
+
 This document is full of supplemental resources and content from the
 Shiny in Production Workshop delievered at rstudio::conf 2019.
-
-The \textbf{bookdown} package can be installed from CRAN or Github:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{course-intro}{%
 \chapter{Introduction to Shiny in Production}\label{course-intro}}
@@ -864,11 +820,38 @@ to others: you need to communicate your results. - Grolemund \& Wickham
 in \emph{R For Data Science}
 \end{quote}
 
+RStudio Connect connects you and the work you do in R with others as
+never before. Only RStudio Connect provides:
+
+\begin{itemize}
+\tightlist
+\item
+  ``One button'' deployment for any Shiny application, R Markdown
+  document, or any static plot or graph to a single environment.
+\item
+  The ability to manage and limit access to the work you've shared with
+  others - and easily see the work they've shared with you.
+\item
+  ``Hands free'' scheduling of updates to your documents and automatic
+  email distribution.
+\end{itemize}
+
+RStudio Professional Quickstart (VirtualBox VM Download - Available
+Jan.~20)
+
 \begin{figure}
 \centering
-\includegraphics{imgs/deployment/rstudio-connect.png}
+\includegraphics{imgs/deployment/explain-connect.png}
 \caption{RStudio Connect}
 \end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  User Guide: Connecting
+\item
+  User Guide: Publishing
+\end{itemize}
 
 \hypertarget{activity-inital-deployment}{%
 \section{Activity: Inital Deployment}\label{activity-inital-deployment}}
@@ -906,48 +889,121 @@ Press the publish button in RStudio:
 
 \emph{Note: We are expecting an error!}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\hypertarget{application-settings}{%
+\section{Application Settings}\label{application-settings}}
 
-\hypertarget{packrat}{%
-\section{Packrat}\label{packrat}}
+\hypertarget{access}{%
+\subsection{Access}\label{access}}
 
-\hypertarget{extended-topics}{%
-\section{Extended Topics}\label{extended-topics}}
+After publishing a piece of content to RStudio Connect, the Connect user
+interface will open to show the access panel.
 
-\hypertarget{programmatic-deployment}{%
-\subsection{Programmatic Deployment}\label{programmatic-deployment}}
+\begin{figure}
+\centering
+\includegraphics{imgs/deployment/access-settings.png}
+\caption{Access Settings Options}
+\end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  RStudio Connect
-\end{itemize}
-
-\hypertarget{collaborative-publishing}{%
-\subsection{Collaborative Publishing}\label{collaborative-publishing}}
+There are three types of user interaction settings available to
+publishers in this panel:
 
 \begin{itemize}
 \tightlist
 \item
-  RStudio Connect
+  Viewer Access (who can see this content)
+\item
+  Collaborator Access (who can change this content)
+\item
+  Execution User (which server user will run the content)
 \end{itemize}
 
-\href{https://docs.rstudio.com/connect/user/publishing.html\#collaboration}{User
-Guide Resource: Collaboration}
+The final setting for creating a vanity URL is reserved for
+administrators only.
 
-Some data products will have multiple authors and collaborators who are
-responsible for managing the content deployed to RStudio Connect. The
-first step to collaboration is sharing and working together on code. We
-recommend using a version control tool like Git to coordinate
-collaboration across many users.
+\hypertarget{metadata}{%
+\subsection{Metadata}\label{metadata}}
+
+After your RStudio Connect content has been published, you can change
+its title, add a description, and upload a content image to make it
+easier for others to find your content. First, open the content and
+click on the ``info'' tab.
+
+\begin{figure}
+\centering
+\includegraphics{imgs/deployment/info-settings.png}
+\caption{Metadata and Info Settings}
+\end{figure}
+
+The top text field is the application title. This defaults to the
+application name if it was given. Other users will not be able to edit
+this field unless they are collaborators or administrators. The second,
+larger text area is the application description. You can describe the
+content in this field, or add other information that you feel is
+important. Other users will not be able to edit this field unless they
+are collaborators or administrators.
+
+The area that displays a prompt to select an image for this content is
+the content image field. You can upload a jpeg, png, gif, or svg image
+that represents the content. Unlike title or description, users who
+cannot view the content (including administrators) will also be unable
+to view the image you have uploaded. This way, if you wish to upload a
+screenshot of the content, any information contained in that screenshot
+will not leak to users who would not otherwise be able to access it.
+
+\hypertarget{logs}{%
+\subsection{Logs}\label{logs}}
+
+The logs panel allows you to view a history of jobs and snapshots as
+well as view and download the latest content logs. Content logs can be
+especially useful for debugging a failed deployment or unexpected
+behavior.
+
+\begin{figure}
+\centering
+\includegraphics{imgs/deployment/rsc-logs.png}
+\caption{Application Logs}
+\end{figure}
 
 \hypertarget{connecting-to-data-in-production}{%
 \chapter{Connecting to Data in
 Production}\label{connecting-to-data-in-production}}
 
+\begin{itemize}
+\tightlist
+\item
+  Key Resource: \url{db.rstudio.com}
+\end{itemize}
+
 \hypertarget{the-config-package}{%
 \section{\texorpdfstring{The \texttt{config}
 package}{The config package}}\label{the-config-package}}
+
+\hypertarget{environment-variables}{%
+\section{Environment Variables}\label{environment-variables}}
+
+When developing content for RStudio Connect, you should never place
+secrets (keys, tokens, passwords, etc.) in the code itself. Best
+practices dictate that this kind of sensitive information should be
+protected through the use of environment variables or another method of
+configuration such as the config package.
+
+The Vars panel makes it easy to define environment variables which are
+then exposed to the processes executing your content. Note that there is
+no way to define environment variables prior to publishing content. If
+your content code relies on environment variables, publish it in an
+initial `broken' state, then add the environment variables through this
+pane before sharing or testing the content.
+
+\begin{figure}
+\centering
+\includegraphics{imgs/databases/env-vars.png}
+\caption{Environment Variables in RStudio Connect}
+\end{figure}
+
+Click on the Add Environment Variable button, then provide a name and
+value for your environment variable. For security reasons, once you add
+a variable, the value will be obscured and cannot be edited. You can
+always delete a variable and create a new one with the same name.
 
 \hypertarget{activity-databases}{%
 \section{Activity: Databases}\label{activity-databases}}
@@ -1275,8 +1331,8 @@ benchmarking}\label{activity-plot-cache-benchmarking}}
   with \texttt{runloadtest.R})
 \end{itemize}
 
-\hypertarget{extended-topics-1}{%
-\section{Extended Topics}\label{extended-topics-1}}
+\hypertarget{extended-topics}{%
+\section{Extended Topics}\label{extended-topics}}
 
 \begin{itemize}
 \tightlist
@@ -1433,6 +1489,12 @@ before timing out.
 \hypertarget{scheduling-parameters}{%
 \subsection{Scheduling Parameters}\label{scheduling-parameters}}
 
+\begin{figure}
+\centering
+\includegraphics{imgs/scaling/rsc-runtime.png}
+\caption{Runtime Settings Options}
+\end{figure}
+
 \textbf{Max processes} - Determines the maximum number of processes that
 will be created. Max processes x Max connections per process = total
 number of concurrent connections. Default value is 3.
@@ -1514,8 +1576,8 @@ along with \texttt{runloadtest.R})
 Create one pre-deployment checklist step and one every-2-months
 checklist step based on your discussion.
 
-\hypertarget{extended-topics-2}{%
-\section{Extended Topics}\label{extended-topics-2}}
+\hypertarget{extended-topics-1}{%
+\section{Extended Topics}\label{extended-topics-1}}
 
 \hypertarget{high-availability-and-horizontal-scaling}{%
 \subsection{High Availability and Horizontal
