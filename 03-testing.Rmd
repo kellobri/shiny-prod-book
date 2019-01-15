@@ -45,7 +45,7 @@ Support for `shinytest` is available in RStudio v1.2 preview.
 
 **Installation** 
 
-`install.packages("shinytest")
+`install.packages("shinytest")`
 
 **Note:** When running `shinytest` for the first time, you may be prompted by the RStudio IDE or package warning messages to install some dependencies. `shinytest` requires a headless web browser (PhantomJS) to record and run tests.
 
