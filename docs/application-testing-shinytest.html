@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Supplement to Shiny in Production</title>
+  <meta name="description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Supplement to Shiny in Production" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Supplement to Shiny in Production" />
+  
+  <meta name="twitter:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+
+
+<meta name="date" content="2019-01-14">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="app-intro.html">
+<link rel="next" href="profiling-the-most-important-thing.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rstudio::conf 2019</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Shiny in Production Workshop</a></li>
+<li class="chapter" data-level="2" data-path="course-intro.html"><a href="course-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Shiny in Production</a><ul>
+<li class="chapter" data-level="2.1" data-path="course-intro.html"><a href="course-intro.html#workshop-objectives"><i class="fa fa-check"></i><b>2.1</b> Workshop Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="course-intro.html"><a href="course-intro.html#workshop-infrastructure"><i class="fa fa-check"></i><b>2.2</b> Workshop Infrastructure</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="app-intro.html"><a href="app-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction to the Application</a><ul>
+<li class="chapter" data-level="3.1" data-path="app-intro.html"><a href="app-intro.html#activity-explore-the-application"><i class="fa fa-check"></i><b>3.1</b> Activity: Explore the Application</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html"><i class="fa fa-check"></i><b>4</b> Application Testing: <code>shinytest</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#testing-options"><i class="fa fa-check"></i><b>4.1</b> Testing Options</a></li>
+<li class="chapter" data-level="4.2" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#activity-shinytest"><i class="fa fa-check"></i><b>4.2</b> Activity: <code>shinytest</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html"><i class="fa fa-check"></i><b>5</b> Profiling: “The most important thing”</a><ul>
+<li class="chapter" data-level="5.1" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html#activity-profiling"><i class="fa fa-check"></i><b>5.1</b> Activity: Profiling</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>6</b> Deployment</a><ul>
+<li class="chapter" data-level="6.1" data-path="deployment.html"><a href="deployment.html#rstudio-connect"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6.2" data-path="deployment.html"><a href="deployment.html#activity-inital-deployment"><i class="fa fa-check"></i><b>6.2</b> Activity: Inital Deployment</a></li>
+<li class="chapter" data-level="6.3" data-path="deployment.html"><a href="deployment.html#application-settings"><i class="fa fa-check"></i><b>6.3</b> Application Settings</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="deployment.html"><a href="deployment.html#access"><i class="fa fa-check"></i><b>6.3.1</b> Access</a></li>
+<li class="chapter" data-level="6.3.2" data-path="deployment.html"><a href="deployment.html#metadata"><i class="fa fa-check"></i><b>6.3.2</b> Metadata</a></li>
+<li class="chapter" data-level="6.3.3" data-path="deployment.html"><a href="deployment.html#logs"><i class="fa fa-check"></i><b>6.3.3</b> Logs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html"><i class="fa fa-check"></i><b>7</b> Connecting to Data in Production</a><ul>
+<li class="chapter" data-level="7.1" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#the-config-package"><i class="fa fa-check"></i><b>7.1</b> The <code>config</code> package</a></li>
+<li class="chapter" data-level="7.2" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#environment-variables"><i class="fa fa-check"></i><b>7.2</b> Environment Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#activity-databases"><i class="fa fa-check"></i><b>7.3</b> Activity: Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="load-testing.html"><a href="load-testing.html"><i class="fa fa-check"></i><b>8</b> Load Testing</a><ul>
+<li class="chapter" data-level="8.1" data-path="load-testing.html"><a href="load-testing.html#optimization-loop-methodology"><i class="fa fa-check"></i><b>8.1</b> Optimization Loop Methodology</a></li>
+<li class="chapter" data-level="8.2" data-path="load-testing.html"><a href="load-testing.html#activity-load-testing"><i class="fa fa-check"></i><b>8.2</b> Activity: Load Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="plot-caching.html"><a href="plot-caching.html"><i class="fa fa-check"></i><b>9</b> Plot Caching</a><ul>
+<li class="chapter" data-level="9.1" data-path="plot-caching.html"><a href="plot-caching.html#when-to-use-plot-caching"><i class="fa fa-check"></i><b>9.1</b> When to use plot caching</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="plot-caching.html"><a href="plot-caching.html#using-rendercachedplot"><i class="fa fa-check"></i><b>9.1.1</b> Using <code>renderCachedPlot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="plot-caching.html"><a href="plot-caching.html#activity-plot-cache-benchmarking"><i class="fa fa-check"></i><b>9.2</b> Activity: Plot cache benchmarking</a></li>
+<li class="chapter" data-level="9.3" data-path="plot-caching.html"><a href="plot-caching.html#extended-topics"><i class="fa fa-check"></i><b>9.3</b> Extended Topics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="scaling.html"><a href="scaling.html"><i class="fa fa-check"></i><b>10</b> Scaling</a><ul>
+<li class="chapter" data-level="10.1" data-path="scaling.html"><a href="scaling.html#rstudio-connect-performance-settings"><i class="fa fa-check"></i><b>10.1</b> RStudio Connect Performance Settings</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="scaling.html"><a href="scaling.html#content-scheduler"><i class="fa fa-check"></i><b>10.1.1</b> Content Scheduler</a></li>
+<li class="chapter" data-level="10.1.2" data-path="scaling.html"><a href="scaling.html#scheduling-parameters"><i class="fa fa-check"></i><b>10.1.2</b> Scheduling Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="scaling.html"><a href="scaling.html#activity-runtime-settings"><i class="fa fa-check"></i><b>10.2</b> Activity: Runtime Settings</a></li>
+<li class="chapter" data-level="10.3" data-path="scaling.html"><a href="scaling.html#activity-admin-dashboard"><i class="fa fa-check"></i><b>10.3</b> Activity: Admin Dashboard</a></li>
+<li class="chapter" data-level="10.4" data-path="scaling.html"><a href="scaling.html#extended-topics-1"><i class="fa fa-check"></i><b>10.4</b> Extended Topics</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="scaling.html"><a href="scaling.html#high-availability-and-horizontal-scaling"><i class="fa fa-check"></i><b>10.4.1</b> High Availability and Horizontal Scaling</a></li>
+<li class="chapter" data-level="10.4.2" data-path="scaling.html"><a href="scaling.html#r-markdown-documents-with-runtimeshiny"><i class="fa fa-check"></i><b>10.4.2</b> R Markdown Documents with runtime::shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html"><i class="fa fa-check"></i><b>11</b> Alternatives to Shiny</a><ul>
+<li class="chapter" data-level="11.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#plumber"><i class="fa fa-check"></i><b>11.1</b> Plumber</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#intro-to-plumber"><i class="fa fa-check"></i><b>11.1.1</b> Intro to Plumber</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-plumber"><i class="fa fa-check"></i><b>11.2</b> Activity: Plumber</a></li>
+<li class="chapter" data-level="11.3" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#r-markdown"><i class="fa fa-check"></i><b>11.3</b> R Markdown</a></li>
+<li class="chapter" data-level="11.4" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-r-markdown"><i class="fa fa-check"></i><b>11.4</b> Activity: R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>12</b> DevOps Philosophy &amp; Tooling</a><ul>
+<li class="chapter" data-level="12.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#integrating-data-science-and-devops"><i class="fa fa-check"></i><b>12.1</b> Integrating Data Science and DevOps</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#how-does-data-science-fit-in-with-the-devops-philosophy"><i class="fa fa-check"></i><b>12.1.1</b> How does data science fit in with the DevOps philosophy?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#what-do-your-dev-test-and-production-environments-look-like"><i class="fa fa-check"></i><b>12.1.2</b> What do your dev, test and production environments look like?</a></li>
+<li class="chapter" data-level="12.1.3" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#does-code-deployment-feel-like-a-high-risk-operation"><i class="fa fa-check"></i><b>12.1.3</b> Does code deployment feel like a high-risk operation?</a></li>
+<li class="chapter" data-level="12.1.4" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#can-deployments-be-decoupled-from-releases"><i class="fa fa-check"></i><b>12.1.4</b> Can deployments be decoupled from releases?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="production-case-studies.html"><a href="production-case-studies.html"><i class="fa fa-check"></i><b>13</b> Production Case Studies</a><ul>
+<li class="chapter" data-level="13.1" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-a-devtestprod"><i class="fa fa-check"></i><b>13.1</b> Case Study A: Dev/Test/Prod</a></li>
+<li class="chapter" data-level="13.2" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-b-ci-git-chef"><i class="fa fa-check"></i><b>13.2</b> Case Study B: CI, Git, Chef</a></li>
+<li class="chapter" data-level="13.3" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-c-docker"><i class="fa fa-check"></i><b>13.3</b> Case Study C: Docker</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="shiny-async.html"><a href="shiny-async.html"><i class="fa fa-check"></i><b>14</b> Shiny Async</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Supplement to Shiny in Production</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="application-testing-shinytest" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Application Testing: <code>shinytest</code></h1>
+<ul>
+<li>You’ve developed a nice app</li>
+<li>You’ve put it in production</li>
+<li>You want to be confident that it will keep running in the future</li>
+</ul>
+<p><strong>Things that can change/break a Shiny application</strong></p>
+<ul>
+<li>Modifying code</li>
+<li>Upgrading the <code>shiny</code> package</li>
+<li>Upgrading other packages</li>
+<li>Upgrading R</li>
+<li>External data source changes or fails</li>
+</ul>
+<div id="testing-options" class="section level2">
+<h2><span class="header-section-number">4.1</span> Testing Options</h2>
+<ul>
+<li>Manual testing
+<ul>
+<li>time intensive</li>
+<li>inconsistent</li>
+</ul></li>
+<li>Automated testing (hard)
+<ul>
+<li>web browser</li>
+<li>simulated user interactions</li>
+<li>tests for graphical elements</li>
+</ul></li>
+</ul>
+<p>Enter: Snapshot-based testing <a href="https://github.com/rstudio/webinars/blob/master/48-shinytest/shinytest.pdf">Webinar Slide Deck</a></p>
+<div class="figure">
+<img src="imgs/testing/snapshot-testing.png" alt="Snapshot Testing" />
+<p class="caption">Snapshot Testing</p>
+</div>
+<ul>
+<li>Can be easier to create tests</li>
+<li>Can test an entire application</li>
+<li>More sensitive to spurious changes</li>
+</ul>
+<p><strong>Automated Testing for Shiny Apps</strong></p>
+<ul>
+<li><a href="https://resources.rstudio.com/rstudio-blog/shinytest-automated-testing-for-shiny-apps">Blog</a></li>
+</ul>
+<p><code>shinytest</code> is a package (available on CRAN) to perform automated testing for Shiny apps.</p>
+<p>Basic <code>shinytest</code> proceedure:</p>
+<div class="figure">
+<img src="imgs/testing/testing-proceedure.png" alt="shinytest proceedure" />
+<p class="caption">shinytest proceedure</p>
+</div>
+<p>Support for <code>shinytest</code> is available in RStudio v1.2 preview.</p>
+<p><strong>Installation</strong></p>
+<p>`install.packages(“shinytest”)</p>
+<p><strong>Note:</strong> When running <code>shinytest</code> for the first time, you may be prompted by the RStudio IDE or package warning messages to install some dependencies. <code>shinytest</code> requires a headless web browser (PhantomJS) to record and run tests.</p>
+<ul>
+<li>To install it, run shinytest::installDependencies()</li>
+<li>If it is installed, make sure the phantomjs executable can be found via the PATH variable.</li>
+</ul>
+<p><strong>Record Tests</strong></p>
+<ul>
+<li>Run <code>recordTest()</code> to launch the app in a test recorder.</li>
+<li>Create the tests by interacting with the application - this will allow the recorder to snapshot the application state at various points.</li>
+<li>Quit the test recorder. This action will trigger the following events:
+<ul>
+<li>The test script will be saved as a .R file in a subdirectory of the application named <code>tests/</code>.</li>
+<li>If you are running in the RStudio IDE, it will automatically open this file in the editor.</li>
+<li>The test script will be run, and the snapshots will be saved in a subdirectory of the <code>tests/</code> directory.</li>
+</ul></li>
+</ul>
+<p>To record tests from <code>R</code>, run the following:</p>
+<pre><code>library(shinytest)
+
+recordTest(&quot;path/to/the/app&quot;)   #Replace with the correct path</code></pre>
+<p>To record tests from RStudio v1.2, when an application file (app.R, server.R, ui.R or global.R) is open in the editor, a button labeled <em>Run App</em> will appear at the top of the editor pane. Click on the small black triangle next to this button to reveal the menu of extended options.</p>
+<div class="figure">
+<img src="imgs/testing/record_test_button.png" alt="Record Test Button" />
+<p class="caption">Record Test Button</p>
+</div>
+<p>This launches the Shiny application to be tested in a separate R process. We’ll refer to this as the <strong>target app</strong>. At the same time, the current R process lauches a special Shiny application which displays the target app in an iframe along with some controls. We’ll refer to this as the <strong>recorder app</strong>. You should see something like this:</p>
+<div class="figure">
+<img src="imgs/testing/recorder_and_target.png" alt="Target and Recorder App iframe" />
+<p class="caption">Target and Recorder App iframe</p>
+</div>
+<p>The panel on the right displays some controls for the test recorder, as well as a list of <strong>recorded events</strong>. As you interact with the target app, you will see those interactions appear in the recorded events list.</p>
+<p>For testing a Shiny application, interacting with the inputs is only one part of the equation. It’s also necessary to check that the application produces the correct outputs. This is accomplished by taking <strong>snapshots</strong> of the application’s state.</p>
+<p>To take a snapshot of the application’s state, click the <em>Take snapshot</em> button on the recorder app. This will record all input values, output values, and exported values.</p>
+<p><strong>Running Tests</strong></p>
+<p>When you quit the test recorder, it will automatically run the test script. There are three separate components involved in running tests:</p>
+<ol style="list-style-type: decimal">
+<li>First is the <strong>test driver</strong>. This is the R process that coordiates the testing and controls the web browser. When working on creating tests interactively, this is the R process that you use.</li>
+<li>Next is the <strong>Shiny process</strong>, also known as the <strong>server</strong>. This is the R process that runs the target Shiny application.</li>
+<li>Finally, there is the <strong>web browser</strong>, also known as the <strong>client</strong>, which connects to the server. This is a headless web browser - one which renders the web page internally, but doesn’t display the content to the screen (PhantomJS).</li>
+</ol>
+<p>So, when you exit the test recorder, it will by default automatically run the test script and print something like this:</p>
+<pre><code>Saved test code to /path/to/app/tests/mytest.R
+Running mytest.R 
+====== Comparing mytest ...
+  No existing snapshots at mytest-expected/. This is a first run of tests.
+
+Updating baseline snapshot at tests/mytest-expected
+Renaming tests/mytest-current
+      =&gt; tests/mytest-expected.</code></pre>
+<p>This is the result of running <code>testApp()</code>, which can also be manually run by providing the desired application and test like this:</p>
+<p><code>testApp(&quot;exampleApp&quot;, &quot;mytest&quot;)</code></p>
+<p>The built-in integreation with RStudio v1.2 provides <code>Run Tests</code> as a drop down menu option in your Shiny app source file (see it located under the <em>Record Test</em> option in the screenshot above).</p>
+<p><strong>Subsequent Test Runs</strong></p>
+<p>After the initial test run, you can continue to run the tests to check for changes in application behavior.</p>
+<p>If there are any differences between current and expected results, the test output will look something like this:</p>
+<pre><code>Running mytest.R 
+====== Comparing mytest ...
+  Differences detected between mytest-current/ and mytest-expected/:
+
+    Name         Status      
+    001.json  != Files differ
+    001.png   != Files differ
+Would you like to view the differences between expected and current results [y/n]? </code></pre>
+<p>To view failed tests in the RStudio IDE, go to the <em>Build tab</em> and make sure the <em>issues toggle</em> is selected:</p>
+<div class="figure">
+<img src="imgs/testing/failed_tests.png" alt="View Failed Tests" />
+<p class="caption">View Failed Tests</p>
+</div>
+<p>For each test with different results, you can see the differences between the expected and current results.</p>
+<p><strong>Testing Code</strong></p>
+<p>The <code>shinytest</code> package was created for testing Shiny applications on the interaction-level. To test Shiny code and functions, we suggest using the <code>testthat</code> package.</p>
+<p><a href="http://testthat.r-lib.org/">Info</a>
+<a href="https://github.com/r-lib/testthat">GitHub</a></p>
+<p>Learn about testing and how to setup test workflow and structure: <a href="http://r-pkgs.had.co.nz/tests.html">R packages by Hadley Wickham</a></p>
+</div>
+<div id="activity-shinytest" class="section level2">
+<h2><span class="header-section-number">4.2</span> Activity: <code>shinytest</code></h2>
+<p><strong>First: Open app.R and use ‘Record Test’</strong></p>
+<p><strong>Discussion:</strong></p>
+<p><em>Understanding shinytest</em></p>
+<ul>
+<li>What does the recording file create?</li>
+<li>What challenges might our app pose to testing?</li>
+<li>Can you run the tests and get a success?</li>
+<li>How might you automate tests?</li>
+</ul>
+<p><strong>Deliverable: Try <code>shinytest</code></strong></p>
+<ul>
+<li>A set of tests that can catch unintentional changes to our app.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="app-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="profiling-the-most-important-thing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["spc-supplement.pdf", "spc-supplement.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

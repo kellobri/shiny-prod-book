@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Supplement to Shiny in Production</title>
+  <meta name="description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Supplement to Shiny in Production" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Supplement to Shiny in Production" />
+  
+  <meta name="twitter:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+
+
+<meta name="date" content="2019-01-14">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="profiling-the-most-important-thing.html">
+<link rel="next" href="connecting-to-data-in-production.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rstudio::conf 2019</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Shiny in Production Workshop</a></li>
+<li class="chapter" data-level="2" data-path="course-intro.html"><a href="course-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Shiny in Production</a><ul>
+<li class="chapter" data-level="2.1" data-path="course-intro.html"><a href="course-intro.html#workshop-objectives"><i class="fa fa-check"></i><b>2.1</b> Workshop Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="course-intro.html"><a href="course-intro.html#workshop-infrastructure"><i class="fa fa-check"></i><b>2.2</b> Workshop Infrastructure</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="app-intro.html"><a href="app-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction to the Application</a><ul>
+<li class="chapter" data-level="3.1" data-path="app-intro.html"><a href="app-intro.html#activity-explore-the-application"><i class="fa fa-check"></i><b>3.1</b> Activity: Explore the Application</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html"><i class="fa fa-check"></i><b>4</b> Application Testing: <code>shinytest</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#testing-options"><i class="fa fa-check"></i><b>4.1</b> Testing Options</a></li>
+<li class="chapter" data-level="4.2" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#activity-shinytest"><i class="fa fa-check"></i><b>4.2</b> Activity: <code>shinytest</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html"><i class="fa fa-check"></i><b>5</b> Profiling: “The most important thing”</a><ul>
+<li class="chapter" data-level="5.1" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html#activity-profiling"><i class="fa fa-check"></i><b>5.1</b> Activity: Profiling</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>6</b> Deployment</a><ul>
+<li class="chapter" data-level="6.1" data-path="deployment.html"><a href="deployment.html#rstudio-connect"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6.2" data-path="deployment.html"><a href="deployment.html#activity-inital-deployment"><i class="fa fa-check"></i><b>6.2</b> Activity: Inital Deployment</a></li>
+<li class="chapter" data-level="6.3" data-path="deployment.html"><a href="deployment.html#application-settings"><i class="fa fa-check"></i><b>6.3</b> Application Settings</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="deployment.html"><a href="deployment.html#access"><i class="fa fa-check"></i><b>6.3.1</b> Access</a></li>
+<li class="chapter" data-level="6.3.2" data-path="deployment.html"><a href="deployment.html#metadata"><i class="fa fa-check"></i><b>6.3.2</b> Metadata</a></li>
+<li class="chapter" data-level="6.3.3" data-path="deployment.html"><a href="deployment.html#logs"><i class="fa fa-check"></i><b>6.3.3</b> Logs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html"><i class="fa fa-check"></i><b>7</b> Connecting to Data in Production</a><ul>
+<li class="chapter" data-level="7.1" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#the-config-package"><i class="fa fa-check"></i><b>7.1</b> The <code>config</code> package</a></li>
+<li class="chapter" data-level="7.2" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#environment-variables"><i class="fa fa-check"></i><b>7.2</b> Environment Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#activity-databases"><i class="fa fa-check"></i><b>7.3</b> Activity: Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="load-testing.html"><a href="load-testing.html"><i class="fa fa-check"></i><b>8</b> Load Testing</a><ul>
+<li class="chapter" data-level="8.1" data-path="load-testing.html"><a href="load-testing.html#optimization-loop-methodology"><i class="fa fa-check"></i><b>8.1</b> Optimization Loop Methodology</a></li>
+<li class="chapter" data-level="8.2" data-path="load-testing.html"><a href="load-testing.html#activity-load-testing"><i class="fa fa-check"></i><b>8.2</b> Activity: Load Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="plot-caching.html"><a href="plot-caching.html"><i class="fa fa-check"></i><b>9</b> Plot Caching</a><ul>
+<li class="chapter" data-level="9.1" data-path="plot-caching.html"><a href="plot-caching.html#when-to-use-plot-caching"><i class="fa fa-check"></i><b>9.1</b> When to use plot caching</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="plot-caching.html"><a href="plot-caching.html#using-rendercachedplot"><i class="fa fa-check"></i><b>9.1.1</b> Using <code>renderCachedPlot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="plot-caching.html"><a href="plot-caching.html#activity-plot-cache-benchmarking"><i class="fa fa-check"></i><b>9.2</b> Activity: Plot cache benchmarking</a></li>
+<li class="chapter" data-level="9.3" data-path="plot-caching.html"><a href="plot-caching.html#extended-topics"><i class="fa fa-check"></i><b>9.3</b> Extended Topics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="scaling.html"><a href="scaling.html"><i class="fa fa-check"></i><b>10</b> Scaling</a><ul>
+<li class="chapter" data-level="10.1" data-path="scaling.html"><a href="scaling.html#rstudio-connect-performance-settings"><i class="fa fa-check"></i><b>10.1</b> RStudio Connect Performance Settings</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="scaling.html"><a href="scaling.html#content-scheduler"><i class="fa fa-check"></i><b>10.1.1</b> Content Scheduler</a></li>
+<li class="chapter" data-level="10.1.2" data-path="scaling.html"><a href="scaling.html#scheduling-parameters"><i class="fa fa-check"></i><b>10.1.2</b> Scheduling Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="scaling.html"><a href="scaling.html#activity-runtime-settings"><i class="fa fa-check"></i><b>10.2</b> Activity: Runtime Settings</a></li>
+<li class="chapter" data-level="10.3" data-path="scaling.html"><a href="scaling.html#activity-admin-dashboard"><i class="fa fa-check"></i><b>10.3</b> Activity: Admin Dashboard</a></li>
+<li class="chapter" data-level="10.4" data-path="scaling.html"><a href="scaling.html#extended-topics-1"><i class="fa fa-check"></i><b>10.4</b> Extended Topics</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="scaling.html"><a href="scaling.html#high-availability-and-horizontal-scaling"><i class="fa fa-check"></i><b>10.4.1</b> High Availability and Horizontal Scaling</a></li>
+<li class="chapter" data-level="10.4.2" data-path="scaling.html"><a href="scaling.html#r-markdown-documents-with-runtimeshiny"><i class="fa fa-check"></i><b>10.4.2</b> R Markdown Documents with runtime::shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html"><i class="fa fa-check"></i><b>11</b> Alternatives to Shiny</a><ul>
+<li class="chapter" data-level="11.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#plumber"><i class="fa fa-check"></i><b>11.1</b> Plumber</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#intro-to-plumber"><i class="fa fa-check"></i><b>11.1.1</b> Intro to Plumber</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-plumber"><i class="fa fa-check"></i><b>11.2</b> Activity: Plumber</a></li>
+<li class="chapter" data-level="11.3" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#r-markdown"><i class="fa fa-check"></i><b>11.3</b> R Markdown</a></li>
+<li class="chapter" data-level="11.4" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-r-markdown"><i class="fa fa-check"></i><b>11.4</b> Activity: R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>12</b> DevOps Philosophy &amp; Tooling</a><ul>
+<li class="chapter" data-level="12.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#integrating-data-science-and-devops"><i class="fa fa-check"></i><b>12.1</b> Integrating Data Science and DevOps</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#how-does-data-science-fit-in-with-the-devops-philosophy"><i class="fa fa-check"></i><b>12.1.1</b> How does data science fit in with the DevOps philosophy?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#what-do-your-dev-test-and-production-environments-look-like"><i class="fa fa-check"></i><b>12.1.2</b> What do your dev, test and production environments look like?</a></li>
+<li class="chapter" data-level="12.1.3" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#does-code-deployment-feel-like-a-high-risk-operation"><i class="fa fa-check"></i><b>12.1.3</b> Does code deployment feel like a high-risk operation?</a></li>
+<li class="chapter" data-level="12.1.4" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#can-deployments-be-decoupled-from-releases"><i class="fa fa-check"></i><b>12.1.4</b> Can deployments be decoupled from releases?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="production-case-studies.html"><a href="production-case-studies.html"><i class="fa fa-check"></i><b>13</b> Production Case Studies</a><ul>
+<li class="chapter" data-level="13.1" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-a-devtestprod"><i class="fa fa-check"></i><b>13.1</b> Case Study A: Dev/Test/Prod</a></li>
+<li class="chapter" data-level="13.2" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-b-ci-git-chef"><i class="fa fa-check"></i><b>13.2</b> Case Study B: CI, Git, Chef</a></li>
+<li class="chapter" data-level="13.3" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-c-docker"><i class="fa fa-check"></i><b>13.3</b> Case Study C: Docker</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="shiny-async.html"><a href="shiny-async.html"><i class="fa fa-check"></i><b>14</b> Shiny Async</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Supplement to Shiny in Production</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="deployment" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Deployment</h1>
+<div id="rstudio-connect" class="section level2">
+<h2><span class="header-section-number">6.1</span> RStudio Connect</h2>
+<blockquote>
+<p>It doesn’t matter how great your analysis is unless you can explain it to others: you need to communicate your results. - Grolemund &amp; Wickham in <em>R For Data Science</em></p>
+</blockquote>
+<p>RStudio Connect connects you and the work you do in R with others as never before. Only RStudio Connect
+provides:</p>
+<ul>
+<li>“One button” deployment for any Shiny application, R Markdown document, or any static plot or
+graph to a single environment.</li>
+<li>The ability to manage and limit access to the work you’ve shared with others - and easily see the work
+they’ve shared with you.</li>
+<li>“Hands free” scheduling of updates to your documents and automatic email distribution.</li>
+</ul>
+<p>RStudio Professional Quickstart (VirtualBox VM Download - Available Jan. 20)</p>
+<div class="figure">
+<img src="imgs/deployment/explain-connect.png" alt="RStudio Connect" />
+<p class="caption">RStudio Connect</p>
+</div>
+<ul>
+<li>User Guide: Connecting</li>
+<li>User Guide: Publishing</li>
+</ul>
+</div>
+<div id="activity-inital-deployment" class="section level2">
+<h2><span class="header-section-number">6.2</span> Activity: Inital Deployment</h2>
+<p><strong>First: Login to RStudio Connect</strong></p>
+<p><strong>Discussion:</strong></p>
+<p><em>Pre-deployment Brainstorm</em></p>
+<ul>
+<li>What is our goal in deploying this code?</li>
+<li>What does our code depend on locally?</li>
+<li>What needs to deploy with our code?</li>
+</ul>
+<p><strong>Deliverable: Deployed App</strong></p>
+<p>Press the publish button in RStudio:</p>
+<ul>
+<li>Link to your Connect account</li>
+<li>Select the files to publish (do NOT use the default to publish all the files)</li>
+<li>Poke around at the results</li>
+</ul>
+<p><em>Note: We are expecting an error!</em></p>
+</div>
+<div id="application-settings" class="section level2">
+<h2><span class="header-section-number">6.3</span> Application Settings</h2>
+<div id="access" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Access</h3>
+<p>After publishing a piece of content to RStudio Connect, the Connect user interface will open to show the
+access panel.</p>
+<div class="figure">
+<img src="imgs/deployment/access-settings.png" alt="Access Settings Options" />
+<p class="caption">Access Settings Options</p>
+</div>
+<p>There are three types of user interaction settings available to publishers in this panel:</p>
+<ul>
+<li>Viewer Access (who can see this content)</li>
+<li>Collaborator Access (who can change this content)</li>
+<li>Execution User (which server user will run the content)</li>
+</ul>
+<p>The final setting for creating a vanity URL is reserved for administrators only.</p>
+</div>
+<div id="metadata" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Metadata</h3>
+<p>After your RStudio Connect content has been published, you can change its title, add a description, and
+upload a content image to make it easier for others to find your content.
+First, open the content and click on the “info” tab.</p>
+<div class="figure">
+<img src="imgs/deployment/info-settings.png" alt="Metadata and Info Settings" />
+<p class="caption">Metadata and Info Settings</p>
+</div>
+<p>The top text field is the application title. This defaults to the application name if it was given. Other users
+will not be able to edit this field unless they are collaborators or administrators.
+The second, larger text area is the application description. You can describe the content in this field, or add
+other information that you feel is important. Other users will not be able to edit this field unless they are
+collaborators or administrators.</p>
+<p>The area that displays a prompt to select an image for this content is the content image field. You can upload
+a jpeg, png, gif, or svg image that represents the content. Unlike title or description, users who cannot view
+the content (including administrators) will also be unable to view the image you have uploaded. This way, if
+you wish to upload a screenshot of the content, any information contained in that screenshot will not leak to
+users who would not otherwise be able to access it.</p>
+</div>
+<div id="logs" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Logs</h3>
+<p>The logs panel allows you to view a history of jobs and snapshots as well as view and download the latest content logs. Content logs can be especially useful for debugging a failed deployment or unexpected behavior.</p>
+<div class="figure">
+<img src="imgs/deployment/rsc-logs.png" alt="Application Logs" />
+<p class="caption">Application Logs</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="profiling-the-most-important-thing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="connecting-to-data-in-production.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["spc-supplement.pdf", "spc-supplement.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

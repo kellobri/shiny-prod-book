@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Supplement to Shiny in Production</title>
+  <meta name="description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Supplement to Shiny in Production" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Supplement to Shiny in Production" />
+  
+  <meta name="twitter:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+
+
+<meta name="date" content="2019-01-14">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="scaling.html">
+<link rel="next" href="devops-philosophy-tooling.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rstudio::conf 2019</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Shiny in Production Workshop</a></li>
+<li class="chapter" data-level="2" data-path="course-intro.html"><a href="course-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Shiny in Production</a><ul>
+<li class="chapter" data-level="2.1" data-path="course-intro.html"><a href="course-intro.html#workshop-objectives"><i class="fa fa-check"></i><b>2.1</b> Workshop Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="course-intro.html"><a href="course-intro.html#workshop-infrastructure"><i class="fa fa-check"></i><b>2.2</b> Workshop Infrastructure</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="app-intro.html"><a href="app-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction to the Application</a><ul>
+<li class="chapter" data-level="3.1" data-path="app-intro.html"><a href="app-intro.html#activity-explore-the-application"><i class="fa fa-check"></i><b>3.1</b> Activity: Explore the Application</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html"><i class="fa fa-check"></i><b>4</b> Application Testing: <code>shinytest</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#testing-options"><i class="fa fa-check"></i><b>4.1</b> Testing Options</a></li>
+<li class="chapter" data-level="4.2" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#activity-shinytest"><i class="fa fa-check"></i><b>4.2</b> Activity: <code>shinytest</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html"><i class="fa fa-check"></i><b>5</b> Profiling: “The most important thing”</a><ul>
+<li class="chapter" data-level="5.1" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html#activity-profiling"><i class="fa fa-check"></i><b>5.1</b> Activity: Profiling</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>6</b> Deployment</a><ul>
+<li class="chapter" data-level="6.1" data-path="deployment.html"><a href="deployment.html#rstudio-connect"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6.2" data-path="deployment.html"><a href="deployment.html#activity-inital-deployment"><i class="fa fa-check"></i><b>6.2</b> Activity: Inital Deployment</a></li>
+<li class="chapter" data-level="6.3" data-path="deployment.html"><a href="deployment.html#application-settings"><i class="fa fa-check"></i><b>6.3</b> Application Settings</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="deployment.html"><a href="deployment.html#access"><i class="fa fa-check"></i><b>6.3.1</b> Access</a></li>
+<li class="chapter" data-level="6.3.2" data-path="deployment.html"><a href="deployment.html#metadata"><i class="fa fa-check"></i><b>6.3.2</b> Metadata</a></li>
+<li class="chapter" data-level="6.3.3" data-path="deployment.html"><a href="deployment.html#logs"><i class="fa fa-check"></i><b>6.3.3</b> Logs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html"><i class="fa fa-check"></i><b>7</b> Connecting to Data in Production</a><ul>
+<li class="chapter" data-level="7.1" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#the-config-package"><i class="fa fa-check"></i><b>7.1</b> The <code>config</code> package</a></li>
+<li class="chapter" data-level="7.2" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#environment-variables"><i class="fa fa-check"></i><b>7.2</b> Environment Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#activity-databases"><i class="fa fa-check"></i><b>7.3</b> Activity: Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="load-testing.html"><a href="load-testing.html"><i class="fa fa-check"></i><b>8</b> Load Testing</a><ul>
+<li class="chapter" data-level="8.1" data-path="load-testing.html"><a href="load-testing.html#optimization-loop-methodology"><i class="fa fa-check"></i><b>8.1</b> Optimization Loop Methodology</a></li>
+<li class="chapter" data-level="8.2" data-path="load-testing.html"><a href="load-testing.html#activity-load-testing"><i class="fa fa-check"></i><b>8.2</b> Activity: Load Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="plot-caching.html"><a href="plot-caching.html"><i class="fa fa-check"></i><b>9</b> Plot Caching</a><ul>
+<li class="chapter" data-level="9.1" data-path="plot-caching.html"><a href="plot-caching.html#when-to-use-plot-caching"><i class="fa fa-check"></i><b>9.1</b> When to use plot caching</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="plot-caching.html"><a href="plot-caching.html#using-rendercachedplot"><i class="fa fa-check"></i><b>9.1.1</b> Using <code>renderCachedPlot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="plot-caching.html"><a href="plot-caching.html#activity-plot-cache-benchmarking"><i class="fa fa-check"></i><b>9.2</b> Activity: Plot cache benchmarking</a></li>
+<li class="chapter" data-level="9.3" data-path="plot-caching.html"><a href="plot-caching.html#extended-topics"><i class="fa fa-check"></i><b>9.3</b> Extended Topics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="scaling.html"><a href="scaling.html"><i class="fa fa-check"></i><b>10</b> Scaling</a><ul>
+<li class="chapter" data-level="10.1" data-path="scaling.html"><a href="scaling.html#rstudio-connect-performance-settings"><i class="fa fa-check"></i><b>10.1</b> RStudio Connect Performance Settings</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="scaling.html"><a href="scaling.html#content-scheduler"><i class="fa fa-check"></i><b>10.1.1</b> Content Scheduler</a></li>
+<li class="chapter" data-level="10.1.2" data-path="scaling.html"><a href="scaling.html#scheduling-parameters"><i class="fa fa-check"></i><b>10.1.2</b> Scheduling Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="scaling.html"><a href="scaling.html#activity-runtime-settings"><i class="fa fa-check"></i><b>10.2</b> Activity: Runtime Settings</a></li>
+<li class="chapter" data-level="10.3" data-path="scaling.html"><a href="scaling.html#activity-admin-dashboard"><i class="fa fa-check"></i><b>10.3</b> Activity: Admin Dashboard</a></li>
+<li class="chapter" data-level="10.4" data-path="scaling.html"><a href="scaling.html#extended-topics-1"><i class="fa fa-check"></i><b>10.4</b> Extended Topics</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="scaling.html"><a href="scaling.html#high-availability-and-horizontal-scaling"><i class="fa fa-check"></i><b>10.4.1</b> High Availability and Horizontal Scaling</a></li>
+<li class="chapter" data-level="10.4.2" data-path="scaling.html"><a href="scaling.html#r-markdown-documents-with-runtimeshiny"><i class="fa fa-check"></i><b>10.4.2</b> R Markdown Documents with runtime::shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html"><i class="fa fa-check"></i><b>11</b> Alternatives to Shiny</a><ul>
+<li class="chapter" data-level="11.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#plumber"><i class="fa fa-check"></i><b>11.1</b> Plumber</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#intro-to-plumber"><i class="fa fa-check"></i><b>11.1.1</b> Intro to Plumber</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-plumber"><i class="fa fa-check"></i><b>11.2</b> Activity: Plumber</a></li>
+<li class="chapter" data-level="11.3" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#r-markdown"><i class="fa fa-check"></i><b>11.3</b> R Markdown</a></li>
+<li class="chapter" data-level="11.4" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-r-markdown"><i class="fa fa-check"></i><b>11.4</b> Activity: R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>12</b> DevOps Philosophy &amp; Tooling</a><ul>
+<li class="chapter" data-level="12.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#integrating-data-science-and-devops"><i class="fa fa-check"></i><b>12.1</b> Integrating Data Science and DevOps</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#how-does-data-science-fit-in-with-the-devops-philosophy"><i class="fa fa-check"></i><b>12.1.1</b> How does data science fit in with the DevOps philosophy?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#what-do-your-dev-test-and-production-environments-look-like"><i class="fa fa-check"></i><b>12.1.2</b> What do your dev, test and production environments look like?</a></li>
+<li class="chapter" data-level="12.1.3" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#does-code-deployment-feel-like-a-high-risk-operation"><i class="fa fa-check"></i><b>12.1.3</b> Does code deployment feel like a high-risk operation?</a></li>
+<li class="chapter" data-level="12.1.4" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#can-deployments-be-decoupled-from-releases"><i class="fa fa-check"></i><b>12.1.4</b> Can deployments be decoupled from releases?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="production-case-studies.html"><a href="production-case-studies.html"><i class="fa fa-check"></i><b>13</b> Production Case Studies</a><ul>
+<li class="chapter" data-level="13.1" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-a-devtestprod"><i class="fa fa-check"></i><b>13.1</b> Case Study A: Dev/Test/Prod</a></li>
+<li class="chapter" data-level="13.2" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-b-ci-git-chef"><i class="fa fa-check"></i><b>13.2</b> Case Study B: CI, Git, Chef</a></li>
+<li class="chapter" data-level="13.3" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-c-docker"><i class="fa fa-check"></i><b>13.3</b> Case Study C: Docker</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="shiny-async.html"><a href="shiny-async.html"><i class="fa fa-check"></i><b>14</b> Shiny Async</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Supplement to Shiny in Production</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="alternatives-to-shiny" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Alternatives to Shiny</h1>
+<div id="plumber" class="section level2">
+<h2><span class="header-section-number">11.1</span> Plumber</h2>
+<p><em>Could our student “scoring” be hosted outside of the Shiny app?</em></p>
+<div class="figure">
+<img src="imgs/shiny-alt/plumber-alt.png" alt="Plumber Scoring" />
+<p class="caption">Plumber Scoring</p>
+</div>
+<div id="intro-to-plumber" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> Intro to Plumber</h3>
+<p><strong>Resources:</strong></p>
+<p>Plumber is an R package that converts your existing R code to a web API using a handful of special one-line comments.</p>
+<blockquote>
+<p>What are Web APIs? For some, APIs (Application Programming Interface) are things heard of but seldom seen. However, whether seen or unseen, APIs are part of everyday digital life. In fact, you’ve likely used a web API from within R, even if you didn’t recognize it at the time! Several R packages are simply wrappers around popular web APIs, such as <code>tidycensus</code> and <code>gh</code>. Web APIs are a framework for sharing information across a network, most commonly through HTTP.</p>
+</blockquote>
+<p>You can install the latest stable version from CRAN using the following command:</p>
+<pre><code>install.packages(&quot;plumber&quot;)</code></pre>
+<p>These comments allow plumber to make your R functions available as API endpoints. You can either prefix the comments with <code>#*</code> or <code>#'</code> but we recommend the former since <code>#'</code> will conflict with the Roxygen package.</p>
+<p>Basic example:</p>
+<ol style="list-style-type: decimal">
+<li>Create a File: <code>plumber.R</code></li>
+</ol>
+<pre><code># plumber.R
+
+#* Echo back the input
+#* @param msg The message to echo
+#* @get /echo
+function(msg=&quot;&quot;){
+  list(msg = paste0(&quot;The message is: &#39;&quot;, msg, &quot;&#39;&quot;))
+}
+
+#* Plot a histogram
+#* @png
+#* @get /plot
+function(){
+  rand &lt;- rnorm(100)
+  hist(rand)
+}
+
+#* Return the sum of two numbers
+#* @param a The first number to add
+#* @param b The second number to add
+#* @post /sum
+function(a, b){
+  as.numeric(a) + as.numeric(b)
+}</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Serve the <code>plumber.R</code> file from the R console:</li>
+</ol>
+<pre><code>library(plumber)
+r &lt;- plumb(&quot;plumber.R&quot;)  # Where &#39;plumber.R&#39; is the location of the file shown above
+r$run(port=8000)</code></pre>
+<p>You can visit this URL using a browser or a terminal to run your R function and get the results. For instance <a href="http://localhost:8000/plot" class="uri">http://localhost:8000/plot</a> will show you a histogram, and <a href="http://localhost:8000/echo?msg=hello" class="uri">http://localhost:8000/echo?msg=hello</a> will echo back the ‘hello’ message you provided.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Hit the endpoints (example: use <code>curl</code> from mac/linux terminal)</li>
+</ol>
+<pre><code>$ curl &quot;http://localhost:8000/echo&quot;
+ {&quot;msg&quot;:[&quot;The message is: &#39;&#39;&quot;]}
+ 
+$ curl &quot;http://localhost:8000/echo?msg=hello&quot;
+ {&quot;msg&quot;:[&quot;The message is: &#39;hello&#39;&quot;]}
+ 
+$ curl --data &quot;a=4&amp;b=3&quot; &quot;http://localhost:8000/sum&quot;
+ [7]</code></pre>
+<p><strong>References and Resources:</strong></p>
+<ul>
+<li><a href="https://www.rplumber.io/">Reference: Plumber Docs</a></li>
+<li><a href="https://blog.rstudio.com/2018/10/23/rstudio-1-2-preview-plumber-integration/">Plumber Integration in RStudio 1.2</a></li>
+<li><a href="https://rviews.rstudio.com/2018/07/23/rest-apis-and-plumber/">RViews Blog: REST APIs and Plumber by James Blair</a></li>
+<li><a href="https://www.rstudio.com/resources/videos/plumber-turning-your-r-code-into-an-api/">Video: Turning your R code into an API by Jeff Allen</a></li>
+<li><a href="https://www.rstudio.com/resources/videos/plumbing-apis-with-plumber/">Webinar: Plumbing APIs with Plumber by Jeff Allen</a></li>
+</ul>
+</div>
+</div>
+<div id="activity-plumber" class="section level2">
+<h2><span class="header-section-number">11.2</span> Activity: Plumber</h2>
+<p><strong>First: Try creating your own plumber API in the IDE (New File)</strong></p>
+<p><strong>Discussion:</strong></p>
+<p><em>Consider our new architecture</em></p>
+<p>Does my R functionality need to be accessed by other systems?</p>
+<ul>
+<li>Why might a RESTful API be easier to scale than a Shiny app?
+<ul>
+<li>Requests are stateless, so it is easier for R processes to come and go.</li>
+</ul></li>
+<li>What benefits come from pulling the modeling code out of our app?
+<ul>
+<li>We can update the model independently of the app, e.g. if we wanted to retrain.</li>
+</ul></li>
+</ul>
+<p><strong>Deliverable:</strong></p>
+<ul>
+<li>Add an item to our production checklist to consider plumber.</li>
+<li>Add 2 decision criteria to the checklist to decide when a plumber API would be useful.</li>
+</ul>
+</div>
+<div id="r-markdown" class="section level2">
+<h2><span class="header-section-number">11.3</span> R Markdown</h2>
+<p>R Markdown is an open-source R package that turns your analyses into high quality documents, reports, presentations and dashboards. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code. R Markdown documents are fully reproducible and support dozens of output formats including HTML, PDF, and Microsoft Word documents.</p>
+<p>R Markdown files are designed to be used with the <code>rmarkdown</code> package. <code>rmarkdown</code> comes installed with the RStudio IDE, but you can acquire your own copy of <code>rmarkdown</code> from CRAN with the command:</p>
+<pre><code>install.packages(&quot;rmarkdown&quot;)</code></pre>
+<p>R Markdown reports rely on three frameworks:</p>
+<ol style="list-style-type: decimal">
+<li><code>markdown</code> for formatted text</li>
+<li><code>knitr</code> for embedded R code</li>
+<li><code>YAML</code> for render parameters</li>
+</ol>
+<p>To create an R Markdown report, open a plain text file and save it with the extension .Rmd. You can open a plain text file in your scripts editor by clicking File &gt; New File &gt; Text File in the RStudio toolbar.</p>
+<div class="figure">
+<img src="imgs/shiny-alt/rmd-diagram.png" alt="Publishing R Markdown" />
+<p class="caption">Publishing R Markdown</p>
+</div>
+<p><strong>Publishing R Markdown to RStudio Connect</strong></p>
+<ul>
+<li><strong>Publishing Destination</strong></li>
+</ul>
+<p>When publishing documents to RStudio Connect, you may encounter other deployment options depending on your content.</p>
+<ul>
+<li>RPubs documents are (1) always public, (2) always self-contained, and (3) and cannot contain any Shiny content.</li>
+<li><p>Choose “RStudio Connect” to publish to your RStudio Connect server.</p></li>
+<li><p><strong>Publish Source Code</strong></p></li>
+</ul>
+<p>Publishing the document with source code means that your R Markdown file (.Rmd) will be deployed to RStudio Connect. This file is rendered (usually to HTML) on the server.</p>
+<p>Publishing only the finished document means that the HTML file you rendered locally is deployed to RStudio Connect.</p>
+<p>We recommend publishing your documents with source code, as it allows you to re-render the document with RStudio Connect (on a weekly schedule, for example). If the document cannot be rendered by RStudio Connect because of files or data sources that are unavailable on the server, choose “Publish finished document only” so others can view your work.</p>
+<ul>
+<li><strong>Document Selection</strong></li>
+</ul>
+<p>It is possible to link together multiple R Markdown documents to make a multi-page document, so this is your chance to indicate that you’ve done this, and to publish all the documents at once. In most cases however you’ll want to publish just the current document.</p>
+<ul>
+<li><p><a href="https://docs.rstudio.com/connect/user/publishing.html#publishing-documents">RStudio Connect Publishing Guide</a></p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/">R Markdown</a></p></li>
+</ul>
+<div class="figure">
+<img src="imgs/shiny-alt/rmd-cheatsheet.png" alt="R Markdown Cheatsheet Preview" />
+<p class="caption">R Markdown Cheatsheet Preview</p>
+</div>
+<p><strong>References and Resources:</strong></p>
+<ul>
+<li><a href="https://docs.rstudio.com/connect/user/r-markdown.html">R Markdown in the RStudio Connect User Guide</a></li>
+<li><a href="https://rmarkdown.rstudio.com/articles.html">R Markdown Reference Articles</a></li>
+<li><a href="https://rviews.rstudio.com/2018/11/01/r-markdown-a-better-approach/">RViews Blog: Communicating results with R Markdown by Nathan Stephens</a></li>
+<li><a href="https://rviews.rstudio.com/2018/05/16/replacing-excel-reports-with-r-markdown-and-shiny/">RViews Blog: Enterprise Dashboards with R Markdown by Nathan Stephens</a></li>
+</ul>
+</div>
+<div id="activity-r-markdown" class="section level2">
+<h2><span class="header-section-number">11.4</span> Activity: R Markdown</h2>
+<p><strong>First: Create your own R markdown document (New File)</strong></p>
+<p><strong>Discussion:</strong></p>
+<p><em>Consider R Markdown</em></p>
+<ul>
+<li>How does an R Markdown document scale?</li>
+<li>What types of interactivity can be added to R Markdown?</li>
+</ul>
+<p><strong>Deliverable:</strong></p>
+<ul>
+<li>Create a decision matrix comparing Shiny to R Markdown</li>
+</ul>
+<div class="figure">
+<img src="imgs/shiny-alt/rmd-answers.png" alt="Rmd Exercise" />
+<p class="caption">Rmd Exercise</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="scaling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="devops-philosophy-tooling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["spc-supplement.pdf", "spc-supplement.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

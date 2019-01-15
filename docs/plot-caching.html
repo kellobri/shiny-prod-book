@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Supplement to Shiny in Production</title>
+  <meta name="description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Supplement to Shiny in Production" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Supplement to Shiny in Production" />
+  
+  <meta name="twitter:description" content="This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019." />
+  
+
+
+
+<meta name="date" content="2019-01-14">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="load-testing.html">
+<link rel="next" href="scaling.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rstudio::conf 2019</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Shiny in Production Workshop</a></li>
+<li class="chapter" data-level="2" data-path="course-intro.html"><a href="course-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Shiny in Production</a><ul>
+<li class="chapter" data-level="2.1" data-path="course-intro.html"><a href="course-intro.html#workshop-objectives"><i class="fa fa-check"></i><b>2.1</b> Workshop Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="course-intro.html"><a href="course-intro.html#workshop-infrastructure"><i class="fa fa-check"></i><b>2.2</b> Workshop Infrastructure</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="app-intro.html"><a href="app-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction to the Application</a><ul>
+<li class="chapter" data-level="3.1" data-path="app-intro.html"><a href="app-intro.html#activity-explore-the-application"><i class="fa fa-check"></i><b>3.1</b> Activity: Explore the Application</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html"><i class="fa fa-check"></i><b>4</b> Application Testing: <code>shinytest</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#testing-options"><i class="fa fa-check"></i><b>4.1</b> Testing Options</a></li>
+<li class="chapter" data-level="4.2" data-path="application-testing-shinytest.html"><a href="application-testing-shinytest.html#activity-shinytest"><i class="fa fa-check"></i><b>4.2</b> Activity: <code>shinytest</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html"><i class="fa fa-check"></i><b>5</b> Profiling: “The most important thing”</a><ul>
+<li class="chapter" data-level="5.1" data-path="profiling-the-most-important-thing.html"><a href="profiling-the-most-important-thing.html#activity-profiling"><i class="fa fa-check"></i><b>5.1</b> Activity: Profiling</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>6</b> Deployment</a><ul>
+<li class="chapter" data-level="6.1" data-path="deployment.html"><a href="deployment.html#rstudio-connect"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6.2" data-path="deployment.html"><a href="deployment.html#activity-inital-deployment"><i class="fa fa-check"></i><b>6.2</b> Activity: Inital Deployment</a></li>
+<li class="chapter" data-level="6.3" data-path="deployment.html"><a href="deployment.html#application-settings"><i class="fa fa-check"></i><b>6.3</b> Application Settings</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="deployment.html"><a href="deployment.html#access"><i class="fa fa-check"></i><b>6.3.1</b> Access</a></li>
+<li class="chapter" data-level="6.3.2" data-path="deployment.html"><a href="deployment.html#metadata"><i class="fa fa-check"></i><b>6.3.2</b> Metadata</a></li>
+<li class="chapter" data-level="6.3.3" data-path="deployment.html"><a href="deployment.html#logs"><i class="fa fa-check"></i><b>6.3.3</b> Logs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html"><i class="fa fa-check"></i><b>7</b> Connecting to Data in Production</a><ul>
+<li class="chapter" data-level="7.1" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#the-config-package"><i class="fa fa-check"></i><b>7.1</b> The <code>config</code> package</a></li>
+<li class="chapter" data-level="7.2" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#environment-variables"><i class="fa fa-check"></i><b>7.2</b> Environment Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="connecting-to-data-in-production.html"><a href="connecting-to-data-in-production.html#activity-databases"><i class="fa fa-check"></i><b>7.3</b> Activity: Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="load-testing.html"><a href="load-testing.html"><i class="fa fa-check"></i><b>8</b> Load Testing</a><ul>
+<li class="chapter" data-level="8.1" data-path="load-testing.html"><a href="load-testing.html#optimization-loop-methodology"><i class="fa fa-check"></i><b>8.1</b> Optimization Loop Methodology</a></li>
+<li class="chapter" data-level="8.2" data-path="load-testing.html"><a href="load-testing.html#activity-load-testing"><i class="fa fa-check"></i><b>8.2</b> Activity: Load Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="plot-caching.html"><a href="plot-caching.html"><i class="fa fa-check"></i><b>9</b> Plot Caching</a><ul>
+<li class="chapter" data-level="9.1" data-path="plot-caching.html"><a href="plot-caching.html#when-to-use-plot-caching"><i class="fa fa-check"></i><b>9.1</b> When to use plot caching</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="plot-caching.html"><a href="plot-caching.html#using-rendercachedplot"><i class="fa fa-check"></i><b>9.1.1</b> Using <code>renderCachedPlot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="plot-caching.html"><a href="plot-caching.html#activity-plot-cache-benchmarking"><i class="fa fa-check"></i><b>9.2</b> Activity: Plot cache benchmarking</a></li>
+<li class="chapter" data-level="9.3" data-path="plot-caching.html"><a href="plot-caching.html#extended-topics"><i class="fa fa-check"></i><b>9.3</b> Extended Topics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="scaling.html"><a href="scaling.html"><i class="fa fa-check"></i><b>10</b> Scaling</a><ul>
+<li class="chapter" data-level="10.1" data-path="scaling.html"><a href="scaling.html#rstudio-connect-performance-settings"><i class="fa fa-check"></i><b>10.1</b> RStudio Connect Performance Settings</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="scaling.html"><a href="scaling.html#content-scheduler"><i class="fa fa-check"></i><b>10.1.1</b> Content Scheduler</a></li>
+<li class="chapter" data-level="10.1.2" data-path="scaling.html"><a href="scaling.html#scheduling-parameters"><i class="fa fa-check"></i><b>10.1.2</b> Scheduling Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="scaling.html"><a href="scaling.html#activity-runtime-settings"><i class="fa fa-check"></i><b>10.2</b> Activity: Runtime Settings</a></li>
+<li class="chapter" data-level="10.3" data-path="scaling.html"><a href="scaling.html#activity-admin-dashboard"><i class="fa fa-check"></i><b>10.3</b> Activity: Admin Dashboard</a></li>
+<li class="chapter" data-level="10.4" data-path="scaling.html"><a href="scaling.html#extended-topics-1"><i class="fa fa-check"></i><b>10.4</b> Extended Topics</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="scaling.html"><a href="scaling.html#high-availability-and-horizontal-scaling"><i class="fa fa-check"></i><b>10.4.1</b> High Availability and Horizontal Scaling</a></li>
+<li class="chapter" data-level="10.4.2" data-path="scaling.html"><a href="scaling.html#r-markdown-documents-with-runtimeshiny"><i class="fa fa-check"></i><b>10.4.2</b> R Markdown Documents with runtime::shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html"><i class="fa fa-check"></i><b>11</b> Alternatives to Shiny</a><ul>
+<li class="chapter" data-level="11.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#plumber"><i class="fa fa-check"></i><b>11.1</b> Plumber</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#intro-to-plumber"><i class="fa fa-check"></i><b>11.1.1</b> Intro to Plumber</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-plumber"><i class="fa fa-check"></i><b>11.2</b> Activity: Plumber</a></li>
+<li class="chapter" data-level="11.3" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#r-markdown"><i class="fa fa-check"></i><b>11.3</b> R Markdown</a></li>
+<li class="chapter" data-level="11.4" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-r-markdown"><i class="fa fa-check"></i><b>11.4</b> Activity: R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>12</b> DevOps Philosophy &amp; Tooling</a><ul>
+<li class="chapter" data-level="12.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#integrating-data-science-and-devops"><i class="fa fa-check"></i><b>12.1</b> Integrating Data Science and DevOps</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#how-does-data-science-fit-in-with-the-devops-philosophy"><i class="fa fa-check"></i><b>12.1.1</b> How does data science fit in with the DevOps philosophy?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#what-do-your-dev-test-and-production-environments-look-like"><i class="fa fa-check"></i><b>12.1.2</b> What do your dev, test and production environments look like?</a></li>
+<li class="chapter" data-level="12.1.3" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#does-code-deployment-feel-like-a-high-risk-operation"><i class="fa fa-check"></i><b>12.1.3</b> Does code deployment feel like a high-risk operation?</a></li>
+<li class="chapter" data-level="12.1.4" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#can-deployments-be-decoupled-from-releases"><i class="fa fa-check"></i><b>12.1.4</b> Can deployments be decoupled from releases?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="production-case-studies.html"><a href="production-case-studies.html"><i class="fa fa-check"></i><b>13</b> Production Case Studies</a><ul>
+<li class="chapter" data-level="13.1" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-a-devtestprod"><i class="fa fa-check"></i><b>13.1</b> Case Study A: Dev/Test/Prod</a></li>
+<li class="chapter" data-level="13.2" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-b-ci-git-chef"><i class="fa fa-check"></i><b>13.2</b> Case Study B: CI, Git, Chef</a></li>
+<li class="chapter" data-level="13.3" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-c-docker"><i class="fa fa-check"></i><b>13.3</b> Case Study C: Docker</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="shiny-async.html"><a href="shiny-async.html"><i class="fa fa-check"></i><b>14</b> Shiny Async</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Supplement to Shiny in Production</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="plot-caching" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Plot Caching</h1>
+<p><a href="https://resources.rstudio.com/rstudio-blog/shiny-1-2-0-plot-caching">Blog: Shiny 1.2.0: Plot caching - November 18, 2018</a></p>
+<p>The Shiny 1.2.0 package release introduced <em>Plot Caching</em>, an important new tool for improving performance and scalability in Shiny applications.</p>
+<p><strong>In a nutshell:</strong> The term “caching” means that when time-consuming operations are performed, we can save (cache) the results so that the next time that operation is requested, instead of re-running that calculation, we instead go fetch the previously cached result. When applied appropriately, this “fetch” operation should take less time that the original calculation and improve application performace (and user experience) overall.</p>
+<p>Shiny’s reactive expressions do some amount of caching by default, and you can use more explicit techniques to cache various data operations. Examples include use of the <code>memoise</code> package, or manually saving intermediate data frames to disk as CSV or RDS.</p>
+<p>Plots are a very common and (potentially) expensive to compute type of output object in Shiny applications, which makes them a great candidate for caching. In theory, you could use <code>renderImage</code> to accomplish this, but because Shiny’s <code>renderPlot</code> function contains a lot of complex infrastructure code, it’s actually quite a difficult task.</p>
+<p>Shiny v1.2.0 introduces a new function, <code>renderCachedPlot</code>, that makes it much easiter to add plot caching to your application.</p>
+<div id="when-to-use-plot-caching" class="section level2">
+<h2><span class="header-section-number">9.1</span> When to use plot caching</h2>
+<p>A shiny app is a good candidate for plot caching if:</p>
+<ol style="list-style-type: decimal">
+<li>The app has plot outputs that are time-consuming to generate</li>
+<li>These plots are a significant fraction of the total amount of time the app spends thinking</li>
+<li>Most users are likely to request the same few plots</li>
+</ol>
+<div id="using-rendercachedplot" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Using <code>renderCachedPlot</code></h3>
+<div class="figure">
+<img src="imgs/plotcaching/rendercachedplot.png" alt="renderChachedPlot()" />
+<p class="caption">renderChachedPlot()</p>
+</div>
+<p>The following example is a simple, but computationally expensive, plot output:</p>
+<pre><code>output$plot &lt;- renderPlot({
+  ggplot(diamonds, aes(carat, price, color = !!input$color_by)) +
+    geom_point()
+})</code></pre>
+<p>The <code>diamonds</code> dataset has 53,940 rows. This plot might take roughly 1580 milliseconds (1.58 seconds) to generate depending on the resources available. For a high traffic Shiny application in production, 1.58 seconds is likely slower than ideal.</p>
+<p>Plot caching can be implemented in two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Change <code>renderPlot</code> to <code>renderCachedPlot</code></li>
+<li>Provide a suitable <code>cacheKeyExpr</code>. This is an expression that Shiny will use to determine which invocations of <code>renderCachedPlot</code> should be considered equivalent to each other. In the example case, two plots with different <code>input$color_by</code> values can’t be considered the “same” plot, so the <code>cacheKeyExpr</code> needs to be <code>input$color_by</code></li>
+</ol>
+<p>The example plot code would be updated like this:</p>
+<pre><code>output$plot &lt;- renderCachedPlot({
+  ggplot(diamonds, aes(carat, price, color = !!input$color_by)) +
+    geom_point()
+}, cacheKeyExpr = { input$color_by })</code></pre>
+<p>With these code changes, the first time a plot with a particular <code>input$color_by</code> is requested, it will take the normal amount of time. But the next time it is requested, it will be almost instant, as the previously rendered plot will be reused.</p>
+</div>
+</div>
+<div id="activity-plot-cache-benchmarking" class="section level2">
+<h2><span class="header-section-number">9.2</span> Activity: Plot cache benchmarking</h2>
+<p><strong>First: Update your app code to use <code>renderCachedPlot</code></strong></p>
+<p><strong>Discussion:</strong>
+<em>caching + shinyloadtest</em></p>
+<ul>
+<li>How will introducing <code>renderCachedPlot</code> affect our load test experience?</li>
+</ul>
+<p><em>What is the performance comparison between tests?</em></p>
+<p><strong>Deliverable: Re-run Load Test</strong></p>
+<ul>
+<li>Redeploy the version of the app with <code>renderCachedPlot</code></li>
+<li>Re-run the load test and compare the outputs (continue to follow along with <code>runloadtest.R</code>)</li>
+</ul>
+</div>
+<div id="extended-topics" class="section level2">
+<h2><span class="header-section-number">9.3</span> Extended Topics</h2>
+<ul>
+<li><a href="http://shiny.rstudio.com/articles/plot-caching.html">Shiny Article: Plot Caching by Winston Chang</a></li>
+</ul>
+<p><strong>Plot Caching on RStudio Connect</strong></p>
+<p>Shiny can store cached plots in memory, on disk, or with another backend like <a href="https://redis.io/">Redis</a>. There are also a number of options for limiting the size of the cache. Applications deployed on RStudio Connect should use a disk cache and specify a subdirectory of the application directory as the location for the cache. To do so, add this code to the top of your application:</p>
+<pre><code>library(shiny)
+shinyOptions(cache = diskCache(&quot;./cache&quot;))</code></pre>
+<p>This option ensures that cached plots will be saved and used across the multiple R processes that RStudio Connect runs in support of an application. In addition, this configuration results in the cache being deleted and reset when new versions of the application are deployed.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="load-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scaling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["spc-supplement.pdf", "spc-supplement.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
