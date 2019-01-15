@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2019-01-14">
+<meta name="date" content="2019-01-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -166,6 +166,44 @@
 </ul>
 <div id="the-config-package" class="section level2">
 <h2><span class="header-section-number">7.1</span> The <code>config</code> package</h2>
+<p>The <code>config</code> package allows the connection code in R to reference an external file that defines values based on the environment. This process makes it easy to specify values to use for a connection locally and values to use after deployment.</p>
+<p>For this example R code:</p>
+<pre><code>library(DBI)
+library(odbc)
+library(config)
+
+dw &lt;- get(&quot;datawarehouse&quot;)
+
+con &lt;- dbConnect(
+   Driver = dw$driver,
+   Server = dw$server,
+   UID    = dw$uid,
+   PWD    = dw$pwd,
+   Port   = dw$port,
+   Database = dw$database
+)</code></pre>
+<p><code>config.yml</code> might look like this:</p>
+<pre><code>default:
+  datawarehouse:
+    driver: &#39;Postgres&#39; 
+    server: &#39;mydb-test.company.com&#39;
+    uid: !expr keyring::key_get(&quot;db-credentials&quot;)[1,2]&#39;
+    pwd: !expr keyring::key_get(&quot;db-credentials&quot;)[1,2]&#39;
+    port: 5432
+    database: &#39;regional-sales-sample&#39;
+    
+rsconnect:
+  datawarehouse:
+    driver: &#39;PostgresPro&#39;
+    server: &#39;mydb-prod.company.com&#39;
+    uid: !expr Sys.getenv(&quot;DBUSER&quot;)
+    pwd: !expr Sys.getenv(&quot;DBPWD&quot;)
+    port: 5432
+    database: &#39;regional-sales-full&#39;</code></pre>
+<p>The config package determines the active configuration by looking at the <code>R_CONFIG_ACTIVE</code> environment variable. By default, RStudio Connect sets <code>R_CONFIG_ACTIVE</code> to the value rsconnect. In the config file above, the default datawarehouse values would be used locally and the datawarehouse values defined in the rsconnect section would be used on RStudio Connect. Administrators can optionally customize the name of the active configuration used in Connect.</p>
+<ul>
+<li><a href="https://db.rstudio.com/best-practices/portable-code/#deploying-with-the-config-package">Reference</a></li>
+</ul>
 </div>
 <div id="environment-variables" class="section level2">
 <h2><span class="header-section-number">7.2</span> Environment Variables</h2>

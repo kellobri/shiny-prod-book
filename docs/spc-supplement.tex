@@ -83,7 +83,7 @@
     \preauthor{}\postauthor{}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-01-14}
+    \date{2019-01-15}
 
 \usepackage{booktabs}
 
@@ -979,6 +979,66 @@ Production}\label{connecting-to-data-in-production}}
 \hypertarget{the-config-package}{%
 \section{\texorpdfstring{The \texttt{config}
 package}{The config package}}\label{the-config-package}}
+
+The \texttt{config} package allows the connection code in R to reference
+an external file that defines values based on the environment. This
+process makes it easy to specify values to use for a connection locally
+and values to use after deployment.
+
+For this example R code:
+
+\begin{verbatim}
+library(DBI)
+library(odbc)
+library(config)
+
+dw <- get("datawarehouse")
+
+con <- dbConnect(
+   Driver = dw$driver,
+   Server = dw$server,
+   UID    = dw$uid,
+   PWD    = dw$pwd,
+   Port   = dw$port,
+   Database = dw$database
+)
+\end{verbatim}
+
+\texttt{config.yml} might look like this:
+
+\begin{verbatim}
+default:
+  datawarehouse:
+    driver: 'Postgres' 
+    server: 'mydb-test.company.com'
+    uid: !expr keyring::key_get("db-credentials")[1,2]'
+    pwd: !expr keyring::key_get("db-credentials")[1,2]'
+    port: 5432
+    database: 'regional-sales-sample'
+    
+rsconnect:
+  datawarehouse:
+    driver: 'PostgresPro'
+    server: 'mydb-prod.company.com'
+    uid: !expr Sys.getenv("DBUSER")
+    pwd: !expr Sys.getenv("DBPWD")
+    port: 5432
+    database: 'regional-sales-full'
+\end{verbatim}
+
+The config package determines the active configuration by looking at the
+\texttt{R\_CONFIG\_ACTIVE} environment variable. By default, RStudio
+Connect sets \texttt{R\_CONFIG\_ACTIVE} to the value rsconnect. In the
+config file above, the default datawarehouse values would be used
+locally and the datawarehouse values defined in the rsconnect section
+would be used on RStudio Connect. Administrators can optionally
+customize the name of the active configuration used in Connect.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://db.rstudio.com/best-practices/portable-code/\#deploying-with-the-config-package}{Reference}
+\end{itemize}
 
 \hypertarget{environment-variables}{%
 \section{Environment Variables}\label{environment-variables}}
