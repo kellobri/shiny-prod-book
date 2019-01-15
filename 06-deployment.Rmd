@@ -15,7 +15,7 @@ they've shared with you.
 
 RStudio Professional Quickstart (VirtualBox VM Download - Available Jan. 20)
 
-![RStudio Connect](imgs/deployment/rstudio-connect.png)
+![RStudio Connect](imgs/deployment/explain-connect.png)
 
 - User Guide: Connecting
 - User Guide: Publishing
