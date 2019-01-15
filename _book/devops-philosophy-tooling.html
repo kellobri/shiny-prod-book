@@ -125,7 +125,14 @@
 <li class="chapter" data-level="11.3" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#r-markdown"><i class="fa fa-check"></i><b>11.3</b> R Markdown</a></li>
 <li class="chapter" data-level="11.4" data-path="alternatives-to-shiny.html"><a href="alternatives-to-shiny.html#activity-r-markdown"><i class="fa fa-check"></i><b>11.4</b> Activity: R Markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>12</b> DevOps Philosophy &amp; Tooling</a></li>
+<li class="chapter" data-level="12" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html"><i class="fa fa-check"></i><b>12</b> DevOps Philosophy &amp; Tooling</a><ul>
+<li class="chapter" data-level="12.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#integrating-data-science-and-devops"><i class="fa fa-check"></i><b>12.1</b> Integrating Data Science and DevOps</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#how-does-data-science-fit-in-with-the-devops-philosophy"><i class="fa fa-check"></i><b>12.1.1</b> How does data science fit in with the DevOps philosophy?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#what-do-your-dev-test-and-production-environments-look-like"><i class="fa fa-check"></i><b>12.1.2</b> What do your dev, test and production environments look like?</a></li>
+<li class="chapter" data-level="12.1.3" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#does-code-deployment-feel-like-a-high-risk-operation"><i class="fa fa-check"></i><b>12.1.3</b> Does code deployment feel like a high-risk operation?</a></li>
+<li class="chapter" data-level="12.1.4" data-path="devops-philosophy-tooling.html"><a href="devops-philosophy-tooling.html#can-deployments-be-decoupled-from-releases"><i class="fa fa-check"></i><b>12.1.4</b> Can deployments be decoupled from releases?</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="13" data-path="production-case-studies.html"><a href="production-case-studies.html"><i class="fa fa-check"></i><b>13</b> Production Case Studies</a><ul>
 <li class="chapter" data-level="13.1" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-a-devtestprod"><i class="fa fa-check"></i><b>13.1</b> Case Study A: Dev/Test/Prod</a></li>
 <li class="chapter" data-level="13.2" data-path="production-case-studies.html"><a href="production-case-studies.html#case-study-b-ci-git-chef"><i class="fa fa-check"></i><b>13.2</b> Case Study B: CI, Git, Chef</a></li>
@@ -155,110 +162,98 @@
 <div id="devops-philosophy-tooling" class="section level1">
 <h1><span class="header-section-number">Chapter 12</span> DevOps Philosophy &amp; Tooling</h1>
 <p>DevOps is a self-help philosophy for IT and software development teams that work together. It seeks to address a core problem: <strong>The Fear of Taking Code into Production</strong></p>
-<p>The whole point of this workshop is to get you some experience with what it takes to get Shiny Applications running in</p>
+<p>Software development and deployment often involves a separation of labor often referred to as a code deployment handoff. Managing handoffs can be painful and risky business when handled without care:</p>
+<div class="figure">
+<img src="imgs/devops/code-handoff.png" alt="Deployment Handoff Cycle" />
+<p class="caption">Deployment Handoff Cycle</p>
+</div>
 <ul>
 <li>Deployments/releases are high-risk events</li>
 <li>It takes a long time to deliver new features to customers</li>
 <li>There is no visibility into how code is deployed into production, therefore it is impossible to know what to optimize or fix in the system and/or people who seek to improve portions of workflow are likely not addressing true bottlenecks.</li>
 <li>Dev and Ops have seemingly conflicting goals and objectives</li>
 </ul>
-<p>The Fix (ref: The DevOps Handbook) “The principles underpinning DevOps”:</p>
+<p>The Fix (ref: <a href="https://www.amazon.com/dp/1942788002/ref=cm_sw_r_tw_dp_U_x_bUwpCbBTAM8HQ">The DevOps Handbook</a>) “The principles underpinning DevOps”:</p>
 <ol style="list-style-type: decimal">
 <li>Accelerate the delivery of work from Development to Operations to customers</li>
 <li>Commit to evolving ever safer systems of work through feedback</li>
 <li>Promote a high-trust culture and embrace continual learning and experimentation (risk-taking) in daily work</li>
 </ol>
-<hr />
-<p><strong>Flow</strong></p>
-<ul>
-<li>Make work visible</li>
-<li>Limit Work in Progress (WIP)</li>
-<li>Reduce Batch Sizes</li>
-<li>Reduce the number of handoffs</li>
-<li>Continually identify and elevate constraints</li>
-<li>Eliminate hardships and waste in the value stream</li>
-</ul>
-<p>Typical DevOps Transformation (pg. 22)
-- Environment creation
-- Code Deployment
-- Test setup and run
-- Overly tight architechture</p>
-<p><strong>Feedback</strong></p>
-<ul>
-<li>Working safely within complex systems
-<ul>
-<li>Complex work is managed so that problems in design and operations are revealed</li>
-<li>Problems are swarmed and solved</li>
-<li>New local knowledge is exploited globally throughout the organization</li>
-<li>Leaders create leaders</li>
-</ul></li>
-<li>See problems as they occur</li>
-<li>Swarm and solve problems to build new knowledge</li>
-<li>Keep pushing quality closer to the source</li>
-<li>Enable optimizing for downstream work centers</li>
-</ul>
-<p><strong>Continual Learning &amp; Experimentation</strong></p>
-<ul>
-<li>Enable organizational learning and a safety culture</li>
-<li>Institutionalize the improvement of daily work</li>
-<li>Transform local discoveries into global improvements</li>
-<li>Inject resilience patterns into daily work</li>
-</ul>
-<p>Generative organizations (pg. 39) // What type of organization do you have? Comparison Activity
-- Information is actively sought
-- Messengers are trained
-- Responsibilities are shared
-- Bridging between teams is rewarded
-- Failure causes inquiry
-- New ideas are welcomed</p>
+<div class="figure">
+<img src="imgs/devops/code-devops.png" alt="DevOps Cycle" />
+<p class="caption">DevOps Cycle</p>
+</div>
 <blockquote>
 <p>Even more important than daily work is the improvement of daily work –Mike Orzen, Lean IT</p>
 </blockquote>
-<div id="devops-vocab-101" class="section level4">
-<h4><span class="header-section-number">12.0.0.1</span> DevOps Vocab 101</h4>
-<p>Deployment Lead Time</p>
-<p>Hardships and Waste:
-- Partially done work
-- Extra processes
-- Extra features
-- Task switching
-- Waiting
-- Motion
-- Defects
-- Nonstandard or manual work
-- Heroics</p>
-</div>
-<div id="integrating-data-science-and-devops" class="section level4">
-<h4><span class="header-section-number">12.0.0.2</span> Integrating Data Science and DevOps</h4>
-<div id="how-does-data-science-fit-in-with-the-devops-philosophy" class="section level5">
-<h5><span class="header-section-number">12.0.0.2.1</span> How does data science fit in with the DevOps philosophy?</h5>
+<div id="integrating-data-science-and-devops" class="section level2">
+<h2><span class="header-section-number">12.1</span> Integrating Data Science and DevOps</h2>
+<div id="how-does-data-science-fit-in-with-the-devops-philosophy" class="section level3">
+<h3><span class="header-section-number">12.1.1</span> How does data science fit in with the DevOps philosophy?</h3>
 <p>It’s not <em>your job</em> to understand operations and systems administration. And it’s not IT’s job to understand R programming and shiny app development. But it takes shared goals and a little empathy from both sides to get less painful results.</p>
 <p>We can leverage (steal) the DevOps philosophy and apply it to manage code deployment handoffs between data science and IT.</p>
-<p>Foundations:</p>
-<p>What do your dev, test and production environments look like?
-- Do developers have access to production-like environments on their own workstations?
-- Can these evnvironments be assembled on-demand?
-- Version Control
-- Infrastructure as Code</p>
+<div class="figure">
+<img src="imgs/devops/devops-flowchart.png" alt="Delivering DevOps" />
+<p class="caption">Delivering DevOps</p>
 </div>
-<div id="design-and-management-of-analytic-infrastructure-alternative-architectures" class="section level5">
-<h5><span class="header-section-number">12.0.0.2.2</span> Design and Management of Analytic Infrastructure (alternative architectures)</h5>
 </div>
-<div id="programatic-deployment-into-rstudio-connect" class="section level5">
-<h5><span class="header-section-number">12.0.0.2.3</span> Programatic Deployment into RStudio Connect</h5>
-</div>
-<div id="deployment-release-patterns" class="section level5">
-<h5><span class="header-section-number">12.0.0.2.4</span> Deployment Release Patterns</h5>
+<div id="what-do-your-dev-test-and-production-environments-look-like" class="section level3">
+<h3><span class="header-section-number">12.1.2</span> What do your dev, test and production environments look like?</h3>
 <ul>
-<li>Environment based release patterns</li>
-<li>Application based release patterns</li>
+<li>Do developers have access to production-like environments on their own workstations?</li>
+<li>Can these evnvironments be assembled on-demand?
+<ul>
+<li>Version Control</li>
+<li>Infrastructure as Code</li>
+</ul></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>In what ways can analytic infrastructure for R change between development and production environments?</li>
+<li>What processes or tools could help solve these issues?</li>
+<li>Should development inform how a production environment is built, or should production inform how an application is developed?</li>
+</ol>
+</div>
+<div id="does-code-deployment-feel-like-a-high-risk-operation" class="section level3">
+<h3><span class="header-section-number">12.1.3</span> Does code deployment feel like a high-risk operation?</h3>
+<p>Having developers focus on automating and optimizing the deployment process can lead to significant improvements in deployment flow.</p>
+<ul>
+<li>Smoke testing</li>
+<li>Build validation tools</li>
+<li>Environment consistency</li>
+</ul>
+<p><em>Relate your Shiny deployment checklist to the pipeline an IT group might consider. Where is there risk? How can it be reduced?</em></p>
+<p>Sample Ideas from <a href="https://www.amazon.com/dp/1942788002/ref=cm_sw_r_tw_dp_U_x_bUwpCbBTAM8HQ">The DevOps Handbook</a>:</p>
+<ul>
+<li>Packaging code in ways suitable for deployment</li>
+<li>Creating pre-configured virtual machine images or containers</li>
+<li>Automating the deployment and configuration of middleware</li>
+<li>Copying packages or files onto production servers</li>
+<li>Restarting server, applications or services</li>
+<li>Generating configuration files from templates</li>
+<li>Running automated smoke tests to make sure the system is working and correctly configured</li>
+<li>Running testing procedures</li>
+<li>Scripting and automating database migrations</li>
 </ul>
 </div>
-</div>
-<div id="feature-toggles-dark-launch" class="section level4">
-<h4><span class="header-section-number">12.0.0.3</span> Feature Toggles (Dark Launch)</h4>
-<div id="user-meta-data" class="section level5">
-<h5><span class="header-section-number">12.0.0.3.1</span> User meta-data</h5>
+<div id="can-deployments-be-decoupled-from-releases" class="section level3">
+<h3><span class="header-section-number">12.1.4</span> Can deployments be decoupled from releases?</h3>
+<ul>
+<li><strong>Deployment</strong> is any push of code to an environment (test, prod)</li>
+<li><strong>Release</strong> is when that code (feature) is made available to users or customers</li>
+</ul>
+<p>Deployment on demand and thoughtful release strategies allow more control (and more success) over the delivery of features to end users.</p>
+<p>Environment-based Release Patterns:</p>
+<ul>
+<li>Blue-Green Deployment Pattern</li>
+<li>Canary and Cluster Immune System</li>
+</ul>
+<p>Application-based Release Patterns:</p>
+<ul>
+<li>Feature Toggles</li>
+<li>Dark Launches</li>
+</ul>
+<p><em>Which of these release patterns is most well-suited for Shiny Application development and deployment with the RStudio Connect publishing platform?</em></p>
+<p><strong>One Possibility: Feature Toggles (Dark Launch)</strong></p>
 <p>Shiny applications can access the username and groups of the current user through the session parameter of the shinyServer function.</p>
 <p>Groups meta-data is populated when using password, or OAuth authentication. It is not populated with LDAP, PAM, or proxy authentication.</p>
 <pre><code>shinyServer(function(input, output, session) {
@@ -271,14 +266,8 @@
   })
 })</code></pre>
 <p>Your application could use this information to display customized messages or to enable functionality for a specific subset of users.</p>
-</div>
-</div>
-<div id="extended-topics-resources" class="section level4">
-<h4><span class="header-section-number">12.0.0.4</span> Extended Topics &amp; Resources</h4>
-<p><strong>Shiny Application Usage (Instrumentation)</strong></p>
-<p>RStudio Connect exposes usage information about shiny applications that will tell you which ones have been used, by whom and for how long. It is available via an API that may be used by administrators or publishers. Publishers may retrieve information about their own applications only.</p>
-<p>More information about using the API is included in the historical information chapter of the RStudio Connect Admin Guide.</p>
 
+</div>
 </div>
 </div>
             </section>

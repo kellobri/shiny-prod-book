@@ -1945,8 +1945,15 @@ DevOps is a self-help philosophy for IT and software development teams
 that work together. It seeks to address a core problem: \textbf{The Fear
 of Taking Code into Production}
 
-The whole point of this workshop is to get you some experience with what
-it takes to get Shiny Applications running in
+Software development and deployment often involves a separation of labor
+often referred to as a code deployment handoff. Managing handoffs can be
+painful and risky business when handled without care:
+
+\begin{figure}
+\centering
+\includegraphics{imgs/devops/code-handoff.png}
+\caption{Deployment Handoff Cycle}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -1963,8 +1970,9 @@ it takes to get Shiny Applications running in
   Dev and Ops have seemingly conflicting goals and objectives
 \end{itemize}
 
-The Fix (ref: The DevOps Handbook) ``The principles underpinning
-DevOps'':
+The Fix (ref:
+\href{https://www.amazon.com/dp/1942788002/ref=cm_sw_r_tw_dp_U_x_bUwpCbBTAM8HQ}{The
+DevOps Handbook}) ``The principles underpinning DevOps'':
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1979,98 +1987,23 @@ DevOps'':
   experimentation (risk-taking) in daily work
 \end{enumerate}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\textbf{Flow}
-
-\begin{itemize}
-\tightlist
-\item
-  Make work visible
-\item
-  Limit Work in Progress (WIP)
-\item
-  Reduce Batch Sizes
-\item
-  Reduce the number of handoffs
-\item
-  Continually identify and elevate constraints
-\item
-  Eliminate hardships and waste in the value stream
-\end{itemize}
-
-Typical DevOps Transformation (pg. 22) - Environment creation - Code
-Deployment - Test setup and run - Overly tight architechture
-
-\textbf{Feedback}
-
-\begin{itemize}
-\tightlist
-\item
-  Working safely within complex systems
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Complex work is managed so that problems in design and operations
-    are revealed
-  \item
-    Problems are swarmed and solved
-  \item
-    New local knowledge is exploited globally throughout the
-    organization
-  \item
-    Leaders create leaders
-  \end{itemize}
-\item
-  See problems as they occur
-\item
-  Swarm and solve problems to build new knowledge
-\item
-  Keep pushing quality closer to the source
-\item
-  Enable optimizing for downstream work centers
-\end{itemize}
-
-\textbf{Continual Learning \& Experimentation}
-
-\begin{itemize}
-\tightlist
-\item
-  Enable organizational learning and a safety culture
-\item
-  Institutionalize the improvement of daily work
-\item
-  Transform local discoveries into global improvements
-\item
-  Inject resilience patterns into daily work
-\end{itemize}
-
-Generative organizations (pg. 39) // What type of organization do you
-have? Comparison Activity - Information is actively sought - Messengers
-are trained - Responsibilities are shared - Bridging between teams is
-rewarded - Failure causes inquiry - New ideas are welcomed
+\begin{figure}
+\centering
+\includegraphics{imgs/devops/code-devops.png}
+\caption{DevOps Cycle}
+\end{figure}
 
 \begin{quote}
 Even more important than daily work is the improvement of daily work
 --Mike Orzen, Lean IT
 \end{quote}
 
-\hypertarget{devops-vocab-101}{%
-\subsubsection{DevOps Vocab 101}\label{devops-vocab-101}}
-
-Deployment Lead Time
-
-Hardships and Waste: - Partially done work - Extra processes - Extra
-features - Task switching - Waiting - Motion - Defects - Nonstandard or
-manual work - Heroics
-
 \hypertarget{integrating-data-science-and-devops}{%
-\subsubsection{Integrating Data Science and
+\section{Integrating Data Science and
 DevOps}\label{integrating-data-science-and-devops}}
 
 \hypertarget{how-does-data-science-fit-in-with-the-devops-philosophy}{%
-\paragraph{How does data science fit in with the DevOps
+\subsection{How does data science fit in with the DevOps
 philosophy?}\label{how-does-data-science-fit-in-with-the-devops-philosophy}}
 
 It's not \emph{your job} to understand operations and systems
@@ -2081,39 +2014,134 @@ from both sides to get less painful results.
 We can leverage (steal) the DevOps philosophy and apply it to manage
 code deployment handoffs between data science and IT.
 
-Foundations:
+\begin{figure}
+\centering
+\includegraphics{imgs/devops/devops-flowchart.png}
+\caption{Delivering DevOps}
+\end{figure}
 
-What do your dev, test and production environments look like? - Do
-developers have access to production-like environments on their own
-workstations? - Can these evnvironments be assembled on-demand? -
-Version Control - Infrastructure as Code
-
-\hypertarget{design-and-management-of-analytic-infrastructure-alternative-architectures}{%
-\paragraph{Design and Management of Analytic Infrastructure (alternative
-architectures)}\label{design-and-management-of-analytic-infrastructure-alternative-architectures}}
-
-\hypertarget{programatic-deployment-into-rstudio-connect}{%
-\paragraph{Programatic Deployment into RStudio
-Connect}\label{programatic-deployment-into-rstudio-connect}}
-
-\hypertarget{deployment-release-patterns}{%
-\paragraph{Deployment Release
-Patterns}\label{deployment-release-patterns}}
+\hypertarget{what-do-your-dev-test-and-production-environments-look-like}{%
+\subsection{What do your dev, test and production environments look
+like?}\label{what-do-your-dev-test-and-production-environments-look-like}}
 
 \begin{itemize}
 \tightlist
 \item
-  Environment based release patterns
+  Do developers have access to production-like environments on their own
+  workstations?
 \item
-  Application based release patterns
+  Can these evnvironments be assembled on-demand?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Version Control
+  \item
+    Infrastructure as Code
+  \end{itemize}
 \end{itemize}
 
-\hypertarget{feature-toggles-dark-launch}{%
-\subsubsection{Feature Toggles (Dark
-Launch)}\label{feature-toggles-dark-launch}}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In what ways can analytic infrastructure for R change between
+  development and production environments?
+\item
+  What processes or tools could help solve these issues?
+\item
+  Should development inform how a production environment is built, or
+  should production inform how an application is developed?
+\end{enumerate}
 
-\hypertarget{user-meta-data}{%
-\paragraph{User meta-data}\label{user-meta-data}}
+\hypertarget{does-code-deployment-feel-like-a-high-risk-operation}{%
+\subsection{Does code deployment feel like a high-risk
+operation?}\label{does-code-deployment-feel-like-a-high-risk-operation}}
+
+Having developers focus on automating and optimizing the deployment
+process can lead to significant improvements in deployment flow.
+
+\begin{itemize}
+\tightlist
+\item
+  Smoke testing
+\item
+  Build validation tools
+\item
+  Environment consistency
+\end{itemize}
+
+\emph{Relate your Shiny deployment checklist to the pipeline an IT group
+might consider. Where is there risk? How can it be reduced?}
+
+Sample Ideas from
+\href{https://www.amazon.com/dp/1942788002/ref=cm_sw_r_tw_dp_U_x_bUwpCbBTAM8HQ}{The
+DevOps Handbook}:
+
+\begin{itemize}
+\tightlist
+\item
+  Packaging code in ways suitable for deployment
+\item
+  Creating pre-configured virtual machine images or containers
+\item
+  Automating the deployment and configuration of middleware
+\item
+  Copying packages or files onto production servers
+\item
+  Restarting server, applications or services
+\item
+  Generating configuration files from templates
+\item
+  Running automated smoke tests to make sure the system is working and
+  correctly configured
+\item
+  Running testing procedures
+\item
+  Scripting and automating database migrations
+\end{itemize}
+
+\hypertarget{can-deployments-be-decoupled-from-releases}{%
+\subsection{Can deployments be decoupled from
+releases?}\label{can-deployments-be-decoupled-from-releases}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Deployment} is any push of code to an environment (test, prod)
+\item
+  \textbf{Release} is when that code (feature) is made available to
+  users or customers
+\end{itemize}
+
+Deployment on demand and thoughtful release strategies allow more
+control (and more success) over the delivery of features to end users.
+
+Environment-based Release Patterns:
+
+\begin{itemize}
+\tightlist
+\item
+  Blue-Green Deployment Pattern
+\item
+  Canary and Cluster Immune System
+\end{itemize}
+
+Application-based Release Patterns:
+
+\begin{itemize}
+\tightlist
+\item
+  Feature Toggles
+\item
+  Dark Launches
+\end{itemize}
+
+\emph{Which of these release patterns is most well-suited for Shiny
+Application development and deployment with the RStudio Connect
+publishing platform?}
+
+\textbf{One Possibility: Feature Toggles (Dark Launch)}
 
 Shiny applications can access the username and groups of the current
 user through the session parameter of the shinyServer function.
@@ -2136,20 +2164,6 @@ shinyServer(function(input, output, session) {
 
 Your application could use this information to display customized
 messages or to enable functionality for a specific subset of users.
-
-\hypertarget{extended-topics-resources}{%
-\subsubsection{Extended Topics \&
-Resources}\label{extended-topics-resources}}
-
-\textbf{Shiny Application Usage (Instrumentation)}
-
-RStudio Connect exposes usage information about shiny applications that
-will tell you which ones have been used, by whom and for how long. It is
-available via an API that may be used by administrators or publishers.
-Publishers may retrieve information about their own applications only.
-
-More information about using the API is included in the historical
-information chapter of the RStudio Connect Admin Guide.
 
 \hypertarget{production-case-studies}{%
 \chapter{Production Case Studies}\label{production-case-studies}}
