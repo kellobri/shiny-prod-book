@@ -108,9 +108,9 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{shiny-in-production-workshop-rstudio-conf-2019}{%
-\chapter{Shiny in Production Workshop @ RStudio Conf
-2019}\label{shiny-in-production-workshop-rstudio-conf-2019}}
+\hypertarget{shiny-in-production-workshop}{%
+\chapter{Shiny in Production
+Workshop}\label{shiny-in-production-workshop}}
 
 \begin{figure}
 \centering
@@ -120,6 +120,8 @@
 
 This document is full of supplemental resources and content from the
 Shiny in Production Workshop delievered at rstudio::conf 2019.
+
+\includegraphics{imgs/radmins-banner.png}
 
 \hypertarget{course-intro}{%
 \chapter{Introduction to Shiny in Production}\label{course-intro}}
@@ -1601,281 +1603,6 @@ runtime::shiny will always consume more memory as users connect.
 \href{https://rmarkdown.rstudio.com/authoring_shiny_prerendered.html}{Prerendered
 Shiny Documents} alleviate this problem.
 
-\hypertarget{devops-philosophy-tooling}{%
-\chapter{DevOps Philosophy \& Tooling}\label{devops-philosophy-tooling}}
-
-DevOps is a self-help philosophy for IT and software development teams
-that work together. It seeks to address a core problem: \textbf{The Fear
-of Taking Code into Production}
-
-The whole point of this workshop is to get you some experience with what
-it takes to get Shiny Applications running in
-
-\begin{itemize}
-\tightlist
-\item
-  Deployments/releases are high-risk events
-\item
-  It takes a long time to deliver new features to customers
-\item
-  There is no visibility into how code is deployed into production,
-  therefore it is impossible to know what to optimize or fix in the
-  system and/or people who seek to improve portions of workflow are
-  likely not addressing true bottlenecks.
-\item
-  Dev and Ops have seemingly conflicting goals and objectives
-\end{itemize}
-
-The Fix (ref: The DevOps Handbook) ``The principles underpinning
-DevOps'':
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Accelerate the delivery of work from Development to Operations to
-  customers
-\item
-  Commit to evolving ever safer systems of work through feedback
-\item
-  Promote a high-trust culture and embrace continual learning and
-  experimentation (risk-taking) in daily work
-\end{enumerate}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\textbf{Flow}
-
-\begin{itemize}
-\tightlist
-\item
-  Make work visible
-\item
-  Limit Work in Progress (WIP)
-\item
-  Reduce Batch Sizes
-\item
-  Reduce the number of handoffs
-\item
-  Continually identify and elevate constraints
-\item
-  Eliminate hardships and waste in the value stream
-\end{itemize}
-
-Typical DevOps Transformation (pg. 22) - Environment creation - Code
-Deployment - Test setup and run - Overly tight architechture
-
-\textbf{Feedback}
-
-\begin{itemize}
-\tightlist
-\item
-  Working safely within complex systems
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Complex work is managed so that problems in design and operations
-    are revealed
-  \item
-    Problems are swarmed and solved
-  \item
-    New local knowledge is exploited globally throughout the
-    organization
-  \item
-    Leaders create leaders
-  \end{itemize}
-\item
-  See problems as they occur
-\item
-  Swarm and solve problems to build new knowledge
-\item
-  Keep pushing quality closer to the source
-\item
-  Enable optimizing for downstream work centers
-\end{itemize}
-
-\textbf{Continual Learning \& Experimentation}
-
-\begin{itemize}
-\tightlist
-\item
-  Enable organizational learning and a safety culture
-\item
-  Institutionalize the improvement of daily work
-\item
-  Transform local discoveries into global improvements
-\item
-  Inject resilience patterns into daily work
-\end{itemize}
-
-Generative organizations (pg. 39) // What type of organization do you
-have? Comparison Activity - Information is actively sought - Messengers
-are trained - Responsibilities are shared - Bridging between teams is
-rewarded - Failure causes inquiry - New ideas are welcomed
-
-\begin{quote}
-Even more important than daily work is the improvement of daily work
---Mike Orzen, Lean IT
-\end{quote}
-
-\hypertarget{devops-vocab-101}{%
-\subsubsection{DevOps Vocab 101}\label{devops-vocab-101}}
-
-Deployment Lead Time
-
-Hardships and Waste: - Partially done work - Extra processes - Extra
-features - Task switching - Waiting - Motion - Defects - Nonstandard or
-manual work - Heroics
-
-\hypertarget{integrating-data-science-and-devops}{%
-\subsubsection{Integrating Data Science and
-DevOps}\label{integrating-data-science-and-devops}}
-
-\hypertarget{how-does-data-science-fit-in-with-the-devops-philosophy}{%
-\paragraph{How does data science fit in with the DevOps
-philosophy?}\label{how-does-data-science-fit-in-with-the-devops-philosophy}}
-
-It's not \emph{your job} to understand operations and systems
-administration. And it's not IT's job to understand R programming and
-shiny app development. But it takes shared goals and a little empathy
-from both sides to get less painful results.
-
-We can leverage (steal) the DevOps philosophy and apply it to manage
-code deployment handoffs between data science and IT.
-
-Foundations:
-
-What do your dev, test and production environments look like? - Do
-developers have access to production-like environments on their own
-workstations? - Can these evnvironments be assembled on-demand? -
-Version Control - Infrastructure as Code
-
-\hypertarget{design-and-management-of-analytic-infrastructure-alternative-architectures}{%
-\paragraph{Design and Management of Analytic Infrastructure (alternative
-architectures)}\label{design-and-management-of-analytic-infrastructure-alternative-architectures}}
-
-\hypertarget{programatic-deployment-into-rstudio-connect}{%
-\paragraph{Programatic Deployment into RStudio
-Connect}\label{programatic-deployment-into-rstudio-connect}}
-
-\hypertarget{deployment-release-patterns}{%
-\paragraph{Deployment Release
-Patterns}\label{deployment-release-patterns}}
-
-\begin{itemize}
-\tightlist
-\item
-  Environment based release patterns
-\item
-  Application based release patterns
-\end{itemize}
-
-\hypertarget{feature-toggles-dark-launch}{%
-\subsubsection{Feature Toggles (Dark
-Launch)}\label{feature-toggles-dark-launch}}
-
-\hypertarget{user-meta-data}{%
-\paragraph{User meta-data}\label{user-meta-data}}
-
-Shiny applications can access the username and groups of the current
-user through the session parameter of the shinyServer function.
-
-Groups meta-data is populated when using password, or OAuth
-authentication. It is not populated with LDAP, PAM, or proxy
-authentication.
-
-\begin{verbatim}
-shinyServer(function(input, output, session) {
-  output$username <- reactive({
-    session$user
-  })
-  
-  output$groups <- reactive({
-    session$groups
-  })
-})
-\end{verbatim}
-
-Your application could use this information to display customized
-messages or to enable functionality for a specific subset of users.
-
-\hypertarget{extended-topics-resources}{%
-\subsubsection{Extended Topics \&
-Resources}\label{extended-topics-resources}}
-
-\textbf{Shiny Application Usage (Instrumentation)}
-
-RStudio Connect exposes usage information about shiny applications that
-will tell you which ones have been used, by whom and for how long. It is
-available via an API that may be used by administrators or publishers.
-Publishers may retrieve information about their own applications only.
-
-More information about using the API is included in the historical
-information chapter of the RStudio Connect Admin Guide.
-
-\hypertarget{production-case-studies}{%
-\chapter{Production Case Studies}\label{production-case-studies}}
-
-\emph{Workshop Exercise: Case Study Discussions}
-
-\textbf{First: Pick one case study}
-
-\textbf{Discuss:}
-
-\begin{itemize}
-\tightlist
-\item
-  What tools does your admin team use?
-\item
-  How would you explain the goals of a shiny app to DevOps?
-\end{itemize}
-
-\textbf{Deliverable:}
-
-\begin{itemize}
-\tightlist
-\item
-  Whiteboard (in a medium of your choice) what an architecture might
-  look like for your case study.
-\item
-  Delineate who (and what tool) is responsible for code, R, R packages.
-\end{itemize}
-
-\hypertarget{case-study-a-devtestprod}{%
-\section{Case Study A: Dev/Test/Prod}\label{case-study-a-devtestprod}}
-
-Before publishing an update to our app, we want to run user acceptance
-tests.
-
-\begin{figure}
-\centering
-\includegraphics{imgs/case-studies/case-a.png}
-\caption{Case A Considerations}
-\end{figure}
-
-\hypertarget{case-study-b-ci-git-chef}{%
-\section{Case Study B: CI, Git, Chef}\label{case-study-b-ci-git-chef}}
-
-All of our production code must be deployed from Git.
-
-\begin{figure}
-\centering
-\includegraphics{imgs/case-studies/case-b.png}
-\caption{Case B Considerations}
-\end{figure}
-
-\hypertarget{case-study-c-docker}{%
-\section{Case Study C: Docker}\label{case-study-c-docker}}
-
-We scale applications through Docker - how does Shiny fit in?
-
-\begin{figure}
-\centering
-\includegraphics{imgs/case-studies/case-c.png}
-\caption{Case C Considerations}
-\end{figure}
-
 \hypertarget{alternatives-to-shiny}{%
 \chapter{Alternatives to Shiny}\label{alternatives-to-shiny}}
 
@@ -2209,6 +1936,281 @@ you'll want to publish just the current document.
 \centering
 \includegraphics{imgs/shiny-alt/rmd-answers.png}
 \caption{Rmd Exercise}
+\end{figure}
+
+\hypertarget{devops-philosophy-tooling}{%
+\chapter{DevOps Philosophy \& Tooling}\label{devops-philosophy-tooling}}
+
+DevOps is a self-help philosophy for IT and software development teams
+that work together. It seeks to address a core problem: \textbf{The Fear
+of Taking Code into Production}
+
+The whole point of this workshop is to get you some experience with what
+it takes to get Shiny Applications running in
+
+\begin{itemize}
+\tightlist
+\item
+  Deployments/releases are high-risk events
+\item
+  It takes a long time to deliver new features to customers
+\item
+  There is no visibility into how code is deployed into production,
+  therefore it is impossible to know what to optimize or fix in the
+  system and/or people who seek to improve portions of workflow are
+  likely not addressing true bottlenecks.
+\item
+  Dev and Ops have seemingly conflicting goals and objectives
+\end{itemize}
+
+The Fix (ref: The DevOps Handbook) ``The principles underpinning
+DevOps'':
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Accelerate the delivery of work from Development to Operations to
+  customers
+\item
+  Commit to evolving ever safer systems of work through feedback
+\item
+  Promote a high-trust culture and embrace continual learning and
+  experimentation (risk-taking) in daily work
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\textbf{Flow}
+
+\begin{itemize}
+\tightlist
+\item
+  Make work visible
+\item
+  Limit Work in Progress (WIP)
+\item
+  Reduce Batch Sizes
+\item
+  Reduce the number of handoffs
+\item
+  Continually identify and elevate constraints
+\item
+  Eliminate hardships and waste in the value stream
+\end{itemize}
+
+Typical DevOps Transformation (pg. 22) - Environment creation - Code
+Deployment - Test setup and run - Overly tight architechture
+
+\textbf{Feedback}
+
+\begin{itemize}
+\tightlist
+\item
+  Working safely within complex systems
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Complex work is managed so that problems in design and operations
+    are revealed
+  \item
+    Problems are swarmed and solved
+  \item
+    New local knowledge is exploited globally throughout the
+    organization
+  \item
+    Leaders create leaders
+  \end{itemize}
+\item
+  See problems as they occur
+\item
+  Swarm and solve problems to build new knowledge
+\item
+  Keep pushing quality closer to the source
+\item
+  Enable optimizing for downstream work centers
+\end{itemize}
+
+\textbf{Continual Learning \& Experimentation}
+
+\begin{itemize}
+\tightlist
+\item
+  Enable organizational learning and a safety culture
+\item
+  Institutionalize the improvement of daily work
+\item
+  Transform local discoveries into global improvements
+\item
+  Inject resilience patterns into daily work
+\end{itemize}
+
+Generative organizations (pg. 39) // What type of organization do you
+have? Comparison Activity - Information is actively sought - Messengers
+are trained - Responsibilities are shared - Bridging between teams is
+rewarded - Failure causes inquiry - New ideas are welcomed
+
+\begin{quote}
+Even more important than daily work is the improvement of daily work
+--Mike Orzen, Lean IT
+\end{quote}
+
+\hypertarget{devops-vocab-101}{%
+\subsubsection{DevOps Vocab 101}\label{devops-vocab-101}}
+
+Deployment Lead Time
+
+Hardships and Waste: - Partially done work - Extra processes - Extra
+features - Task switching - Waiting - Motion - Defects - Nonstandard or
+manual work - Heroics
+
+\hypertarget{integrating-data-science-and-devops}{%
+\subsubsection{Integrating Data Science and
+DevOps}\label{integrating-data-science-and-devops}}
+
+\hypertarget{how-does-data-science-fit-in-with-the-devops-philosophy}{%
+\paragraph{How does data science fit in with the DevOps
+philosophy?}\label{how-does-data-science-fit-in-with-the-devops-philosophy}}
+
+It's not \emph{your job} to understand operations and systems
+administration. And it's not IT's job to understand R programming and
+shiny app development. But it takes shared goals and a little empathy
+from both sides to get less painful results.
+
+We can leverage (steal) the DevOps philosophy and apply it to manage
+code deployment handoffs between data science and IT.
+
+Foundations:
+
+What do your dev, test and production environments look like? - Do
+developers have access to production-like environments on their own
+workstations? - Can these evnvironments be assembled on-demand? -
+Version Control - Infrastructure as Code
+
+\hypertarget{design-and-management-of-analytic-infrastructure-alternative-architectures}{%
+\paragraph{Design and Management of Analytic Infrastructure (alternative
+architectures)}\label{design-and-management-of-analytic-infrastructure-alternative-architectures}}
+
+\hypertarget{programatic-deployment-into-rstudio-connect}{%
+\paragraph{Programatic Deployment into RStudio
+Connect}\label{programatic-deployment-into-rstudio-connect}}
+
+\hypertarget{deployment-release-patterns}{%
+\paragraph{Deployment Release
+Patterns}\label{deployment-release-patterns}}
+
+\begin{itemize}
+\tightlist
+\item
+  Environment based release patterns
+\item
+  Application based release patterns
+\end{itemize}
+
+\hypertarget{feature-toggles-dark-launch}{%
+\subsubsection{Feature Toggles (Dark
+Launch)}\label{feature-toggles-dark-launch}}
+
+\hypertarget{user-meta-data}{%
+\paragraph{User meta-data}\label{user-meta-data}}
+
+Shiny applications can access the username and groups of the current
+user through the session parameter of the shinyServer function.
+
+Groups meta-data is populated when using password, or OAuth
+authentication. It is not populated with LDAP, PAM, or proxy
+authentication.
+
+\begin{verbatim}
+shinyServer(function(input, output, session) {
+  output$username <- reactive({
+    session$user
+  })
+  
+  output$groups <- reactive({
+    session$groups
+  })
+})
+\end{verbatim}
+
+Your application could use this information to display customized
+messages or to enable functionality for a specific subset of users.
+
+\hypertarget{extended-topics-resources}{%
+\subsubsection{Extended Topics \&
+Resources}\label{extended-topics-resources}}
+
+\textbf{Shiny Application Usage (Instrumentation)}
+
+RStudio Connect exposes usage information about shiny applications that
+will tell you which ones have been used, by whom and for how long. It is
+available via an API that may be used by administrators or publishers.
+Publishers may retrieve information about their own applications only.
+
+More information about using the API is included in the historical
+information chapter of the RStudio Connect Admin Guide.
+
+\hypertarget{production-case-studies}{%
+\chapter{Production Case Studies}\label{production-case-studies}}
+
+\emph{Workshop Exercise: Case Study Discussions}
+
+\textbf{First: Pick one case study}
+
+\textbf{Discuss:}
+
+\begin{itemize}
+\tightlist
+\item
+  What tools does your admin team use?
+\item
+  How would you explain the goals of a shiny app to DevOps?
+\end{itemize}
+
+\textbf{Deliverable:}
+
+\begin{itemize}
+\tightlist
+\item
+  Whiteboard (in a medium of your choice) what an architecture might
+  look like for your case study.
+\item
+  Delineate who (and what tool) is responsible for code, R, R packages.
+\end{itemize}
+
+\hypertarget{case-study-a-devtestprod}{%
+\section{Case Study A: Dev/Test/Prod}\label{case-study-a-devtestprod}}
+
+Before publishing an update to our app, we want to run user acceptance
+tests.
+
+\begin{figure}
+\centering
+\includegraphics{imgs/case-studies/case-a.png}
+\caption{Case A Considerations}
+\end{figure}
+
+\hypertarget{case-study-b-ci-git-chef}{%
+\section{Case Study B: CI, Git, Chef}\label{case-study-b-ci-git-chef}}
+
+All of our production code must be deployed from Git.
+
+\begin{figure}
+\centering
+\includegraphics{imgs/case-studies/case-b.png}
+\caption{Case B Considerations}
+\end{figure}
+
+\hypertarget{case-study-c-docker}{%
+\section{Case Study C: Docker}\label{case-study-c-docker}}
+
+We scale applications through Docker - how does Shiny fit in?
+
+\begin{figure}
+\centering
+\includegraphics{imgs/case-studies/case-c.png}
+\caption{Case C Considerations}
 \end{figure}
 
 \hypertarget{shiny-async}{%
