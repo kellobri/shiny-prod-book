@@ -9,5 +9,7 @@ description: "This document is full of supplemental resources and content from t
 
 # Shiny in Production Workshop @ RStudio Conf 2019
 
+![rstudio::conf 2019](imgs/conf-banner.png)
+
 This document is full of supplemental resources and content from the Shiny in Production Workshop delievered at rstudio::conf 2019.
 
