@@ -4,6 +4,53 @@
 
 ## The `config` package
 
+The `config` package allows the connection code in R to reference an external file that defines values based on the environment. This process makes it easy to specify values to use for a connection locally and values to use after deployment.
+
+For this example R code:
+
+```
+library(DBI)
+library(odbc)
+library(config)
+
+dw <- get("datawarehouse")
+
+con <- dbConnect(
+   Driver = dw$driver,
+   Server = dw$server,
+   UID    = dw$uid,
+   PWD    = dw$pwd,
+   Port   = dw$port,
+   Database = dw$database
+)
+```
+
+`config.yml` might look like this:
+
+```
+default:
+  datawarehouse:
+    driver: 'Postgres' 
+    server: 'mydb-test.company.com'
+    uid: !expr keyring::key_get("db-credentials")[1,2]'
+    pwd: !expr keyring::key_get("db-credentials")[1,2]'
+    port: 5432
+    database: 'regional-sales-sample'
+    
+rsconnect:
+  datawarehouse:
+    driver: 'PostgresPro'
+    server: 'mydb-prod.company.com'
+    uid: !expr Sys.getenv("DBUSER")
+    pwd: !expr Sys.getenv("DBPWD")
+    port: 5432
+    database: 'regional-sales-full'
+```
+
+The config package determines the active configuration by looking at the `R_CONFIG_ACTIVE` environment variable. By default, RStudio Connect sets `R_CONFIG_ACTIVE` to the value rsconnect. In the config file above, the default datawarehouse values would be used locally and the datawarehouse values defined in the rsconnect section would be used on RStudio Connect. Administrators can optionally customize the name of the active configuration used in Connect.
+
+- [Reference](https://db.rstudio.com/best-practices/portable-code/#deploying-with-the-config-package)
+
 ## Environment Variables
 
 When developing content for RStudio Connect, you should never place secrets (keys, tokens, passwords, etc.)
